@@ -23,7 +23,7 @@
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",
     "@telerik/kendo-react-tasks": "telerik/kendo-react-tasks#master",
-    "@telerik/kendo-theme-default-base": "telerik/kendo-theme-default-base#master",
+    "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
     "validate-commit-msg": "^1.1.1"
   },
   "author": "Telerik",
