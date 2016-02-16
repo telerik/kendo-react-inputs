@@ -7,7 +7,7 @@ A starter repository for Kendo UI React components, which provides the basic dir
 - The `src` directory contains the component source code. All files should be have the `.jsx` extensions so that the build scripts may pick them.
 - The `src/bundle.jsx` file should import and re-export all public components of the package. It is used for the `build-cdn` task.
 - The `src/index.jsx` is the main entry point for the NPM package (as specified by the `package.json`). The `build-npm-package` transpiles it to `dist/npm/js/index.js`;
-- The `src/kendo-component.jsx` file is the actual sample component implementation.
+- The `src/KendoComponent.jsx` file is the actual sample component implementation.
 - The `src/util.jsx` is an optional example of an additional file - you may remove it if unnecessary.
 
 - The `examples` directory hosts the demos for the component. As a bare minimum, the component should have a `basic usage` and a `CDN` example.  The `CDN` example should work as expected after the `build-cdn` task has been run.
