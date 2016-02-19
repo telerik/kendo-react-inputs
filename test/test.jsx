@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import KendoComponent from '../src/KendoComponent';
+import KendoSlider from '../src/KendoSlider';
 
-describe('KendoComponent', () => {
-    let result;
+describe('KendoSlider', () => {
+  let result;
 
-    beforeEach(() => { /* test setup */ });
-
-    it('should render a div', () => {
-        result = shallow(<KendoComponent />);
-        expect(result.type()).toEqual('div');
-    });
+  beforeEach(() => { /* test setup */ });
+	
+  it('should render a div', () => {
+    result = shallow(<KendoSlider />);
+    expect(result.type()).toEqual('div');
+  });
 });

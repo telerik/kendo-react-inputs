@@ -1,8 +1,8 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import KendoComponent from '../src/KendoComponent';
+import KendoSlider from '../src/KendoSlider';
 
 ReactDOM.render(
-  <KendoComponent />,
+  <KendoSlider />,
   document.getElementById('app')
 );
