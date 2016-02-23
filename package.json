@@ -15,15 +15,16 @@
   ],
   "dependencies": {
     "react": "~0.14.3",
-    "react-dom": "~0.14.3"
+    "react-dom": "~0.14.3",
+    "classnames": "^2.2.3"
   },
   "devDependencies": {
     "@telerik/eslint-config": "telerik/eslint-config-kendo#master",
+    "@telerik/kendo-react-tasks": "telerik/kendo-react-tasks#master",
+    "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",
-    "@telerik/kendo-react-tasks": "telerik/kendo-react-tasks#master",
-    "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
     "validate-commit-msg": "^1.1.1"
   },
   "author": "Telerik",
