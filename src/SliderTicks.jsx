@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import SliderTick from "../src/SliderTick";
 
-export default function SliderTicks({ tickCount = 0, onClick }) {
+const SliderTicks = ({ tickCount = 0, onClick }) => {
     const classes = classnames({
         'k-reset': true,
         'k-slider-items': true
@@ -19,4 +19,11 @@ export default function SliderTicks({ tickCount = 0, onClick }) {
         .map((props, index) => <SliderTick key={index} {...props} onClick={onClick} />);
 
     return <ul className={classes}>{ticks}</ul>;
-}
+};
+
+SliderTicks.propTypes = {
+    onClick: React.PropTypes.func,
+    tickCount: React.PropTypes.number
+};
+
+export default SliderTicks;

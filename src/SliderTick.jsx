@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import classnames from 'classnames';
 
-export default function SliderTick({ first, last, onClick }) {
+const SliderTick = ({ first, last, onClick }) => {
     const classes = classnames({
         'k-tick': true,
         'k-first': first,
@@ -10,4 +10,12 @@ export default function SliderTick({ first, last, onClick }) {
     });
 
     return <li className={classes} onClick={onClick}>&nbsp;</li>;
-}
+};
+
+SliderTick.propTypes = {
+    first: React.PropTypes.bool,
+    last: React.PropTypes.bool,
+    onClick: React.PropTypes.func
+};
+
+export default SliderTick;
