@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 import KendoSlider from '../src/KendoSlider';
 
 ReactDOM.render(
-  <KendoSlider />,
+  <KendoSlider max={9} min={0} smallStep={1.5} value={3} />,
   document.getElementById('app')
 );
