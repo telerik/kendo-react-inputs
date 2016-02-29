@@ -95,11 +95,14 @@ export default class KendoSlider extends React.Component {
     };
 
     onTrackClick = () => {
-        /*track click*/
+        //implement track click;
     };
 
-    onTickClick = () => {
-        /*tick click*/
+    onTickClick = (e) => {
+        const ticks = e.target.parentNode.getElementsByClassName('k-tick');
+        const index = [ ...ticks ].indexOf(e.target);
+        const value = index * this.props.smallStep;
+        this.props.onChange({ value: value });
     };
 
     render() {
