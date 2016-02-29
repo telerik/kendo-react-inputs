@@ -170,4 +170,23 @@ describe('Slider Math', () => {
         const expectedRange = [ 0, 2, 4 ];
         expect(range).toEqual(expectedRange);
     });
+
+    it('decrease value when int', () => {
+        const value = util.decreaseValueToStep(3,1);
+        expect(value).toEqual(2);
+    });
+
+    it('decrease value when float', () => {
+        const value = util.decreaseValueToStep(3,2);
+        expect(value).toEqual(2);
+    });
+
+    it('increase value when float', () => {
+        const value = util.increaseValueToStep(3,2);
+        expect(value).toEqual(4);
+    });
+    it('increase value when int', () => {
+        const value = util.increaseValueToStep(2,2);
+        expect(value).toEqual(4);
+    });
 });

@@ -81,13 +81,24 @@ const trimValue = (max, min, value) => {
     return value;
 };
 
+const decreaseValueToStep = (value, smallStep) => {
+    if (value % smallStep === 0) {
+        return value - smallStep;
+    }
+    return value - (value % smallStep);
+};
+
+const increaseValueToStep = (value, smallStep) => value - (value % smallStep) + smallStep;
+
 export default {
+    averageTickSize,
     calculateAreasCount,
     calculateTrackWidth,
     calculateTicksCount,
     calculateTickSizes,
     createDistributionRange,
-    averageTickSize,
+    decreaseValueToStep,
+    increaseValueToStep,
     distributePixels,
     trimValue,
     distributeReminderPixels

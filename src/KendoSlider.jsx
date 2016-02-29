@@ -18,6 +18,7 @@ export default class KendoSlider extends React.Component {
     static propTypes = {
         max: React.PropTypes.number,
         min: React.PropTypes.number,
+        onChange: React.PropTypes.func,
         smallStep: React.PropTypes.number,
         value: React.PropTypes.number
     }
@@ -25,6 +26,12 @@ export default class KendoSlider extends React.Component {
     componentDidMount() {
         const wrapper = ReactDOM.findDOMNode(this);
         this.tickSizes = this.getTickSizes(wrapper);
+        this.resizeTrack(wrapper);
+        this.resizeTicks(wrapper);
+        this.positionHandle(wrapper);
+    }
+    componentDidUpdate() {
+        const wrapper = ReactDOM.findDOMNode(this);
         this.resizeTrack(wrapper);
         this.resizeTicks(wrapper);
         this.positionHandle(wrapper);
@@ -74,11 +81,17 @@ export default class KendoSlider extends React.Component {
     }
 
     onIncrease = () => {
-        /*increae handler */
+        const { max, min, smallStep, value } = this.props;
+        let changedValue = util.increaseValueToStep(value, smallStep);
+        changedValue = util.trimValue(max, min, changedValue);
+        this.props.onChange({ value: changedValue });
     };
 
     onDecrease = () => {
-        /*decrease handler*/
+        const { max, min, value, smallStep } = this.props;
+        let changedValue = util.decreaseValueToStep(value, smallStep);
+        changedValue = util.trimValue(max, min, changedValue);
+        this.props.onChange({ value: changedValue });
     };
 
     onTrackClick = () => {
