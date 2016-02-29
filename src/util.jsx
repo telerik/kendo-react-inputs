@@ -61,8 +61,8 @@ const createDistributionRange = (reminder, value) => {
     return distributionRange;
 };
 
-const distributePixels = (tickSizes, reminder, distributionStep) => {
-    const distributionRange = createDistributionRange(reminder, distributionStep);
+const distributePixels = (tickSizes, reminder, step) => {
+    const distributionRange = createDistributionRange(reminder, step);
 
     for (let i = 0; i < distributionRange.length; i++) {
         const index = distributionRange[i];
@@ -81,14 +81,26 @@ const trimValue = (max, min, value) => {
     return value;
 };
 
-const decreaseValueToStep = (value, smallStep) => {
-    if (value % smallStep === 0) {
-        return value - smallStep;
+const decreaseValueToStep = (value, step) => {
+    if (value % step === 0) {
+        return value - step;
     }
-    return value - (value % smallStep);
+    return value - (value % step);
 };
 
-const increaseValueToStep = (value, smallStep) => value - (value % smallStep) + smallStep;
+const increaseValueToStep = (value, step) => value - (value % step) + step;
+
+const snapValue = (value, step) => {
+    const left = decreaseValueToStep(value, step);
+    const right = increaseValueToStep(value, step);
+    if (value % step === 0) {
+        return value;
+    }
+    if (right - value <= step / 2) {
+        return right;
+    }
+    return left;
+};
 
 export default {
     averageTickSize,
@@ -101,5 +113,6 @@ export default {
     increaseValueToStep,
     distributePixels,
     trimValue,
+    snapValue,
     distributeReminderPixels
 };

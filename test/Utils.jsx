@@ -185,8 +185,29 @@ describe('Slider Math', () => {
         const value = util.increaseValueToStep(3,2);
         expect(value).toEqual(4);
     });
+
     it('increase value when int', () => {
         const value = util.increaseValueToStep(2,2);
         expect(value).toEqual(4);
+    });
+
+    it('snap value to tick', () => {
+        const value = util.snapValue(2,1);
+        expect(value).toEqual(2);
+    });
+
+    it('snap value to the left', () => {
+        const value = util.snapValue(5,4);
+        expect(value).toEqual(4);
+    });
+
+    it('snap value to the right', () => {
+        const value = util.snapValue(7,4);
+        expect(value).toEqual(8);
+    });
+
+    it('snap value when step and value are floats', () => {
+        const value = util.snapValue(7.5,4.5);
+        expect(value).toEqual(9);
     });
 });

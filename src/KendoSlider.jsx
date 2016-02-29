@@ -94,8 +94,15 @@ export default class KendoSlider extends React.Component {
         this.props.onChange({ value: changedValue });
     };
 
-    onTrackClick = () => {
-        //implement track click;
+    onTrackClick = (e) => {
+        const { max, min, smallStep } = this.props;
+        const wrapper = ReactDOM.findDOMNode(this);
+        const track = wrapper.getElementsByClassName('k-slider-track')[0];
+        const { left, right } = track.getBoundingClientRect();
+        const length = right - left;
+        let value = Math.floor(((e.pageX - left) / length) * (max - min) + min);
+        value = util.snapValue(value, smallStep);
+        this.props.onChange({ value: value });
     };
 
     onTickClick = (e) => {
