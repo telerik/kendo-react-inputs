@@ -8,8 +8,14 @@ const SliderButton = (props) => {
         'k-button-increase': props.increase,
         'k-button-decrease': !props.increase
     });
+    const arrowClass = classnames({
+        'k-icon': true,
+        'k-i-arrow-e': props.increase,
+        'k-i-arrow-w': !props.increase
+    });
+
     return (
-        <a className={classes}><span className={"k-icon k-i-arrow-e"} onClick={props.onClick}>{props.title}</span></a>
+        <a className={classes}><span className={arrowClass} onClick={props.onClick}>{props.title}</span></a>
     );
 };
 
