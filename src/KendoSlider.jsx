@@ -64,17 +64,16 @@ export default class KendoSlider extends React.Component {
         const trackWidth = this.trackWidth(wrapper, track);
         const dragHandle = wrapper.getElementsByClassName('k-draghandle')[0];
         const handleWidth = Math.floor(dragHandle.offsetWidth / 2);
-
         const handlePosition = (trackWidth / Math.abs(max - min) * (value - min)) - handleWidth;
-        dragHandle.style.left = `${handlePosition}px`;
+        dragHandle.style.left = `${Math.floor(handlePosition)}px`;
     }
 
     positionSelection(wrapper) {
-        const dragHandle = wrapper.getElementsByClassName('k-draghandle')[0];
-        const handleWidth = Math.floor(dragHandle.offsetWidth / 2);
-        const left = parseInt(getComputedStyle(dragHandle).left);
+        const handle = wrapper.getElementsByClassName('k-draghandle')[0];
+        const handleWidth = Math.floor(handle.offsetWidth / 2);
+        const handleLeft = parseInt(getComputedStyle(handle).left);
         const selection = wrapper.getElementsByClassName('k-slider-selection')[0];
-        selection.style.width = `${left + handleWidth}px`;
+        selection.style.width = `${handleLeft + handleWidth}px`;
     }
 
     getTickSizes(wrapper) {
