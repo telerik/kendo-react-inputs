@@ -18,39 +18,59 @@ export default class KendoSlider extends React.Component {
     static propTypes = {
         max: React.PropTypes.number,
         min: React.PropTypes.number,
-        smallStep: React.PropTypes.number
+        smallStep: React.PropTypes.number,
+        value: React.PropTypes.number
     }
 
     componentDidMount() {
         const wrapper = ReactDOM.findDOMNode(this);
+        this.tickSizes = this.getTickSizes(wrapper);
         this.resizeTrack(wrapper);
         this.resizeTicks(wrapper);
-    }
-
-    componentDidUpdate() {
-        const wrapper = ReactDOM.findDOMNode(this);
+        this.positionHandle(wrapper);
     }
 
     resizeTrack(wrapper) {
-        const scale = wrapper.getElementsByClassName('k-slider-track')[0];
-        const offsetLeft = getComputedStyle(scale).left;
-        const trackWidth = util.calculateTrackWidth(wrapper.clientWidth, offsetLeft);
-        scale.style.width = `${trackWidth}px`;
+        const track = wrapper.getElementsByClassName('k-slider-track')[0];
+        const trackWidth = this.trackWidth(wrapper, track);
+        track.style.width = `${trackWidth}px`;
     }
 
     resizeTicks(wrapper) {
-        const { max, min, smallStep } = this.props;
         const ticks = wrapper.getElementsByClassName('k-tick');
-        const scale = wrapper.getElementsByClassName('k-slider-track')[0];
+        [ ...ticks ].map((tick, index) => tick.style.width = `${this.tickSizes[index]}px`);
+    }
 
-        const ticksCount = util.calculateTicksCount(max, min, smallStep);
-        const offsetLeft = getComputedStyle(scale).left;
+    trackWidth(wrapper, track) {
+        const offsetLeft = getComputedStyle(track).left;
         const trackWidth = util.calculateTrackWidth(wrapper.clientWidth, offsetLeft);
-        console.log(trackWidth);
-        console.log(ticksCount - 1);
-        const tickWidth = Math.floor(trackWidth / (ticksCount - 1));
-        console.log(tickWidth);
 
+        return trackWidth;
+    }
+
+    positionHandle(wrapper) {
+        const { max, min } = this.props;
+        let value = util.trimValue(max, min, this.props.value);
+        const track = wrapper.getElementsByClassName('k-slider-track')[0];
+        const trackWidth = this.trackWidth(wrapper, track);
+        const dragHandle = wrapper.getElementsByClassName("k-draghandle")[0];
+        const handleWidth = Math.floor(dragHandle.offsetWidth / 2);
+
+        const handlePosition = (trackWidth / Math.abs(max - min) * (value - min)) - handleWidth;
+        dragHandle.style.left = `${handlePosition}px`;
+    }
+
+    getTickSizes(wrapper) {
+        const { max, min, smallStep } = this.props;
+        const { props } = this;
+        const track = wrapper.getElementsByClassName('k-slider-track')[0];
+        const trackWidth = this.trackWidth(wrapper, track);
+        const areaCount = util.calculateAreasCount(max, min, smallStep);
+        const averageTickSize = util.averageTickSize(trackWidth, props);
+        const tickSizes = util.calculateTickSizes(areaCount + 1, averageTickSize);
+        const adjustedTickSizes = util.distributeReminderPixels(trackWidth, tickSizes, props);
+
+        return adjustedTickSizes;
     }
 
     onIncrease = () => {

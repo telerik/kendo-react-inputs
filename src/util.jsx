@@ -18,9 +18,13 @@ const calculateAreasCount = (max = 0, min = 0, smallStep = 1) => {
     return Math.floor(Math.abs(min - max) / smallStep);
 };
 
-const averageTickSize = (trackWidth, areaCount) => Math.floor(trackWidth / areaCount);
+const averageTickSize = (trackWidth, props) => {
+    const { max, min, smallStep } = props;
+    const distance = max - min;
+    return Math.floor(trackWidth / distance) * smallStep;
+};
 
-const calculateTicksSize = (tickCount, avgTickSize) =>
+const calculateTickSizes = (tickCount, avgTickSize) =>
     Array(tickCount)
     .fill(avgTickSize)
     .map((width, index, array) => {
@@ -31,10 +35,60 @@ const calculateTicksSize = (tickCount, avgTickSize) =>
         return width;
     });
 
+const distributeReminderPixels = (trackWidth, tickSizes, props) => {
+    let ticks = Array.from(tickSizes);
+    const { max, min, smallStep } = props;
+    const reminder = trackWidth % (max - min);
+    const distributionStep = ticks.length / reminder;
+
+    if (reminder === 0 && ticks.length < 2 ) {
+        ticks = ticks.map(() => (trackWidth / Math.abs(min - max) * smallStep) / 2);
+        return ticks;
+    }
+    ticks = distributePixels(ticks, reminder, distributionStep);
+
+    return ticks;
+};
+
+const createDistributionRange = (reminder, value) => {
+    let distributionRange = [];
+    let sum = 0;
+
+    for (let i = 0; i < reminder; i++) {
+        distributionRange.push(Math.round(sum));
+        sum += value;
+    }
+    return distributionRange;
+};
+
+const distributePixels = (tickSizes, reminder, distributionStep) => {
+    const distributionRange = createDistributionRange(reminder, distributionStep);
+
+    for (let i = 0; i < distributionRange.length; i++) {
+        const index = distributionRange[i];
+        tickSizes[index] += 1;
+    }
+    return tickSizes;
+};
+
+const trimValue = (max, min, value) => {
+    if (value > max) {
+        return max;
+    }
+    if (value < min) {
+        return min;
+    }
+    return value;
+};
+
 export default {
     calculateAreasCount,
     calculateTrackWidth,
     calculateTicksCount,
-    calculateTicksSize,
-    averageTickSize
+    calculateTickSizes,
+    createDistributionRange,
+    averageTickSize,
+    distributePixels,
+    trimValue,
+    distributeReminderPixels
 };
