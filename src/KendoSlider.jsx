@@ -29,12 +29,14 @@ export default class KendoSlider extends React.Component {
         this.resizeTrack(wrapper);
         this.resizeTicks(wrapper);
         this.positionHandle(wrapper);
+        this.positionSelection(wrapper);
     }
     componentDidUpdate() {
         const wrapper = ReactDOM.findDOMNode(this);
         this.resizeTrack(wrapper);
         this.resizeTicks(wrapper);
         this.positionHandle(wrapper);
+        this.positionSelection(wrapper);
     }
 
     resizeTrack(wrapper) {
@@ -60,11 +62,19 @@ export default class KendoSlider extends React.Component {
         let value = util.trimValue(max, min, this.props.value);
         const track = wrapper.getElementsByClassName('k-slider-track')[0];
         const trackWidth = this.trackWidth(wrapper, track);
-        const dragHandle = wrapper.getElementsByClassName("k-draghandle")[0];
+        const dragHandle = wrapper.getElementsByClassName('k-draghandle')[0];
         const handleWidth = Math.floor(dragHandle.offsetWidth / 2);
 
         const handlePosition = (trackWidth / Math.abs(max - min) * (value - min)) - handleWidth;
         dragHandle.style.left = `${handlePosition}px`;
+    }
+
+    positionSelection(wrapper) {
+        const dragHandle = wrapper.getElementsByClassName('k-draghandle')[0];
+        const handleWidth = Math.floor(dragHandle.offsetWidth / 2);
+        const left = parseInt(getComputedStyle(dragHandle).left);
+        const selection = wrapper.getElementsByClassName('k-slider-selection')[0];
+        selection.style.width = `${left + handleWidth}px`;
     }
 
     getTickSizes(wrapper) {
