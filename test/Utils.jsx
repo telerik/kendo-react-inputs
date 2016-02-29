@@ -210,4 +210,9 @@ describe('Slider Math', () => {
         const value = util.snapValue(7.5,4.5);
         expect(value).toEqual(9);
     });
+
+    it('snap value to tick when no reminder', () => {
+        const value = util.snapValue(8,4);
+        expect(value).toEqual(8);
+    });
 });
