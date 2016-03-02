@@ -20,7 +20,8 @@ export default class KendoSlider extends React.Component {
         min: React.PropTypes.number,
         onChange: React.PropTypes.func,
         smallStep: React.PropTypes.number,
-        value: React.PropTypes.number
+        value: React.PropTypes.number,
+        vertical: React.PropTypes.bool
     }
 
     componentDidMount() {
@@ -40,21 +41,26 @@ export default class KendoSlider extends React.Component {
     }
 
     resizeTrack(wrapper) {
+        const { vertical } = this.props;
         const track = wrapper.getElementsByClassName('k-slider-track')[0];
         const trackWidth = this.trackWidth(wrapper, track);
-        track.style.width = `${trackWidth}px`;
+        vertical ? track.style.height = `${trackWidth}px` : track.style.width = `${trackWidth}px`;
     }
 
     resizeTicks(wrapper) {
         const ticks = wrapper.getElementsByClassName('k-tick');
-        [ ...ticks ].map((tick, index) => tick.style.width = `${this.tickSizes[index]}px`);
+        const { vertical } = this.props;
+        const dimension = vertical ? "height" : "width";
+        [ ...ticks ].map((tick, index) => tick.style[dimension] = `${this.tickSizes[index]}px`);
     }
 
     trackWidth(wrapper, track) {
-        const offsetLeft = getComputedStyle(track).left;
-        const trackWidth = util.calculateTrackWidth(wrapper.clientWidth, offsetLeft);
+        const { vertical } = this.props;
+        const wrapperSize = vertical ? wrapper.clientHeight : wrapper.clientWidth;
+        const offset = vertical ? getComputedStyle(track).bottom : getComputedStyle(track).left;
+        const trackSize = util.calculateTrackSize(wrapperSize, offset);
 
-        return trackWidth;
+        return trackSize;
     }
 
     positionHandle(wrapper) {
@@ -78,15 +84,11 @@ export default class KendoSlider extends React.Component {
 
     getTickSizes(wrapper) {
         const { max, min, smallStep } = this.props;
-        const { props } = this;
         const track = wrapper.getElementsByClassName('k-slider-track')[0];
         const trackWidth = this.trackWidth(wrapper, track);
-        const areaCount = util.calculateAreasCount(max, min, smallStep);
-        const averageTickSize = util.averageTickSize(trackWidth, props);
-        const tickSizes = util.calculateTickSizes(areaCount + 1, averageTickSize);
-        const adjustedTickSizes = util.distributeReminderPixels(trackWidth, tickSizes, props);
+        const tickSizes = util.calculateTickSizes(trackWidth, min, max, smallStep);
 
-        return adjustedTickSizes;
+        return tickSizes;
     }
 
     onIncrease = () => {
@@ -122,22 +124,36 @@ export default class KendoSlider extends React.Component {
     };
 
     render() {
-        const { max, min, smallStep } = this.props;
+        const { max, min, smallStep, vertical } = this.props;
         const ticksCount = util.calculateTicksCount(max, min, smallStep);
         const classes = classnames({
             'k-widget': true,
             'k-slider': true,
-            'k-slider-horizontal': true,
+            'k-slider-horizontal': !vertical,
+            'k-slider-vertical': vertical,
             'k-state-default': true
         });
 
         return (
             <div {...this.props} className={classes}>
                 <div className={"k-slider-wrap k-slider-buttons"} >
-                    <SliderButton increase onClick={this.onIncrease} title="Left" />
-                    <SliderButton onClick={this.onDecrease} title="Right" />
+                    <SliderButton
+                        increase
+                        onClick={this.onIncrease}
+                        title="Left"
+                        vertical = {vertical ? true : false}
+                    />
+                    <SliderButton
+                        onClick={this.onDecrease}
+                        title="Right"
+                        vertical = {vertical ? true : false}
+                    />
 
-                    <SliderTicks onClick={this.onTickClick} tickCount={ticksCount} />
+                    <SliderTicks
+                        onClick={this.onTickClick}
+                        tickCount={ticksCount}
+                        vertical = {vertical ? true : false}
+                    />
 
                     <SliderTrack onClick={this.onTrackClick} />
 

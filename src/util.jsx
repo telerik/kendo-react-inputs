@@ -1,7 +1,7 @@
 const BUTTONS_COUNT = 2;
 
-const calculateTrackWidth = (wrapperWidth, offsetLeft) => {
-    const scaleLeft = parseFloat(offsetLeft, 10) * BUTTONS_COUNT;
+const calculateTrackSize = (wrapperWidth, offset) => {
+    const scaleLeft = parseFloat(offset, 10) * BUTTONS_COUNT;
     const scaleWidth = wrapperWidth - scaleLeft - BUTTONS_COUNT;
 
     return scaleWidth;
@@ -17,58 +17,24 @@ const calculateAreasCount = (max = 0, min = 0, smallStep = 1) => {
 
     return Math.floor(Math.abs(min - max) / smallStep);
 };
-
-const averageTickSize = (trackWidth, props) => {
-    const { max, min, smallStep } = props;
-    const distance = max - min;
-    return Math.floor(trackWidth / distance) * smallStep;
-};
-
-const calculateTickSizes = (tickCount, avgTickSize) =>
-    Array(tickCount)
-    .fill(avgTickSize)
-    .map((width, index, array) => {
-        if (index === 0 || index === array.length - 1) {
-            return Math.ceil(width / 2);
+//tests
+const calculateTickSizes = (trackWidth, min, max, step) => {
+    const elementCount = (Math.floor((max - min) / step)) + 1;
+    let result = [];
+    let usedWidth = 0;
+    let endPoint = 0;
+    const distStep = trackWidth / (max - min);
+    for (let i = 0; i < elementCount; i++) {
+        if (i === 0 || i === elementCount - 1) {
+            endPoint += (step / 2) * distStep;
+        } else {
+            endPoint += step * distStep;
         }
-
-        return width;
-    });
-
-const distributeReminderPixels = (trackWidth, tickSizes, props) => {
-    let ticks = Array.from(tickSizes);
-    const { max, min, smallStep } = props;
-    const reminder = trackWidth % (max - min);
-    const distributionStep = ticks.length / reminder;
-
-    if (reminder === 0 && ticks.length < 2 ) {
-        ticks = ticks.map(() => (trackWidth / Math.abs(min - max) * smallStep) / 2);
-        return ticks;
+        const size = Math.round(endPoint - usedWidth);
+        result.push(size);
+        usedWidth += size;
     }
-    ticks = distributePixels(ticks, reminder, distributionStep);
-
-    return ticks;
-};
-
-const createDistributionRange = (reminder, value) => {
-    let distributionRange = [];
-    let sum = 0;
-
-    for (let i = 0; i < reminder; i++) {
-        distributionRange.push(Math.round(sum));
-        sum += value;
-    }
-    return distributionRange;
-};
-
-const distributePixels = (tickSizes, reminder, step) => {
-    const distributionRange = createDistributionRange(reminder, step);
-
-    for (let i = 0; i < distributionRange.length; i++) {
-        const index = distributionRange[i];
-        tickSizes[index] += 1;
-    }
-    return tickSizes;
+    return result;
 };
 
 const trimValue = (max, min, value) => {
@@ -103,16 +69,11 @@ const snapValue = (value, step) => {
 };
 
 export default {
-    averageTickSize,
-    calculateAreasCount,
-    calculateTrackWidth,
+    calculateTrackSize,
     calculateTicksCount,
     calculateTickSizes,
-    createDistributionRange,
     decreaseValueToStep,
     increaseValueToStep,
-    distributePixels,
     trimValue,
-    snapValue,
-    distributeReminderPixels
+    snapValue
 };
