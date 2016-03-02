@@ -110,12 +110,14 @@ export default class KendoSlider extends React.Component {
     };
 
     onTrackClick = (e) => {
+        const { vertical } = this.props;
+        const { pageX, pageY } = e;
         const wrapper = ReactDOM.findDOMNode(this);
         const track = wrapper.getElementsByClassName('k-slider-track')[0];
-        const { left, right } = track.getBoundingClientRect();
-        const length = right - left;
-        const wrapperOffset = e.pageX - left;
-        const value = util.valueFromTrack(this.props, wrapperOffset, left, length);
+        let value = this.horizontalTrackClick(wrapper, track, pageX);
+        if (vertical) {
+            value = this.verticalTrackClick(wrapper, track, pageY);
+        }
         this.props.onChange({ value: value });
     };
 
@@ -127,6 +129,20 @@ export default class KendoSlider extends React.Component {
         value = vertical ? Math.abs(value - max) : value;
         this.props.onChange({ value: value });
     };
+
+    horizontalTrackClick = (wrapper, track, pageY) => {
+        const { left, right } = track.getBoundingClientRect();
+        const length = right - left;
+        const wrapperOffset = pageY - left;
+        return util.valueFromTrack(this.props, wrapperOffset, left, length);
+    }
+
+    verticalTrackClick = (wrapper, track, pageX) => {
+        const { top, bottom } = track.getBoundingClientRect();
+        const length = top - bottom;
+        const wrapperOffset = pageX - bottom;
+        return util.valueFromTrack(this.props, wrapperOffset, bottom, length);
+    }
 
     render() {
         const { max, min, smallStep, vertical } = this.props;
