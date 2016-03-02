@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import classnames from 'classnames';
 
-const SliderTick = ({ first, last, onClick }) => {
+const SliderTick = ({ first, last, onClick, vertical }) => {
     const classes = classnames({
         'k-tick': true,
-        'k-first': first,
-        'k-last': last
+        'k-first': vertical ? last : first,
+        'k-last': vertical ? first : last
     });
 
     return <li className={classes} onClick={onClick}>&nbsp;</li>;
