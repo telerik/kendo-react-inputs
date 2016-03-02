@@ -102,4 +102,31 @@ describe('Slider Math', () => {
         const value = util.snapValue(8,4);
         expect(value).toEqual(8);
     });
+
+    it('distribute pixels when unequal reminder is left', () => {
+        const ticks = util.calculateTickSizes(130, 0, 14, 2);
+        expect(ticks[0]).toEqual(9);
+        expect(ticks[1]).toEqual(19);
+        expect(ticks[2]).toEqual(18);
+        expect(ticks[5]).toEqual(18);
+    });
+
+    it('distribute pixels when no reminder is left', () => {
+        const ticks = util.calculateTickSizes(130, 0, 10, 2);
+        expect(ticks[0]).toEqual(13);
+        expect(ticks[1]).toEqual(26);
+    });
+
+    it('distribute pixels when last tick is floating', () => {
+        const ticks = util.calculateTickSizes(130, 0, 7, 3);
+        expect(ticks[0]).toEqual(28);
+        expect(ticks[1]).toEqual(56);
+        expect(ticks[2]).toEqual(27);
+    });
+
+    it('distribute pixels when min max and step are floating numbers', () => {
+        const ticks = util.calculateTickSizes(130, 0, 5.2, 1.2);
+        expect(ticks[0]).toEqual(15);
+        expect(ticks[1]).toEqual(30);
+    });
 });
