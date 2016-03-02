@@ -59,47 +59,57 @@ describe('Slider Math', () => {
     });
 
     it('decrease value when int', () => {
-        const value = util.decreaseValueToStep(3,1);
+        const value = util.decreaseValueToStep(3, { smallStep: 1, max: 10, min: 0 });
         expect(value).toEqual(2);
     });
 
     it('decrease value when float', () => {
-        const value = util.decreaseValueToStep(3,2);
+        const value = util.decreaseValueToStep(3, { smallStep: 2, max: 10, min: 0 });
         expect(value).toEqual(2);
     });
 
     it('increase value when float', () => {
-        const value = util.increaseValueToStep(3,2);
+        const value = util.increaseValueToStep(3, { smallStep: 2, max: 10, min: 0 });
+        expect(value).toEqual(4);
+    });
+
+    it('increase value should respect max', () => {
+        const value = util.increaseValueToStep(3, { smallStep: 2, max: 4, min: 0 });
         expect(value).toEqual(4);
     });
 
     it('increase value when int', () => {
-        const value = util.increaseValueToStep(2,2);
+        const value = util.increaseValueToStep(2,{ smallStep: 2, max: 10, min: 0 });
         expect(value).toEqual(4);
     });
 
+    it('decrease value should respect min', () => {
+        const value = util.decreaseValueToStep(3, { smallStep: 2, max: 10, min: 2 });
+        expect(value).toEqual(2);
+    });
+
     it('snap value to tick', () => {
-        const value = util.snapValue(2,1);
+        const value = util.snapValue(2, { smallStep: 1, max: 10, min: 0 });
         expect(value).toEqual(2);
     });
 
     it('snap value to the left', () => {
-        const value = util.snapValue(5,4);
+        const value = util.snapValue(5, { smallStep: 4, max: 10, min: 0 });
         expect(value).toEqual(4);
     });
 
     it('snap value to the right', () => {
-        const value = util.snapValue(7,4);
+        const value = util.snapValue(7, { smallStep: 4, max: 10, min: 0 });
         expect(value).toEqual(8);
     });
 
     it('snap value when step and value are floats', () => {
-        const value = util.snapValue(7.5,4.5);
+        const value = util.snapValue(7.5, { smallStep: 4.5, max: 10, min: 0 });
         expect(value).toEqual(9);
     });
 
     it('snap value to tick when no reminder', () => {
-        const value = util.snapValue(8,4);
+        const value = util.snapValue(8, { smallStep: 4, max: 10, min: 0 });
         expect(value).toEqual(8);
     });
 
@@ -128,5 +138,29 @@ describe('Slider Math', () => {
         const ticks = util.calculateTickSizes(130, 0, 5.2, 1.2);
         expect(ticks[0]).toEqual(15);
         expect(ticks[1]).toEqual(30);
+    });
+
+    it('distribute pixels when min max and step are floating numbers', () => {
+        const ticks = util.calculateTickSizes(130, 0, 5.2, 1.2);
+        expect(ticks[0]).toEqual(15);
+        expect(ticks[1]).toEqual(30);
+    });
+
+    it('value from track is calulated to max possible value', () => {
+        const props = { max: 10, min: 0, smallStep: 2 };
+        const wrapperOffset = 120;
+        const left = 40;
+        const length = 130;
+        const value = util.valueFromTrack(props, wrapperOffset, left, length);
+        expect(value).toEqual(10);
+    });
+
+    it('value from track is calulated to step value', () => {
+        const props = { max: 10, min: 0, smallStep: 2 };
+        const wrapperOffset = 100;
+        const left = 40;
+        const length = 130;
+        const value = util.valueFromTrack(props, wrapperOffset, left, length);
+        expect(value).toEqual(8);
     });
 });

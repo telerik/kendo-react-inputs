@@ -17,7 +17,7 @@ const calculateAreasCount = (max = 0, min = 0, smallStep = 1) => {
 
     return Math.floor(Math.abs(min - max) / smallStep);
 };
-//tests
+
 const calculateTickSizes = (trackWidth, min, max, step) => {
     const elementCount = (Math.floor((max - min) / step)) + 1;
     let result = [];
@@ -47,25 +47,47 @@ const trimValue = (max, min, value) => {
     return value;
 };
 
-const decreaseValueToStep = (value, step) => {
-    if (value % step === 0) {
-        return value - step;
+const decreaseValueToStep = (value, props) => {
+    const { max, min, smallStep } = props;
+    if (value % smallStep === 0) {
+        return value - smallStep;
     }
-    return value - (value % step);
+    let updatedValue = value - (value % smallStep);
+    updatedValue = trimValue(max, min, updatedValue);
+    return updatedValue;
 };
 
-const increaseValueToStep = (value, step) => value - (value % step) + step;
+const increaseValueToStep = (value, props) => {
+    const { max, min, smallStep } = props;
+    let updatedValue = value - (value % smallStep) + smallStep;
+    updatedValue = trimValue(max, min, updatedValue);
+    return updatedValue;
+};
 
-const snapValue = (value, step) => {
-    const left = decreaseValueToStep(value, step);
-    const right = increaseValueToStep(value, step);
-    if (value % step === 0) {
+const snapValue = (value, props) => {
+    const { smallStep } = props;
+    const left = decreaseValueToStep(value, props);
+    const right = increaseValueToStep(value, props);
+    if (value % smallStep === 0) {
         return value;
     }
-    if (right - value <= step / 2) {
+    if (right - value <= smallStep / 2) {
         return right;
     }
     return left;
+};
+
+const valueFromTrack = (props, wrapperOffset, left, length) => {
+    const { max, min, smallStep } = props;
+    const distance = max - min;
+    const clickOffset = wrapperOffset / length;
+    const maxTickValue = distance - (distance % smallStep);
+    const maxOffset = (100 / distance) * maxTickValue / 100;
+    let value = max;
+    if (clickOffset < maxOffset) {
+        value = Math.floor(((wrapperOffset) / length) * distance + min);
+    }
+    return snapValue(value, props);
 };
 
 export default {
@@ -75,5 +97,6 @@ export default {
     decreaseValueToStep,
     increaseValueToStep,
     trimValue,
-    snapValue
+    snapValue,
+    valueFromTrack
 };
