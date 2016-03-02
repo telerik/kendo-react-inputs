@@ -120,9 +120,11 @@ export default class KendoSlider extends React.Component {
     };
 
     onTickClick = (e) => {
+        const { vertical, max } = this.props;
         const ticks = e.target.parentNode.getElementsByClassName('k-tick');
         const index = [ ...ticks ].indexOf(e.target);
-        const value = index * this.props.smallStep;
+        let value = index * this.props.smallStep;
+        value = vertical ? Math.abs(value - max) : value;
         this.props.onChange({ value: value });
     };
 
