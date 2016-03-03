@@ -49,13 +49,16 @@ export default class KendoSlider extends React.Component {
     }
 
     resizeWrapper(wrapper, track) {
-        const wrapperWidth = parseInt(getComputedStyle(wrapper).width);
+        const { vertical } = this.props;
+        const wrapperSize = vertical ? parseInt(getComputedStyle(wrapper).height) :
+            parseInt(getComputedStyle(wrapper).width);
+        const orientation = this.props.vertical ? 'height' : 'width';
         const trackWidth = this.trackWidth(wrapper, track);
         const fixedTrackWidth = this.fixedTrackWidth();
         if (trackWidth > fixedTrackWidth) {
-            wrapper.style.width = `${ wrapperWidth - (trackWidth - fixedTrackWidth)}px`;
+            wrapper.style[orientation] = `${ wrapperSize - (trackWidth - fixedTrackWidth)}px`;
         } else {
-            wrapper.style.width = `${ wrapperWidth + (fixedTrackWidth - trackWidth)}px`;
+            wrapper.style[orientation] = `${ wrapperSize + (fixedTrackWidth - trackWidth)}px`;
         }
     }
 
