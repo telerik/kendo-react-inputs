@@ -16,6 +16,7 @@ import SliderButton from '../src/SliderButton';
 
 export default class KendoSlider extends React.Component {
     static propTypes = {
+        fixedTickWidth: React.PropTypes.number,
         max: React.PropTypes.number,
         min: React.PropTypes.number,
         onChange: React.PropTypes.func,
@@ -25,13 +26,20 @@ export default class KendoSlider extends React.Component {
     }
 
     componentDidMount() {
+        const { fixedTickWidth } = this.props;
         const wrapper = ReactDOM.findDOMNode(this);
+        const track = wrapper.getElementsByClassName('k-slider-track')[0];
         this.tickSizes = this.getTickSizes(wrapper);
         this.resizeTrack(wrapper);
         this.resizeTicks(wrapper);
         this.positionHandle(wrapper);
         this.positionSelection(wrapper);
+
+        if (fixedTickWidth) {
+            this.resizeWrapper(wrapper, track);
+        }
     }
+
     componentDidUpdate() {
         const wrapper = ReactDOM.findDOMNode(this);
         this.resizeTrack(wrapper);
@@ -40,10 +48,22 @@ export default class KendoSlider extends React.Component {
         this.positionSelection(wrapper);
     }
 
-    resizeTrack(wrapper) {
-        const orientation = this.props.vertical ? 'height' : 'width';
-        const track = wrapper.getElementsByClassName('k-slider-track')[0];
+    resizeWrapper(wrapper, track) {
+        const wrapperWidth = parseInt(getComputedStyle(wrapper).width);
         const trackWidth = this.trackWidth(wrapper, track);
+        const fixedTrackWidth = this.fixedTrackWidth();
+        if (trackWidth > fixedTrackWidth) {
+            wrapper.style.width = `${ wrapperWidth - (trackWidth - fixedTrackWidth)}px`;
+        } else {
+            wrapper.style.width = `${ wrapperWidth + (fixedTrackWidth - trackWidth)}px`;
+        }
+    }
+
+    resizeTrack(wrapper) {
+        const { vertical, fixedTickWidth } = this.props;
+        const orientation = vertical ? 'height' : 'width';
+        const track = wrapper.getElementsByClassName('k-slider-track')[0];
+        const trackWidth = fixedTickWidth ? this.fixedTrackWidth() : this.trackWidth(wrapper, track);
         track.style[orientation] = `${trackWidth}px`;
     }
 
@@ -58,16 +78,22 @@ export default class KendoSlider extends React.Component {
     }
 
     adjustPadding(wrapper) {
+        const { fixedTickWidth } = this.props;
         const ticksWidth = this.tickSizes.reduce((prev, curr) => prev + curr, 0);
         const bordersWidth = 2;
         const ticksContainer = wrapper.getElementsByClassName('k-slider-items')[0];
         const track = wrapper.getElementsByClassName('k-slider-track')[0];
-        const trackWidth = this.trackWidth(wrapper, track);
+        const trackWidth = fixedTickWidth ? this.fixedTrackWidth() : this.trackWidth(wrapper, track);
         const reminder = trackWidth - ticksWidth;
         if ( reminder !== 0) {
             let padding = reminder + parseInt(getComputedStyle(track).bottom) + bordersWidth;
             ticksContainer.style.paddingTop = `${padding}px`;
         }
+    }
+
+    fixedTrackWidth() {
+        const { max, min, smallStep, fixedTickWidth } = this.props;
+        return ((max - min) / smallStep) * fixedTickWidth;
     }
 
     trackWidth(wrapper, track) {
@@ -80,11 +106,11 @@ export default class KendoSlider extends React.Component {
     }
 
     positionHandle(wrapper) {
-        const { max, min, vertical } = this.props;
+        const { max, min, vertical, fixedTickWidth } = this.props;
         let value = util.trimValue(max, min, this.props.value);
         const position = vertical ? 'bottom' : 'left';
         const track = wrapper.getElementsByClassName('k-slider-track')[0];
-        const trackWidth = this.trackWidth(wrapper, track);
+        const trackWidth = fixedTickWidth ? this.fixedTrackWidth() : this.trackWidth(wrapper, track);
         const dragHandle = wrapper.getElementsByClassName('k-draghandle')[0];
         const handleWidth = Math.floor(dragHandle.offsetWidth / 2);
         const handlePosition = (trackWidth / Math.abs(max - min) * (value - min)) - handleWidth;
@@ -103,9 +129,9 @@ export default class KendoSlider extends React.Component {
     }
 
     getTickSizes(wrapper) {
-        const { max, min, smallStep } = this.props;
+        const { max, min, smallStep, fixedTickWidth } = this.props;
         const track = wrapper.getElementsByClassName('k-slider-track')[0];
-        const trackWidth = this.trackWidth(wrapper, track);
+        const trackWidth = fixedTickWidth ? this.fixedTrackWidth() : this.trackWidth(wrapper, track);
         const tickSizes = util.calculateTickSizes(trackWidth, min, max, smallStep);
 
         return tickSizes;
