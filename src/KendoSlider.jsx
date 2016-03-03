@@ -41,17 +41,32 @@ export default class KendoSlider extends React.Component {
     }
 
     resizeTrack(wrapper) {
-        const { vertical } = this.props;
+        const orientation = this.props.vertical ? 'height' : 'width';
         const track = wrapper.getElementsByClassName('k-slider-track')[0];
         const trackWidth = this.trackWidth(wrapper, track);
-        vertical ? track.style.height = `${trackWidth}px` : track.style.width = `${trackWidth}px`;
+        track.style[orientation] = `${trackWidth}px`;
     }
 
     resizeTicks(wrapper) {
-        const ticks = wrapper.getElementsByClassName('k-tick');
         const { vertical } = this.props;
+        const ticks = wrapper.getElementsByClassName('k-tick');
         const dimension = vertical ? "height" : "width";
         [ ...ticks ].map((tick, index) => tick.style[dimension] = `${this.tickSizes[index]}px`);
+        if (vertical) {
+            this.adjustPadding(wrapper);
+        }
+    }
+
+    adjustPadding(wrapper) {
+        const ticksWidth = this.tickSizes.reduce((prev, curr) => prev + curr, 0);
+        const ticksContainer = wrapper.getElementsByClassName('k-slider-items')[0];
+        const track = wrapper.getElementsByClassName('k-slider-track')[0];
+        const trackWidth = this.trackWidth(wrapper, track);
+        const reminder = trackWidth - ticksWidth;
+        if ( reminder !== 0) {
+            let padding = trackWidth - ticksWidth + parseInt(getComputedStyle(track).bottom);
+            ticksContainer.style.paddingTop = `${padding}px`;
+        }
     }
 
     trackWidth(wrapper, track) {
