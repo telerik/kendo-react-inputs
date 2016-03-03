@@ -59,12 +59,13 @@ export default class KendoSlider extends React.Component {
 
     adjustPadding(wrapper) {
         const ticksWidth = this.tickSizes.reduce((prev, curr) => prev + curr, 0);
+        const bordersWidth = 2;
         const ticksContainer = wrapper.getElementsByClassName('k-slider-items')[0];
         const track = wrapper.getElementsByClassName('k-slider-track')[0];
         const trackWidth = this.trackWidth(wrapper, track);
         const reminder = trackWidth - ticksWidth;
         if ( reminder !== 0) {
-            let padding = trackWidth - ticksWidth + parseInt(getComputedStyle(track).bottom);
+            let padding = reminder + parseInt(getComputedStyle(track).bottom) + bordersWidth;
             ticksContainer.style.paddingTop = `${padding}px`;
         }
     }
