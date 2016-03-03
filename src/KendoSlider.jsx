@@ -1,17 +1,10 @@
 import * as React from 'react';
-
 import ReactDOM from 'react-dom';
-
 import util from '../src/util';
-
 //import styles from '@telerik/kendo-theme-default/styles/main';
-
 import classnames from 'classnames';
-
 import SliderTrack from '../src/SliderTrack';
-
 import SliderTicks from '../src/SliderTicks';
-
 import SliderButton from '../src/SliderButton';
 
 export default class KendoSlider extends React.Component {
@@ -83,13 +76,12 @@ export default class KendoSlider extends React.Component {
     adjustPadding(wrapper) {
         const { fixedTickWidth } = this.props;
         const ticksWidth = this.tickSizes.reduce((prev, curr) => prev + curr, 0);
-        const bordersWidth = 2;
         const ticksContainer = wrapper.getElementsByClassName('k-slider-items')[0];
         const track = wrapper.getElementsByClassName('k-slider-track')[0];
         const trackWidth = fixedTickWidth ? this.fixedTrackWidth() : this.trackWidth(wrapper, track);
         const reminder = trackWidth - ticksWidth;
         if ( reminder !== 0) {
-            let padding = reminder + parseInt(getComputedStyle(track).bottom) + bordersWidth;
+            let padding = reminder + parseInt(getComputedStyle(track).bottom);
             ticksContainer.style.paddingTop = `${padding}px`;
         }
     }
