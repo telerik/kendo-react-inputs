@@ -17,8 +17,8 @@ const SliderButton = (props) => {
         'k-i-arrow-s': !increase && vertical
     });
     return (
-        <a className={classes}>
-            <span className={spanClasses} onClick={props.onClick}>{props.title}</span>
+        <a className = {classes}>
+            <span className = {spanClasses} onClick = {props.onClick}>{props.title}</span>
         </a>
     );
 };

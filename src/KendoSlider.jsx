@@ -9,7 +9,9 @@ import SliderButton from '../src/SliderButton';
 
 export default class KendoSlider extends React.Component {
     static propTypes = {
+        decreaseButtonTitle: React.PropTypes.string,
         fixedTickWidth: React.PropTypes.number,
+        increaseButtonTitle: React.PropTypes.string,
         max: React.PropTypes.number,
         min: React.PropTypes.number,
         onChange: React.PropTypes.func,
@@ -182,7 +184,15 @@ export default class KendoSlider extends React.Component {
     }
 
     render() {
-        const { max, min, smallStep, vertical } = this.props;
+        const {
+            max,
+            min,
+            smallStep,
+            vertical,
+            increaseButtonTitle = "Increase",
+            decreaseButtonTitle = "Decrease"
+        } = this.props;
+
         const ticksCount = util.calculateTicksCount(max, min, smallStep);
         const classes = classnames({
             'k-widget': true,
@@ -193,27 +203,27 @@ export default class KendoSlider extends React.Component {
         });
 
         return (
-            <div {...this.props} className={classes}>
-                <div className={"k-slider-wrap k-slider-buttons"} >
+            <div {...this.props} className = {classes}>
+                <div className = {"k-slider-wrap k-slider-buttons"} >
                     <SliderButton
                         increase
-                        onClick={this.onIncrease}
-                        title="Left"
+                        onClick = {this.onIncrease}
+                        title = {increaseButtonTitle}
                         vertical = {vertical ? true : false}
                     />
                     <SliderButton
-                        onClick={this.onDecrease}
-                        title="Right"
+                        onClick = {this.onDecrease}
+                        title = {decreaseButtonTitle}
                         vertical = {vertical ? true : false}
                     />
 
                     <SliderTicks
-                        onClick={this.onTickClick}
-                        tickCount={ticksCount}
+                        onClick = {this.onTickClick}
+                        tickCount = {ticksCount}
                         vertical = {vertical ? true : false}
                     />
 
-                    <SliderTrack onClick={this.onTrackClick} />
+                    <SliderTrack onClick = {this.onTrackClick} />
 
                 </div>
             </div>
