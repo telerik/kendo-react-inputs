@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import KendoSlider from '../src/KendoSlider';
+import SliderButton from '../src/SliderButton';
 
 describe('Slider', () => {
     it('should add default wrapper classes', () => {
@@ -8,6 +9,16 @@ describe('Slider', () => {
         expect(result.hasClass('k-widget')).toBe(true);
         expect(result.hasClass('k-slider')).toBe(true);
         expect(result.hasClass('k-state-default')).toBe(true);
+    });
+
+    it('should render buttons by default', () => {
+        let result = shallow(<KendoSlider />);
+        expect(result.find(SliderButton).length).toEqual(2);
+    });
+
+    it('should not render buttons', () => {
+        let result = shallow(<KendoSlider buttons={false} />);
+        expect(result.find(SliderButton).length).toEqual(0);
     });
 
     it('should add k-slider-horizontal class', () => {

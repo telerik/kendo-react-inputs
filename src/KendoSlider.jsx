@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import SliderTrack from '../src/SliderTrack';
 import SliderTicks from '../src/SliderTicks';
 import SliderButton from '../src/SliderButton';
+import keycode from 'keycode';
 
 export default class KendoSlider extends React.Component {
     static propTypes = {
@@ -185,18 +186,34 @@ export default class KendoSlider extends React.Component {
         return util.valueFromTrack(this.props, wrapperOffset, bottom, length);
     }
 
+    keyBinding = {
+        [keycode.codes.left]: ({ value, smallStep }) => value - smallStep,
+        [keycode.codes.right]: ({ value, smallStep }) => value + smallStep,
+        [keycode.codes.home]: ({ min }) => min,
+        [keycode.codes.end]: ({ max }) => max
+    }
+
+    onKeyDown = (event) => {
+        const handler = this.keyBinding[event.keyCode];
+        if (handler) {
+            const value = handler(this.props);
+            this.props.onChange({ value });
+        }
+    }
+
     render() {
         const {
-            buttons,
+            buttons = true,
             max,
             min,
             smallStep,
             vertical,
             increaseButtonTitle = "Increase",
             decreaseButtonTitle = "Decrease",
-            tickPlacement
+            tickPlacement,
+            value
         } = this.props;
-
+        const trackProps = { max, min, onClick: this.onTrackClick, onKeyDown: this.onKeyDown, value };
         const ticksCount = util.calculateTicksCount(max, min, smallStep);
         const wrapperClasses = classnames({
             'k-widget': true,
@@ -205,7 +222,6 @@ export default class KendoSlider extends React.Component {
             'k-slider-vertical': vertical,
             'k-state-default': true
         });
-
         const componentClasses = classnames({
             'k-slider-wrap': true,
             'k-slider-buttons': true,
@@ -219,7 +235,7 @@ export default class KendoSlider extends React.Component {
                         {buttons && <SliderButton increase onClick = {this.onIncrease} title = {increaseButtonTitle} vertical = {vertical ? true : false} />}
                         {buttons && <SliderButton onClick = {this.onDecrease} title = {decreaseButtonTitle} vertical = {vertical ? true : false} />}
                         {tickPlacement !== 'none' && <SliderTicks onClick = {this.onTickClick} tickCount = {ticksCount} vertical = {vertical ? true : false} />}
-                    <SliderTrack onClick = {this.onTrackClick} />
+                    <SliderTrack {...trackProps} />
 
                 </div>
             </div>

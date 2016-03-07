@@ -9,7 +9,11 @@ const SliderTick = ({ first, last, onClick, vertical }) => {
         'k-last': vertical ? first : last
     });
 
-    return <li className={classes} onClick={onClick}>&nbsp;</li>;
+    const attributes = {
+        'role': "presentation"
+    };
+
+    return <li className={classes} {...attributes} onClick={onClick}>&nbsp;</li>;
 };
 
 SliderTick.propTypes = {
