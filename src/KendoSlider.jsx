@@ -9,6 +9,7 @@ import SliderButton from '../src/SliderButton';
 
 export default class KendoSlider extends React.Component {
     static propTypes = {
+        buttons: React.PropTypes.bool,
         decreaseButtonTitle: React.PropTypes.string,
         fixedTickWidth: React.PropTypes.number,
         increaseButtonTitle: React.PropTypes.string,
@@ -185,6 +186,7 @@ export default class KendoSlider extends React.Component {
 
     render() {
         const {
+            buttons,
             max,
             min,
             smallStep,
@@ -205,18 +207,8 @@ export default class KendoSlider extends React.Component {
         return (
             <div {...this.props} className = {classes}>
                 <div className = {"k-slider-wrap k-slider-buttons"} >
-                    <SliderButton
-                        increase
-                        onClick = {this.onIncrease}
-                        title = {increaseButtonTitle}
-                        vertical = {vertical ? true : false}
-                    />
-                    <SliderButton
-                        onClick = {this.onDecrease}
-                        title = {decreaseButtonTitle}
-                        vertical = {vertical ? true : false}
-                    />
-
+                        {buttons && <SliderButton increase onClick = {this.onIncrease} title = {increaseButtonTitle} vertical = {vertical ? true : false} />}
+                        {buttons && <SliderButton onClick = {this.onDecrease} title = {decreaseButtonTitle} vertical = {vertical ? true : false} />}
                     <SliderTicks
                         onClick = {this.onTickClick}
                         tickCount = {ticksCount}
