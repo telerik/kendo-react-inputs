@@ -17,6 +17,7 @@ export default class KendoSlider extends React.Component {
         min: React.PropTypes.number,
         onChange: React.PropTypes.func,
         smallStep: React.PropTypes.number,
+        tickPlacement: React.PropTypes.string,
         value: React.PropTypes.number,
         vertical: React.PropTypes.bool
     }
@@ -192,11 +193,12 @@ export default class KendoSlider extends React.Component {
             smallStep,
             vertical,
             increaseButtonTitle = "Increase",
-            decreaseButtonTitle = "Decrease"
+            decreaseButtonTitle = "Decrease",
+            tickPlacement
         } = this.props;
 
         const ticksCount = util.calculateTicksCount(max, min, smallStep);
-        const classes = classnames({
+        const wrapperClasses = classnames({
             'k-widget': true,
             'k-slider': true,
             'k-slider-horizontal': !vertical,
@@ -204,17 +206,19 @@ export default class KendoSlider extends React.Component {
             'k-state-default': true
         });
 
+        const componentClasses = classnames({
+            'k-slider-wrap': true,
+            'k-slider-buttons': true,
+            'k-slider-topleft': tickPlacement === 'before',
+            'k-slider-bottomright': tickPlacement === 'after'
+        });
+
         return (
-            <div {...this.props} className = {classes}>
-                <div className = {"k-slider-wrap k-slider-buttons"} >
+            <div {...this.props} className = {wrapperClasses}>
+                <div className = {componentClasses} >
                         {buttons && <SliderButton increase onClick = {this.onIncrease} title = {increaseButtonTitle} vertical = {vertical ? true : false} />}
                         {buttons && <SliderButton onClick = {this.onDecrease} title = {decreaseButtonTitle} vertical = {vertical ? true : false} />}
-                    <SliderTicks
-                        onClick = {this.onTickClick}
-                        tickCount = {ticksCount}
-                        vertical = {vertical ? true : false}
-                    />
-
+                        {tickPlacement !== 'none' && <SliderTicks onClick = {this.onTickClick} tickCount = {ticksCount} vertical = {vertical ? true : false} />}
                     <SliderTrack onClick = {this.onTrackClick} />
 
                 </div>
