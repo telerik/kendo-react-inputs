@@ -1,10 +1,10 @@
 const BUTTONS_COUNT = 2;
 
 const calculateTrackSize = (wrapperWidth, offset) => {
-    const scaleLeft = parseFloat(offset, 10) * BUTTONS_COUNT;
-    const scaleWidth = wrapperWidth - scaleLeft - BUTTONS_COUNT;
+    const trackOffset = parseFloat(offset, 10) * BUTTONS_COUNT;
+    const trackWidth = wrapperWidth - trackOffset - BUTTONS_COUNT;
 
-    return scaleWidth;
+    return trackWidth;
 };
 
 const calculateTicksCount = (max = 0, min = 0, smallStep = 1) =>
@@ -90,11 +90,14 @@ const valueFromTrack = (props, wrapperOffset, left, length) => {
     return snapValue(value, props);
 };
 
+const identity = (value) => value;
+
 export default {
     calculateTrackSize,
     calculateTicksCount,
     calculateTickSizes,
     decreaseValueToStep,
+    identity,
     increaseValueToStep,
     trimValue,
     snapValue,

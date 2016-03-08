@@ -10,16 +10,18 @@ const SliderTrack = ({ onClick, max, min, value, onKeyDown }) => {
         'aria-valuenow': value,
         'aria-valuetext': value
     };
+
     return (
         <div className="k-slider-track" onClick={onClick}>
             <div className="k-slider-selection"></div>
-            <a className="k-draghandle" {...attributes} href="#" onKeyDown={onKeyDown}>Drag</a>
+            <a className="k-draghandle" {...attributes} href="#" onKeyDown={onKeyDown}></a>
         </div>
     );
 };
 
 SliderTrack.propTypes = {
-    onClick: React.PropTypes.func
+    onClick: React.PropTypes.func,
+    onKeyDown: React.PropTypes.func
 };
 
 export default SliderTrack;

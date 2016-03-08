@@ -1,10 +1,9 @@
 import * as React from 'react';
-
 import classnames from 'classnames';
 
 const SliderButton = (props) => {
-    const { increase, vertical } = props;
-    const classes = classnames({
+    const { increase, vertical, title, onClick } = props;
+    const buttonClasses = classnames({
         'k-button': true,
         'k-button-increase': increase,
         'k-button-decrease': !increase
@@ -16,9 +15,10 @@ const SliderButton = (props) => {
         'k-i-arrow-n': increase && vertical,
         'k-i-arrow-s': !increase && vertical
     });
+
     return (
-        <a className = {classes}>
-            <span className = {spanClasses} onClick = {props.onClick}>{props.title}</span>
+        <a className = {buttonClasses}>
+            <span className = {spanClasses} onClick = {onClick}>{title}</span>
         </a>
     );
 };

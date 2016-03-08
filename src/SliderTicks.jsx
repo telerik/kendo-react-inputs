@@ -1,11 +1,10 @@
 import * as React from 'react';
-
 import classnames from 'classnames';
+import SliderTick from '../src/SliderTick';
+import util from '../src/util';
 
-import SliderTick from "../src/SliderTick";
-
-const SliderTicks = ({ tickCount = 0, onClick, vertical, min, smallStep, title }) => {
-    const classes = classnames({
+const SliderTicks = ({ tickCount = 0, onClick, vertical, min, smallStep, title = util.identity }) => {
+    const listClasses = classnames({
         'k-reset': true,
         'k-slider-items': true
     });
@@ -15,16 +14,19 @@ const SliderTicks = ({ tickCount = 0, onClick, vertical, min, smallStep, title }
             first: index === 0,
             last: index === array.length - 1
         }))
-        .map((props, index) =>
-            <SliderTick
-                key={index}
+        .map((props, index) => {
+            const titleText = min + (index * smallStep);
+
+            return (<SliderTick
+                key = {index}
                 {...props}
                 onClick = {onClick}
-                title = {title ? title(min + (index * smallStep)) : min + (index * smallStep)}
+                title = {title(titleText)}
                 vertical = {vertical}
-            />);
+                    />);
+        });
 
-    return <ul className={classes}>{ticks}</ul>;
+    return <ul className={listClasses}>{ticks}</ul>;
 };
 
 SliderTicks.propTypes = {

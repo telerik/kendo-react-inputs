@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import classnames from 'classnames';
 
 const SliderTick = ({ first, last, onClick, vertical, title }) => {
@@ -8,7 +7,6 @@ const SliderTick = ({ first, last, onClick, vertical, title }) => {
         'k-first': vertical ? last : first,
         'k-last': vertical ? first : last
     });
-
     const attributes = {
         'role': 'presentation',
         'title': title

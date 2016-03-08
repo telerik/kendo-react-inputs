@@ -8,22 +8,22 @@ import SliderTicks from '../src/SliderTicks';
 import SliderButton from '../src/SliderButton';
 import keycode from 'keycode';
 
-export default class KendoSlider extends React.Component {
-    static propTypes = {
-        buttons: React.PropTypes.bool,
-        decreaseButtonTitle: React.PropTypes.string,
-        fixedTickWidth: React.PropTypes.number,
-        increaseButtonTitle: React.PropTypes.string,
-        max: React.PropTypes.number,
-        min: React.PropTypes.number,
-        onChange: React.PropTypes.func,
-        smallStep: React.PropTypes.number,
-        tickPlacement: React.PropTypes.string,
-        title: React.PropTypes.func,
-        value: React.PropTypes.number,
-        vertical: React.PropTypes.bool
-    }
+const propTypes = {
+    buttons: React.PropTypes.bool,
+    decreaseButtonTitle: React.PropTypes.string,
+    fixedTickWidth: React.PropTypes.number,
+    increaseButtonTitle: React.PropTypes.string,
+    max: React.PropTypes.number,
+    min: React.PropTypes.number,
+    onChange: React.PropTypes.func,
+    smallStep: React.PropTypes.number,
+    tickPlacement: React.PropTypes.string,
+    title: React.PropTypes.func,
+    value: React.PropTypes.number,
+    vertical: React.PropTypes.bool
+};
 
+class KendoSlider extends React.Component {
     componentDidMount() {
         const { fixedTickWidth } = this.props;
         const wrapper = ReactDOM.findDOMNode(this);
@@ -45,6 +45,65 @@ export default class KendoSlider extends React.Component {
         this.resizeTicks(wrapper);
         this.positionHandle(wrapper);
         this.positionSelection(wrapper);
+    }
+
+    onIncrease = () => {
+        const { max, min, value } = this.props;
+        let changedValue = util.increaseValueToStep(value, this.props);
+        changedValue = util.trimValue(max, min, changedValue);
+        this.props.onChange({ value: changedValue });
+    };
+
+    onDecrease = () => {
+        const { max, min, value } = this.props;
+        let changedValue = util.decreaseValueToStep(value, this.props);
+        changedValue = util.trimValue(max, min, changedValue);
+        this.props.onChange({ value: changedValue });
+    };
+
+    onTrackClick = (e) => {
+        const { vertical } = this.props;
+        const { pageX, pageY } = e;
+        const wrapper = ReactDOM.findDOMNode(this);
+        const track = wrapper.getElementsByClassName('k-slider-track')[0];
+        let value = this.onHorizontalTrackClick(wrapper, track, pageX);
+        if (vertical) {
+            value = this.onVerticalTrackClick(wrapper, track, pageY);
+        }
+        this.props.onChange({ value: value });
+    };
+
+    onTickClick = (e) => {
+        const { vertical, max, min, smallStep } = this.props;
+        const ticks = e.target.parentNode.getElementsByClassName('k-tick');
+        const index = [ ...ticks ].indexOf(e.target);
+        let value = min + (index * smallStep);
+        value = vertical ? Math.abs(value - max) : value;
+        this.props.onChange({ value: value });
+    };
+
+    onHorizontalTrackClick = (wrapper, track, pageY) => {
+        const { left, right } = track.getBoundingClientRect();
+        const length = right - left;
+        const wrapperOffset = pageY - left;
+        return util.valueFromTrack(this.props, wrapperOffset, left, length);
+    }
+
+    onVerticalTrackClick = (wrapper, track, pageX) => {
+        const { top, bottom } = track.getBoundingClientRect();
+        const length = top - bottom;
+        const wrapperOffset = pageX - bottom;
+        return util.valueFromTrack(this.props, wrapperOffset, bottom, length);
+    }
+
+    onKeyDown = (event) => {
+        const { max, min } = this.props;
+        const handler = this.keyBinding[event.keyCode];
+        if (handler) {
+            let value = handler(this.props);
+            value = util.trimValue(max, min, value);
+            this.props.onChange({ value });
+        }
     }
 
     resizeWrapper(wrapper, track) {
@@ -138,55 +197,6 @@ export default class KendoSlider extends React.Component {
         return tickSizes;
     }
 
-    onIncrease = () => {
-        const { max, min, value } = this.props;
-        let changedValue = util.increaseValueToStep(value, this.props);
-        changedValue = util.trimValue(max, min, changedValue);
-        this.props.onChange({ value: changedValue });
-    };
-
-    onDecrease = () => {
-        const { max, min, value } = this.props;
-        let changedValue = util.decreaseValueToStep(value, this.props);
-        changedValue = util.trimValue(max, min, changedValue);
-        this.props.onChange({ value: changedValue });
-    };
-
-    onTrackClick = (e) => {
-        const { vertical } = this.props;
-        const { pageX, pageY } = e;
-        const wrapper = ReactDOM.findDOMNode(this);
-        const track = wrapper.getElementsByClassName('k-slider-track')[0];
-        let value = this.horizontalTrackClick(wrapper, track, pageX);
-        if (vertical) {
-            value = this.verticalTrackClick(wrapper, track, pageY);
-        }
-        this.props.onChange({ value: value });
-    };
-
-    onTickClick = (e) => {
-        const { vertical, max, min, smallStep } = this.props;
-        const ticks = e.target.parentNode.getElementsByClassName('k-tick');
-        const index = [ ...ticks ].indexOf(e.target);
-        let value = min + (index * smallStep);
-        value = vertical ? Math.abs(value - max) : value;
-        this.props.onChange({ value: value });
-    };
-
-    horizontalTrackClick = (wrapper, track, pageY) => {
-        const { left, right } = track.getBoundingClientRect();
-        const length = right - left;
-        const wrapperOffset = pageY - left;
-        return util.valueFromTrack(this.props, wrapperOffset, left, length);
-    }
-
-    verticalTrackClick = (wrapper, track, pageX) => {
-        const { top, bottom } = track.getBoundingClientRect();
-        const length = top - bottom;
-        const wrapperOffset = pageX - bottom;
-        return util.valueFromTrack(this.props, wrapperOffset, bottom, length);
-    }
-
     keyBinding = {
         [keycode.codes.left]: ({ value, smallStep }) => value - smallStep,
         [keycode.codes.right]: ({ value, smallStep }) => value + smallStep,
@@ -194,16 +204,6 @@ export default class KendoSlider extends React.Component {
         [keycode.codes.up]: ({ value, smallStep }) => value + smallStep,
         [keycode.codes.home]: ({ min }) => min,
         [keycode.codes.end]: ({ max }) => max
-    }
-
-    onKeyDown = (event) => {
-        const { max, min } = this.props;
-        const handler = this.keyBinding[event.keyCode];
-        if (handler) {
-            let value = handler(this.props);
-            value = util.trimValue(max, min, value);
-            this.props.onChange({ value });
-        }
     }
 
     render() {
@@ -235,15 +235,18 @@ export default class KendoSlider extends React.Component {
         });
 
         return (
-            <div {...this.props} className = {wrapperClasses}>
+            <div className = {wrapperClasses}>
                 <div className = {componentClasses} >
                         {buttons && <SliderButton increase onClick = {this.onIncrease} title = {increaseButtonTitle} vertical = {vertical} />}
                         {buttons && <SliderButton onClick = {this.onDecrease} title = {decreaseButtonTitle} vertical = {vertical} />}
                         {tickPlacement !== 'none' && <SliderTicks {...ticksProps} />}
                     <SliderTrack {...trackProps} />
-
                 </div>
             </div>
            );
     }
 }
+
+KendoSlider.propTypes = propTypes;
+
+export default KendoSlider;
