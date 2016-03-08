@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@telerik/eslint-config": "1.1.0",
-    "@telerik/kendo-react-tasks": "telerik/kendo-react-tasks#master",
+    "@telerik/kendo-react-tasks": "^1.0.0",
     "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
