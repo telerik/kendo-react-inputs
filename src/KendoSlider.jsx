@@ -19,6 +19,7 @@ export default class KendoSlider extends React.Component {
         onChange: React.PropTypes.func,
         smallStep: React.PropTypes.number,
         tickPlacement: React.PropTypes.string,
+        title: React.PropTypes.func,
         value: React.PropTypes.number,
         vertical: React.PropTypes.bool
     }
@@ -48,9 +49,9 @@ export default class KendoSlider extends React.Component {
 
     resizeWrapper(wrapper, track) {
         const { vertical } = this.props;
-        const wrapperSize = vertical ? parseInt(getComputedStyle(wrapper).height) :
-            parseInt(getComputedStyle(wrapper).width);
         const orientation = this.props.vertical ? 'height' : 'width';
+        const wrapperSize = vertical ? parseInt(getComputedStyle(wrapper)[orientation]) :
+            parseInt(getComputedStyle(wrapper)[orientation]);
         const trackWidth = this.trackWidth(wrapper, track);
         const fixedTrackWidth = this.fixedTrackWidth();
         if (trackWidth > fixedTrackWidth) {
@@ -189,14 +190,18 @@ export default class KendoSlider extends React.Component {
     keyBinding = {
         [keycode.codes.left]: ({ value, smallStep }) => value - smallStep,
         [keycode.codes.right]: ({ value, smallStep }) => value + smallStep,
+        [keycode.codes.down]: ({ value, smallStep }) => value - smallStep,
+        [keycode.codes.up]: ({ value, smallStep }) => value + smallStep,
         [keycode.codes.home]: ({ min }) => min,
         [keycode.codes.end]: ({ max }) => max
     }
 
     onKeyDown = (event) => {
+        const { max, min } = this.props;
         const handler = this.keyBinding[event.keyCode];
         if (handler) {
-            const value = handler(this.props);
+            let value = handler(this.props);
+            value = util.trimValue(max, min, value);
             this.props.onChange({ value });
         }
     }
@@ -214,7 +219,7 @@ export default class KendoSlider extends React.Component {
             value
         } = this.props;
         const trackProps = { max, min, onClick: this.onTrackClick, onKeyDown: this.onKeyDown, value };
-        const ticksCount = util.calculateTicksCount(max, min, smallStep);
+        const ticksProps = { min, smallStep, vertical, title: this.props.title, onClick: this.onTickClick, tickCount: util.calculateTicksCount(max, min, smallStep) };
         const wrapperClasses = classnames({
             'k-widget': true,
             'k-slider': true,
@@ -232,9 +237,9 @@ export default class KendoSlider extends React.Component {
         return (
             <div {...this.props} className = {wrapperClasses}>
                 <div className = {componentClasses} >
-                        {buttons && <SliderButton increase onClick = {this.onIncrease} title = {increaseButtonTitle} vertical = {vertical ? true : false} />}
-                        {buttons && <SliderButton onClick = {this.onDecrease} title = {decreaseButtonTitle} vertical = {vertical ? true : false} />}
-                        {tickPlacement !== 'none' && <SliderTicks onClick = {this.onTickClick} tickCount = {ticksCount} vertical = {vertical ? true : false} />}
+                        {buttons && <SliderButton increase onClick = {this.onIncrease} title = {increaseButtonTitle} vertical = {vertical} />}
+                        {buttons && <SliderButton onClick = {this.onDecrease} title = {decreaseButtonTitle} vertical = {vertical} />}
+                        {tickPlacement !== 'none' && <SliderTicks {...ticksProps} />}
                     <SliderTrack {...trackProps} />
 
                 </div>

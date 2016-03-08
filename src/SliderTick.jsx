@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import classnames from 'classnames';
 
-const SliderTick = ({ first, last, onClick, vertical }) => {
+const SliderTick = ({ first, last, onClick, vertical, title }) => {
     const classes = classnames({
         'k-tick': true,
         'k-first': vertical ? last : first,
@@ -10,7 +10,8 @@ const SliderTick = ({ first, last, onClick, vertical }) => {
     });
 
     const attributes = {
-        'role': "presentation"
+        'role': 'presentation',
+        'title': title
     };
 
     return <li className={classes} {...attributes} onClick={onClick}>&nbsp;</li>;

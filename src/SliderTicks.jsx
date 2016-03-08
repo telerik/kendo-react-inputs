@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import SliderTick from "../src/SliderTick";
 
-const SliderTicks = ({ tickCount = 0, onClick, vertical }) => {
+const SliderTicks = ({ tickCount = 0, onClick, vertical, min, smallStep, title }) => {
     const classes = classnames({
         'k-reset': true,
         'k-slider-items': true
@@ -19,8 +19,9 @@ const SliderTicks = ({ tickCount = 0, onClick, vertical }) => {
             <SliderTick
                 key={index}
                 {...props}
-                onClick={onClick}
-                vertical = {vertical ? true : false}
+                onClick = {onClick}
+                title = {title ? title(min + (index * smallStep)) : min + (index * smallStep)}
+                vertical = {vertical}
             />);
 
     return <ul className={classes}>{ticks}</ul>;
