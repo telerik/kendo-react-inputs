@@ -7,7 +7,7 @@ const state = {
     min: -4,
     value: 4,
     step: 2,
-    fixedTickWidth: 10,
+    //fixedTickWidth: 10,
     decreaseButtonTitle: "Dec",
     increaseButtonTitle: "Inc",
     buttons: true,
@@ -37,7 +37,6 @@ const render = () => {
             tickPlacement = {state.tickPlacement}
             title = {state.title}
             value = {state.value}
-            vertical
         />,
         document.getElementById('app')
     );
