@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import SliderTrack from '../src/SliderTrack';
 import SliderTicks from '../src/SliderTicks';
 import SliderButton from '../src/SliderButton';
+import SliderModel from '../src/SliderModel';
 import keycode from 'keycode';
 
 const propTypes = {
@@ -25,26 +26,30 @@ const propTypes = {
 
 class Slider extends React.Component {
     componentDidMount() {
-        const { fixedTickWidth } = this.props;
-        const wrapper = ReactDOM.findDOMNode(this);
-        const track = wrapper.getElementsByClassName('k-slider-track')[0];
-        this.tickSizes = this.getTickSizes(wrapper);
-        this.resizeTrack(wrapper);
-        this.resizeTicks(wrapper);
-        this.positionHandle(wrapper);
-        this.positionSelection(wrapper);
-
-        if (fixedTickWidth) {
-            this.resizeWrapper(wrapper, track);
-        }
+        this.sizeComponent();
     }
 
     componentDidUpdate() {
+        this.sizeComponent();
+    }
+
+    sizeComponent() {
         const wrapper = ReactDOM.findDOMNode(this);
-        this.resizeTrack(wrapper);
-        this.resizeTicks(wrapper);
-        this.positionHandle(wrapper);
-        this.positionSelection(wrapper);
+        const track = wrapper.getElementsByClassName('k-slider-track')[0];
+        const ticks = wrapper.getElementsByClassName('k-tick');
+        const ticksConainer = wrapper.getElementsByClassName('k-slider-items');
+        const dragHandle = wrapper.getElementsByClassName('k-draghandle')[0];
+        const selection = wrapper.getElementsByClassName('k-slider-selection')[0];
+        const model = new SliderModel(this.props, wrapper, track);
+
+        model.resizeTrack();
+        model.resizeTicks(ticksConainer, ticks);
+        model.positionHandle(dragHandle);
+        model.positionSelection(dragHandle, selection);
+
+        if (this.props.fixedTickWidth) {
+            model.resizeWrapper();
+        }
     }
 
     onIncrease = () => {
@@ -104,97 +109,6 @@ class Slider extends React.Component {
             value = util.trimValue(max, min, value);
             this.props.onChange({ value });
         }
-    }
-
-    resizeWrapper(wrapper, track) {
-        const { vertical } = this.props;
-        const orientation = this.props.vertical ? 'height' : 'width';
-        const wrapperSize = vertical ? parseInt(getComputedStyle(wrapper)[orientation]) :
-            parseInt(getComputedStyle(wrapper)[orientation]);
-        const trackWidth = this.trackWidth(wrapper, track);
-        const fixedTrackWidth = this.fixedTrackWidth();
-        if (trackWidth > fixedTrackWidth) {
-            wrapper.style[orientation] = `${ wrapperSize - (trackWidth - fixedTrackWidth)}px`;
-        } else {
-            wrapper.style[orientation] = `${ wrapperSize + (fixedTrackWidth - trackWidth)}px`;
-        }
-    }
-
-    resizeTrack(wrapper) {
-        const { vertical, fixedTickWidth } = this.props;
-        const orientation = vertical ? 'height' : 'width';
-        const track = wrapper.getElementsByClassName('k-slider-track')[0];
-        const trackWidth = fixedTickWidth ? this.fixedTrackWidth() : this.trackWidth(wrapper, track);
-        track.style[orientation] = `${trackWidth}px`;
-    }
-
-    resizeTicks(wrapper) {
-        const { vertical } = this.props;
-        const ticks = wrapper.getElementsByClassName('k-tick');
-        const dimension = vertical ? "height" : "width";
-        [ ...ticks ].map((tick, index) => tick.style[dimension] = `${this.tickSizes[index]}px`);
-        if (vertical) {
-            this.adjustPadding(wrapper);
-        }
-    }
-
-    adjustPadding(wrapper) {
-        const { fixedTickWidth } = this.props;
-        const ticksWidth = this.tickSizes.reduce((prev, curr) => prev + curr, 0);
-        const ticksContainer = wrapper.getElementsByClassName('k-slider-items')[0];
-        const track = wrapper.getElementsByClassName('k-slider-track')[0];
-        const trackWidth = fixedTickWidth ? this.fixedTrackWidth() : this.trackWidth(wrapper, track);
-        const reminder = trackWidth - ticksWidth;
-        if ( reminder !== 0) {
-            let padding = reminder + parseInt(getComputedStyle(track).bottom);
-            ticksContainer.style.paddingTop = `${padding}px`;
-        }
-    }
-
-    fixedTrackWidth() {
-        const { max, min, smallStep, fixedTickWidth } = this.props;
-        return ((max - min) / smallStep) * fixedTickWidth;
-    }
-
-    trackWidth(wrapper, track) {
-        const { vertical } = this.props;
-        const wrapperSize = vertical ? wrapper.clientHeight : wrapper.clientWidth;
-        const offset = vertical ? getComputedStyle(track).bottom : getComputedStyle(track).left;
-        const trackSize = util.calculateTrackSize(wrapperSize, offset);
-
-        return trackSize;
-    }
-
-    positionHandle(wrapper) {
-        const { max, min, vertical, fixedTickWidth } = this.props;
-        let value = util.trimValue(max, min, this.props.value);
-        const position = vertical ? 'bottom' : 'left';
-        const track = wrapper.getElementsByClassName('k-slider-track')[0];
-        const trackWidth = fixedTickWidth ? this.fixedTrackWidth() : this.trackWidth(wrapper, track);
-        const dragHandle = wrapper.getElementsByClassName('k-draghandle')[0];
-        const handleWidth = Math.floor(dragHandle.offsetWidth / 2);
-        const handlePosition = (trackWidth / Math.abs(max - min) * (value - min)) - handleWidth;
-        dragHandle.style[position] = `${Math.floor(handlePosition)}px`;
-    }
-
-    positionSelection(wrapper) {
-        const { vertical } = this.props;
-        const offset = vertical ? 'bottom' : 'left';
-        const orientation = vertical ? 'height' : 'width';
-        const handle = wrapper.getElementsByClassName('k-draghandle')[0];
-        const handleWidth = Math.floor(handle.offsetWidth / 2);
-        const handleLeft = parseInt(getComputedStyle(handle)[offset]);
-        const selection = wrapper.getElementsByClassName('k-slider-selection')[0];
-        selection.style[orientation] = `${handleLeft + handleWidth}px`;
-    }
-
-    getTickSizes(wrapper) {
-        const { max, min, smallStep, fixedTickWidth } = this.props;
-        const track = wrapper.getElementsByClassName('k-slider-track')[0];
-        const trackWidth = fixedTickWidth ? this.fixedTrackWidth() : this.trackWidth(wrapper, track);
-        const tickSizes = util.calculateTickSizes(trackWidth, min, max, smallStep);
-
-        return tickSizes;
     }
 
     keyBinding = {

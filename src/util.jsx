@@ -1,5 +1,8 @@
 const BUTTONS_COUNT = 2;
 
+const calculateFixedTrackSize = ({ max, min, smallStep, fixedTickWidth }) =>
+    ((max - min) / smallStep) * fixedTickWidth;
+
 const calculateTrackSize = (wrapperWidth, offset) => {
     const trackOffset = parseFloat(offset, 10) * BUTTONS_COUNT;
     const trackWidth = wrapperWidth - trackOffset - BUTTONS_COUNT;
@@ -35,6 +38,11 @@ const calculateTickSizes = (trackWidth, min, max, step) => {
         usedWidth += size;
     }
     return result;
+};
+
+const calculateHandlePosition = ({ handleWidth, trackWidth, min, max, value }) => {
+    const halfHandleWidth = Math.floor(handleWidth / 2);
+    return Math.floor((trackWidth / Math.abs(max - min) * (value - min)) - halfHandleWidth);
 };
 
 const trimValue = (max, min, value) => {
@@ -93,9 +101,11 @@ const valueFromTrack = (props, wrapperOffset, left, length) => {
 const identity = (value) => value;
 
 export default {
+    calculateFixedTrackSize,
     calculateTrackSize,
     calculateTicksCount,
     calculateTickSizes,
+    calculateHandlePosition,
     decreaseValueToStep,
     identity,
     increaseValueToStep,
