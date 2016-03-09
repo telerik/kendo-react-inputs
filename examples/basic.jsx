@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import KendoSlider from '../src/KendoSlider';
+import Slider from '../src/Slider';
 
 const state = {
     max: 10,
@@ -25,7 +25,7 @@ const state = {
 };
 const render = () => {
     ReactDOM.render(
-        <KendoSlider
+        <Slider
             buttons = {state.buttons}
             decreaseButtonTitle = {state.decreaseButtonTitle}
             fixedTickWidth = {state.fixedTickWidth}

@@ -1,2 +1,2 @@
-import KendoSlider from './KendoSlider';
-module.exports = KendoSlider;
+import Slider from './Slider';
+module.exports = Slider;

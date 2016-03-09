@@ -23,7 +23,7 @@ const propTypes = {
     vertical: React.PropTypes.bool
 };
 
-class KendoSlider extends React.Component {
+class Slider extends React.Component {
     componentDidMount() {
         const { fixedTickWidth } = this.props;
         const wrapper = ReactDOM.findDOMNode(this);
@@ -247,6 +247,6 @@ class KendoSlider extends React.Component {
     }
 }
 
-KendoSlider.propTypes = propTypes;
+Slider.propTypes = propTypes;
 
-export default KendoSlider;
+export default Slider;
