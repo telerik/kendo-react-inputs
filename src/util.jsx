@@ -1,9 +1,8 @@
-const BUTTONS_COUNT = 2;
-
 const calculateFixedTrackSize = ({ max, min, smallStep, fixedTickWidth }) =>
     ((max - min) / smallStep) * fixedTickWidth;
 
 const calculateTrackSize = (wrapperWidth, offset) => {
+    const BUTTONS_COUNT = 2;
     const trackOffset = parseFloat(offset, 10) * BUTTONS_COUNT;
     const trackWidth = wrapperWidth - trackOffset - BUTTONS_COUNT;
 
@@ -21,94 +20,29 @@ const calculateAreasCount = (max = 0, min = 0, smallStep = 1) => {
     return Math.floor(Math.abs(min - max) / smallStep);
 };
 
-const calculateValueFromTick = (index, props) => {
-    const { max, min, smallStep, vertical } = props;
+const calculateValueFromTick = (index, { max, min, smallStep, vertical }) => {
     const value = min + (index * smallStep);
 
     return vertical ? Math.abs(value - max) : value;
 };
 
 const calculateValueFromTrack = (clientRect, pageOffset, props) => {
-    let length, wrapperOffset, position;
+    let length, wrapperOffset;
 
     if (props.vertical) {
-        position = clientRect.bottom;
-        length = clientRect.top - position;
-        wrapperOffset = pageOffset.pageY - position;
+        const { top, bottom } = clientRect;
+        length = top - bottom;
+        wrapperOffset = pageOffset.pageY - bottom;
     } else {
-        position = clientRect.left;
-        length = clientRect.right - position;
-        wrapperOffset = pageOffset.pageX - position;
+        const { left, right } = clientRect;
+        length = right - left;
+        wrapperOffset = pageOffset.pageX - left;
     }
 
-    return valueFromTrack(props, wrapperOffset, position, length);
+    return valueFromTrack(props, wrapperOffset, length);
 };
 
-const calculateTickSizes = (trackWidth, min, max, step) => {
-    const elementCount = (Math.floor((max - min) / step)) + 1;
-    let result = [];
-    let usedWidth = 0;
-    let endPoint = 0;
-    const distStep = trackWidth / (max - min);
-    for (let i = 0; i < elementCount; i++) {
-        if (i === 0 || i === elementCount - 1) {
-            endPoint += (step / 2) * distStep;
-        } else {
-            endPoint += step * distStep;
-        }
-        const size = Math.round(endPoint - usedWidth);
-        result.push(size);
-        usedWidth += size;
-    }
-    return result;
-};
-
-const calculateHandlePosition = ({ handleWidth, trackWidth, min, max, value }) => {
-    const halfHandleWidth = Math.floor(handleWidth / 2);
-    return Math.floor((trackWidth / Math.abs(max - min) * (value - min)) - halfHandleWidth);
-};
-
-const trimValue = (max, min, value) => {
-    if (value > max) {
-        return max;
-    }
-    if (value < min) {
-        return min;
-    }
-    return value;
-};
-
-const decreaseValueToStep = (props) => {
-    const { max, min, smallStep, value } = props;
-    if (value % smallStep === 0) {
-        return value - smallStep;
-    }
-    let updatedValue = value - (value % smallStep);
-    updatedValue = trimValue(max, min, updatedValue);
-    return updatedValue;
-};
-
-const increaseValueToStep = (props) => {
-    const { max, min, smallStep, value } = props;
-    let updatedValue = value - (value % smallStep) + smallStep;
-    updatedValue = trimValue(max, min, updatedValue);
-    return updatedValue;
-};
-
-const snapValue = (props) => {
-    const { smallStep, value } = props;
-    const left = decreaseValueToStep(props);
-    const right = increaseValueToStep(props);
-    if (value % smallStep === 0) {
-        return value;
-    }
-    if (right - value <= smallStep / 2) {
-        return right;
-    }
-    return left;
-};
-
-const valueFromTrack = (props, wrapperOffset, left, length) => {
+const valueFromTrack = (props, wrapperOffset, length) => {
     const { max, min, smallStep } = props;
     const distance = max - min;
     const clickOffset = wrapperOffset / length;
@@ -121,6 +55,81 @@ const valueFromTrack = (props, wrapperOffset, left, length) => {
     }
 
     return snapValue(extendProps(props, { value }));
+};
+
+const calculateTickSizes = (trackSize, min, max, step) => {
+    const elementCount = Math.floor((max - min) / step) + 1;
+    const distStep = trackSize / (max - min);
+    let result = [];
+    let usedSpace = 0;
+    let endPoint = 0;
+
+    for (let i = 0; i < elementCount; i++) {
+        if (i === 0 || i === elementCount - 1) {
+            endPoint += (step / 2) * distStep;
+        } else {
+            endPoint += step * distStep;
+        }
+
+        const size = Math.round(endPoint - usedSpace);
+
+        result.push(size);
+
+        usedSpace += size;
+    }
+
+    return result;
+};
+
+const calculateHandlePosition = ({ handleWidth, trackWidth, min, max, value }) => {
+    const halfHandleWidth = Math.floor(handleWidth / 2);
+    const step = trackWidth / Math.abs(max - min);
+
+    return Math.floor((step * (value - min)) - halfHandleWidth);
+};
+
+const decreaseValueToStep = ({ max, min, smallStep, value }) => {
+    if (value % smallStep === 0) {
+        return value - smallStep;
+    }
+
+    const result = value - (value % smallStep);
+
+    return trimValue(max, min, result);
+};
+
+const increaseValueToStep = ({ max, min, smallStep, value }) => {
+    const result = value - (value % smallStep) + smallStep;
+
+    return trimValue(max, min, result);
+};
+
+const snapValue = (props) => {
+    const { smallStep, value } = props;
+    const left = decreaseValueToStep(props);
+    const right = increaseValueToStep(props);
+
+    if (value % smallStep === 0) {
+        return value;
+    }
+
+    if (right - value <= smallStep / 2) {
+        return right;
+    }
+
+    return left;
+};
+
+const trimValue = (max, min, value) => {
+    if (value > max) {
+        return max;
+    }
+
+    if (value < min) {
+        return min;
+    }
+
+    return value;
 };
 
 const identity = (value) => value;

@@ -158,9 +158,8 @@ describe('Slider Math', () => {
     it('value from track is calulated to step value', () => {
         const props = { max: 10, min: 0, smallStep: 2 };
         const wrapperOffset = 100;
-        const left = 40;
         const length = 130;
-        const value = util.valueFromTrack(props, wrapperOffset, left, length);
+        const value = util.valueFromTrack(props, wrapperOffset, length);
         expect(value).toEqual(8);
     });
 });
