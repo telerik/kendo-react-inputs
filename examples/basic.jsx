@@ -2,44 +2,50 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import Slider from '../src/Slider';
 
-const state = {
-    max: 10,
-    min: -4,
-    value: 4,
-    step: 2,
-    //fixedTickWidth: 10,
-    decreaseButtonTitle: "Dec",
-    increaseButtonTitle: "Inc",
-    buttons: true,
-    tickPlacement: "both",
-    onChange: function(e) {
-        state.value = e.value;
-        render();
-    },
-    title: function(value) {
+class MyComponent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            max: 10,
+            min: 0,
+            value: 4,
+            step: 1,
+            decreaseButtonTitle: "Dec",
+            increaseButtonTitle: "Inc",
+            buttons: true,
+            tickPlacement: "both"
+        };
+    }
+    title(value) {
         if (value % 2 === 0) {
             return 'even';
         }
         return 'odd';
     }
-};
-const render = () => {
-    ReactDOM.render(
-        <Slider
-            buttons = {state.buttons}
-            decreaseButtonTitle = {state.decreaseButtonTitle}
-            fixedTickWidth = {state.fixedTickWidth}
-            increaseButtonTitle = {state.increaseButtonTitle}
-            max = {state.max}
-            min = {state.min}
-            onChange = {state.onChange}
-            smallStep = {state.step}
-            tickPlacement = {state.tickPlacement}
-            title = {state.title}
-            value = {state.value}
-        />,
-        document.getElementById('app')
-    );
-};
-
-render();
+    onChange(e) {
+        this.setState({
+            value: e.value
+        });
+    }
+    render() {
+        return (
+            <Slider
+                buttons = {this.state.buttons}
+                decreaseButtonTitle = {this.state.decreaseButtonTitle}
+                fixedTickWidth = {this.state.fixedTickWidth}
+                increaseButtonTitle = {this.state.increaseButtonTitle}
+                max = {this.state.max}
+                min = {this.state.min}
+                onChange = {this.onChange}
+                smallStep = {this.state.step}
+                style = {{ width: 400 }}
+                tickPlacement = {this.state.tickPlacement}
+                title = {this.title}
+                value = {this.state.value}
+            />);
+    }
+}
+ReactDOM.render(
+    <MyComponent />,
+    document.getElementById('app')
+);
