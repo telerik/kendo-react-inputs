@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import Slider from '../src/Slider';
 
-class MyComponent extends React.Component {
+class SliderContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -46,6 +46,6 @@ class MyComponent extends React.Component {
     }
 }
 ReactDOM.render(
-    <MyComponent />,
+    <SliderContainer />,
     document.getElementById('app')
 );
