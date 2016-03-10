@@ -59,57 +59,57 @@ describe('Slider Math', () => {
     });
 
     it('decrease value when int', () => {
-        const value = util.decreaseValueToStep(3, { smallStep: 1, max: 10, min: 0 });
+        const value = util.decreaseValueToStep({ value: 3, smallStep: 1, max: 10, min: 0 });
         expect(value).toEqual(2);
     });
 
     it('decrease value when float', () => {
-        const value = util.decreaseValueToStep(3, { smallStep: 2, max: 10, min: 0 });
+        const value = util.decreaseValueToStep({ value: 3, smallStep: 2, max: 10, min: 0 });
         expect(value).toEqual(2);
     });
 
     it('increase value when float', () => {
-        const value = util.increaseValueToStep(3, { smallStep: 2, max: 10, min: 0 });
+        const value = util.increaseValueToStep({ value: 3, smallStep: 2, max: 10, min: 0 });
         expect(value).toEqual(4);
     });
 
     it('increase value should respect max', () => {
-        const value = util.increaseValueToStep(3, { smallStep: 2, max: 4, min: 0 });
+        const value = util.increaseValueToStep({ value: 3, smallStep: 2, max: 4, min: 0 });
         expect(value).toEqual(4);
     });
 
     it('increase value when int', () => {
-        const value = util.increaseValueToStep(2,{ smallStep: 2, max: 10, min: 0 });
+        const value = util.increaseValueToStep({ value: 2, smallStep: 2, max: 10, min: 0 });
         expect(value).toEqual(4);
     });
 
     it('decrease value should respect min', () => {
-        const value = util.decreaseValueToStep(3, { smallStep: 2, max: 10, min: 2 });
+        const value = util.decreaseValueToStep({ value: 3, smallStep: 2, max: 10, min: 2 });
         expect(value).toEqual(2);
     });
 
     it('snap value to tick', () => {
-        const value = util.snapValue(2, { smallStep: 1, max: 10, min: 0 });
+        const value = util.snapValue({ value: 2, smallStep: 1, max: 10, min: 0 });
         expect(value).toEqual(2);
     });
 
     it('snap value to the left', () => {
-        const value = util.snapValue(5, { smallStep: 4, max: 10, min: 0 });
+        const value = util.snapValue({ value: 5, smallStep: 4, max: 10, min: 0 });
         expect(value).toEqual(4);
     });
 
     it('snap value to the right', () => {
-        const value = util.snapValue(7, { smallStep: 4, max: 10, min: 0 });
+        const value = util.snapValue({ value: 7, smallStep: 4, max: 10, min: 0 });
         expect(value).toEqual(8);
     });
 
     it('snap value when step and value are floats', () => {
-        const value = util.snapValue(7.5, { smallStep: 4.5, max: 10, min: 0 });
+        const value = util.snapValue({ value: 7.5, smallStep: 4.5, max: 10, min: 0 });
         expect(value).toEqual(9);
     });
 
     it('snap value to tick when no reminder', () => {
-        const value = util.snapValue(8, { smallStep: 4, max: 10, min: 0 });
+        const value = util.snapValue({ value: 8, smallStep: 4, max: 10, min: 0 });
         expect(value).toEqual(8);
     });
 

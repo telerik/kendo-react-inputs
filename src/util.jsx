@@ -28,6 +28,22 @@ const calculateValueFromTick = (index, props) => {
     return vertical ? Math.abs(value - max) : value;
 };
 
+const calculateValueFromTrack = (clientRect, pageOffset, props) => {
+    let length, wrapperOffset, position;
+
+    if (props.vertical) {
+        position = clientRect.bottom;
+        length = clientRect.top - position;
+        wrapperOffset = pageOffset.pageY - position;
+    } else {
+        position = clientRect.left;
+        length = clientRect.right - position;
+        wrapperOffset = pageOffset.pageX - position;
+    }
+
+    return valueFromTrack(props, wrapperOffset, position, length);
+};
+
 const calculateTickSizes = (trackWidth, min, max, step) => {
     const elementCount = (Math.floor((max - min) / step)) + 1;
     let result = [];
@@ -79,10 +95,10 @@ const increaseValueToStep = (props) => {
     return updatedValue;
 };
 
-const snapValue = (value, props) => {
-    const { smallStep } = props;
-    const left = decreaseValueToStep(value, props);
-    const right = increaseValueToStep(value, props);
+const snapValue = (props) => {
+    const { smallStep, value } = props;
+    const left = decreaseValueToStep(props);
+    const right = increaseValueToStep(props);
     if (value % smallStep === 0) {
         return value;
     }
@@ -99,17 +115,22 @@ const valueFromTrack = (props, wrapperOffset, left, length) => {
     const maxTickValue = distance - (distance % smallStep);
     const maxOffset = (100 / distance) * maxTickValue / 100;
     let value = max;
+
     if (clickOffset < maxOffset) {
         value = Math.floor(((wrapperOffset) / length) * distance + min);
     }
-    return snapValue(value, props);
+
+    return snapValue(extendProps(props, { value }));
 };
 
 const identity = (value) => value;
 
+const extendProps = (target, ...sources) => Object.assign({}, target, ...sources);
+
 export default {
     calculateFixedTrackSize,
     calculateValueFromTick,
+    calculateValueFromTrack,
     calculateTrackSize,
     calculateTicksCount,
     calculateTickSizes,
