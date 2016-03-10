@@ -21,6 +21,13 @@ const calculateAreasCount = (max = 0, min = 0, smallStep = 1) => {
     return Math.floor(Math.abs(min - max) / smallStep);
 };
 
+const calculateValueFromTick = (index, props) => {
+    const { max, min, smallStep, vertical } = props;
+    const value = min + (index * smallStep);
+
+    return vertical ? Math.abs(value - max) : value;
+};
+
 const calculateTickSizes = (trackWidth, min, max, step) => {
     const elementCount = (Math.floor((max - min) / step)) + 1;
     let result = [];
@@ -55,8 +62,8 @@ const trimValue = (max, min, value) => {
     return value;
 };
 
-const decreaseValueToStep = (value, props) => {
-    const { max, min, smallStep } = props;
+const decreaseValueToStep = (props) => {
+    const { max, min, smallStep, value } = props;
     if (value % smallStep === 0) {
         return value - smallStep;
     }
@@ -65,8 +72,8 @@ const decreaseValueToStep = (value, props) => {
     return updatedValue;
 };
 
-const increaseValueToStep = (value, props) => {
-    const { max, min, smallStep } = props;
+const increaseValueToStep = (props) => {
+    const { max, min, smallStep, value } = props;
     let updatedValue = value - (value % smallStep) + smallStep;
     updatedValue = trimValue(max, min, updatedValue);
     return updatedValue;
@@ -102,6 +109,7 @@ const identity = (value) => value;
 
 export default {
     calculateFixedTrackSize,
+    calculateValueFromTick,
     calculateTrackSize,
     calculateTicksCount,
     calculateTickSizes,
