@@ -8,8 +8,8 @@ class MyComponent extends React.Component {
         this.state = {
             max: 10,
             min: 0,
-            value: 4,
-            step: 1,
+            value: 3,
+            step: 2,
             decreaseButtonTitle: "Dec",
             increaseButtonTitle: "Inc",
             buttons: true,
@@ -22,7 +22,7 @@ class MyComponent extends React.Component {
         }
         return 'odd';
     }
-    onChange(e) {
+    onChange = (e) => {
         this.setState({
             value: e.value
         });
