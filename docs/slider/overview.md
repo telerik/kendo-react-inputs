@@ -66,7 +66,8 @@ When enabled, the side buttons increase or decrease the component value with the
             );
         }
     }
-
+```
+```jsx
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -105,7 +106,8 @@ The title of the buttons can be controlled by using the `decreaseButtonTitle` an
             );
         }
     }
-
+```
+```jsx
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -146,7 +148,8 @@ The `smallStep` option accepts both `integer` and `floating` values.
             );
         }
     }
-
+```
+```jsx
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -196,7 +199,8 @@ The `title` option defines the titles of the ticks. By default, the title of eac
             );
         }
     }
-
+```
+```jsx
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -233,7 +237,8 @@ The `fixedtickwidth` option sets the width between each two ticks along the trac
             );
         }
     }
-
+```
+```jsx
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -271,7 +276,8 @@ The default orientation of the Slider is horizontal. The `vertical` option, when
             );
         }
     }
-
+```
+```jsx
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -308,7 +314,8 @@ The Slider is a stateless component. That is why it should be placed within a hi
             );
         }
     }
-
+```
+```jsx
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -339,7 +346,7 @@ The Slider is WAI ARIA-accessible through the `Tab` key. The `aria-valuemin`, `a
 
 The example below demonstrates the default setup of a Kendo UI Slider for React.
 
-```html.preview
+```html-preview
   class SliderContainer extends React.Component {
       constructor(props) {
           super(props);
@@ -364,6 +371,8 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
               />);
       }
   }
+```
+```jsx
   ReactDOM.render(
       <SliderContainer />,
       document.getElementById('app')
@@ -374,7 +383,7 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
 
 The example below demonstrates a Kendo UI Slider for React with ... (describe scenario).
 
-```html.preview
+```html-preview
   //code goes here
 ```
 
