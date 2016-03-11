@@ -1,14 +1,18 @@
 ---
 title: Overview
 page_title: Overview | Kendo UI Slider for React
-description: "How to use the Kendo UI Slider in a React project."
+description: "Use the Kendo UI Slider component in a React project."
 slug: overview_slider_kendouiforreact
 position: 1
 ---
 
 # Slider Overview
 
-The Kendo UI Slider is a React component that lets users select a value from a predefined range. The values can be increased or decreased over a pre-defined step by dragging a handle along the track, or by clicking the side arrow buttons. When used as horizontal Slider the component will place the smallest value on the left and the largest on the right. When used in vertical mode the smallest value will be on the bottom. The main purpose of this component is to offer extended functionality over the native `<input type="range" />` component. The Kendo UI Slider is a component that is part of the Kendo UI React Inputs `npm` package. It is designed as a stateless component, which means that a high-order component should be used for storing the widget's state and configuration options.
+The Kendo UI Slider is a React component that lets users select a value from a predefined range. The values can be increased or decreased over a pre-defined step by dragging a handle along the track, or by clicking the side arrow buttons. When used in its horizontal mode, the Slider component displays the smallest value on the left and the largest on the right. When used in its vertical mode, the Slider component displays the smallest value on the bottom and the largest on the top.
+
+The Kendo UI Slider for React is a component that is part of the Inputs `npm` package of the Kendo UI for React suite. It is designed as a stateless component, which means that to store its state and configuration options, you should use a high-order component.
+
+The main purpose of the Slider is to offer an extended functionality over the native `<input type="range" />` component.
 
 **Figure 1. A horizontal template of the Kendo UI Slider for React**
 
@@ -32,7 +36,7 @@ Vasko goes here: template screen - vertical, parts indicated:
 
 ### Buttons
 
-When enabled the side buttons increase/decrease the component value with the pre-defined step. If the initial value cannot be directly matched to a specific tick, when clicking the buttons the handle will be placed to the next possible tick and then every subsequent clicks will move the handle over the ticks. By default, the `buttons` configuration option is set to `true`. If set to `false`, the buttons do not appear.
+When enabled, the side buttons increase or decrease the component value with the pre-defined step. If the initial value cannot be directly matched to a specific tick, the handle is placed to the next possible tick when either of the buttons is clicked. Then each subsequent click moves the handle over the ticks. By default, the `buttons` configuration option is set to `true`. If set to `false`, the buttons do not appear.
 
 ```html
     class SliderContainer extends React.Component {
@@ -69,7 +73,7 @@ When enabled the side buttons increase/decrease the component value with the pre
     );
 ```
 
-The title of the buttons can be controlled using the `decreaseButtonTitle` and `increaseButtonTitle` options. These options accept `string` parameters.
+The title of the buttons can be controlled by using the `decreaseButtonTitle` and `increaseButtonTitle` options. These options accept `string` parameters.
 
 ```html
     class SliderContainer extends React.Component {
@@ -110,11 +114,9 @@ The title of the buttons can be controlled using the `decreaseButtonTitle` and `
 
 ### Steps
 
-The step option will be used to split the track on equal ticks based on the `min` and `max` values.
+The step option is used to split the track on equal ticks based on the `min` and `max` values. For example, if `min: 0`, `max: 4` and `smallStep: 1`, the Slider displays ticks indicating four steps. If `min: 2`, `max: 4` and `smallStep: 1`, the Slider displays two steps.
 
-For example, if `min: 0`, `max: 4` and `smallStep: 1`, the Slider displays ticks indicating four steps. If `min: 2`, `max: 4` and `smallStep: 1`, the Slider displays two steps.
-
-The step is defined through the `smallStep` option. The small steps are applied whenever users interact with the Slider&mdash;for example, when the side arrow buttons are clicked or when the handle is dragged, the Slider value changes with small steps.
+The step is defined through the `smallStep` option. The small steps are applied whenever users interact with the Slider. For example, when the side arrow buttons are clicked, or when the handle is dragged, the Slider value changes with small steps.
 
 The `smallStep` option accepts both `integer` and `floating` values.
 
@@ -159,7 +161,7 @@ Along the track, the ticks indicate the values resulting from each incremented p
     //code goes here
 ```
 
-The `title` option defines the title of the ticks. By default, the titles of each tick corresponds to its value. If you want them to show a particular title, define a callback that will called with the current value as a parameter and it must return the title that will be rendered for the `tick`.
+The `title` option defines the titles of the ticks. By default, the title of each tick corresponds to its value. If you want a tick to display a particular title, define a callback. It will be called with its current value as a parameter and return the title of the `tick` that is to be rendered.
 
 ```html
     class SliderContainer extends React.Component {
@@ -201,7 +203,7 @@ The `title` option defines the title of the ticks. By default, the titles of eac
     );
 ```
 
-The `fixedtickwidth` option sets the width between each two ticks along the track. Its value must be set in pixels. When this option is enabled the component will be resized in order to fit all the ticks with the corresponding tick width. If no `fixedTickWidth` options is set the component will adjust the size of the ticks in order for the sum to match the actual size of the component.
+The `fixedtickwidth` option sets the width between each two ticks along the track. Its value must be set in pixels. When the option is enabled, the component gets resized to fit all ticks with the corresponding width. If no `fixedTickWidth` options is defined, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
 
 ```html
     class SliderContainer extends React.Component {
@@ -278,7 +280,7 @@ The default orientation of the Slider is horizontal. The `vertical` option, when
 
 ### State
 
-The Slider is a stateless component. This is why it should be placed within a hight-order component that will control its state and will hold the configuration. The `onChange` event will be fired each time there is a user interaction with the component. The new value will be passed as an argument to the `onChange` callback, so the developer can handle the state of the component as needed.
+The Slider is a stateless component. That is why it should be placed within a high-order component that controls its state and holds the configuration. The `onChange` event is fired each time when a user interaction with the component happens. The new value is then passed as an argument to the `onChange` callback, so that you are able to handle the state of the component when needed.
 
 ```html
     class SliderContainer extends React.Component {
@@ -313,7 +315,7 @@ The Slider is a stateless component. This is why it should be placed within a hi
     );
 ```
 
-For detailed information on the Kendo UI Slider for React configuration, refer to its [client-side API documentation]({% slug ... %}).
+For detailed information on the Kendo UI Slider for React configuration, refer to its [client-side API documentation]({% slug api_slider_kendouiforreact %}).
 
 ## Keyboard Navigation
 
@@ -329,7 +331,7 @@ Below is the list with the keyboard shortcuts the Slider supports.
 
 ## Accessibility (Petyo - no?)
 
-The Slider is WAI ARIA-accessible through the `Tab` key. The `aria-valuemin`, `aria-valuemax`, and `aria-valuetext` options define the accessibility values that are chosen on dragging the handle of the Slider or via the Slider buttons interaction.
+The Slider is WAI ARIA-accessible through the `Tab` key. The `aria-valuemin`, `aria-valuemax`, and `aria-valuetext` options define the accessibility values that are chosen on dragging the handle of the Slider or on interacting with the Slider through its buttons.
 
 ## Demos
 
