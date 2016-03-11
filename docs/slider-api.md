@@ -6,9 +6,9 @@ slug: api_slider_kendouiforreact
 position: 2
 ---
 
-# kendoSlider (?)
+# Slider
 
-Represents the Kendo UI Slider for React widget.
+Represents the Kendo UI Slider for React component.
 
 ## Buttons
 
@@ -28,19 +28,19 @@ The title of the increase button of the Slider.
 
 #### max `Number`*(default: 10)*
 
-The maximum value (large step) of the Slider. The attribute accepts both integers and floating numbers.
+The maximum value of the Slider. The attribute accepts both integers and floating numbers.
 
 #### min `Number`*(default: 0)*
 
-The minimum value (large step) of the Slider. The attribute accepts both integers and floating numbers.
+The minimum value of the Slider. The attribute accepts both integers and floating numbers.
 
 #### smallStep `Number`*(default: 1)*
 
-The small step value of the Slider. The attribute accepts only positive numbers.
+The step value of the Slider. The attribute accepts only positive numbers. Can be both integer or a floating number.
 
 #### value `Number`
 
-The selected value (number of large steps) of the Slider when initially displayed.
+The current value of the Slider when initially displayed.
 
 ## Ticks
 
@@ -50,18 +50,18 @@ Denotes the location of the tick marks in the Slider.
 
 The available options are:
 
-* `before` - Tick marks are located to the top side of the horizontal track or to the right side of a vertical track.
-* `after` - Tick marks are located to the bottom side of the horizontal track or to the left side of the vertical track.
+* `before` - Tick marks are located to the top side of the horizontal track or to the left side of a vertical track.
+* `after` - Tick marks are located to the bottom side of the horizontal track or to the right side of the vertical track.
 * `both` - Tick marks are located on both sides of the track.
-* `none` - Tick marks are not visible.
+* `none` - Tick marks are not visible. The actual elements are not added to the DOM tree.
 
-#### title `String|Number`
+#### title `String|Function`
 
-Defines title of the ticks. The default title for each tick is its Slider value.
+Defines title of the ticks. The default title for each tick is its Slider value. If callback function is used it will accept an argument holding the value of the widget and should return a string with the new title.
 
-#### fixedtickwidth `Number`*(default: 20)*
+#### fixedTickwidth `Number`
 
-Sets the width between each two ticks along the track. The value must be set in pixels.
+Sets the width between each two ticks along the track. The value must be set in pixels. If no fixedTickWidth is provided the component will automatically adjust the tick width to accommodate the elements within the size of the component.
 
 ## Orientation
 
@@ -71,6 +71,6 @@ Changes the orientation of the Slider from horizontal to vertical when set to `t
 
 ## State
 
-#### onChange
+#### onChange `Function`
 
-Kireto goes here
+As a stateless component the Slider will fire its onChange event handler every time when the value is changed. It should be handled by the parent component.
