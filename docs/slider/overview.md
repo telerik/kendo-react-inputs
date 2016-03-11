@@ -39,6 +39,9 @@ Vasko goes here: template screen - vertical, parts indicated:
 When enabled, the side buttons increase or decrease the component value with the pre-defined step. If the initial value cannot be directly matched to a specific tick, the handle is placed to the next possible tick when either of the buttons is clicked. Then each subsequent click moves the handle over the ticks. By default, the `buttons` configuration option is set to `true`. If set to `false`, the buttons do not appear.
 
 ```html
+  <div id="app"></div>
+```
+```jsx
     class SliderContainer extends React.Component {
         constructor(props) {
             super(props);
@@ -66,8 +69,7 @@ When enabled, the side buttons increase or decrease the component value with the
             );
         }
     }
-```
-```jsx
+
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -77,6 +79,9 @@ When enabled, the side buttons increase or decrease the component value with the
 The title of the buttons can be controlled by using the `decreaseButtonTitle` and `increaseButtonTitle` options. These options accept `string` parameters.
 
 ```html
+  <div id="app"></div>
+```
+```jsx
     class SliderContainer extends React.Component {
         constructor(props) {
             super(props);
@@ -106,8 +111,7 @@ The title of the buttons can be controlled by using the `decreaseButtonTitle` an
             );
         }
     }
-```
-```jsx
+
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -123,6 +127,9 @@ The step is defined through the `smallStep` option. The small steps are applied 
 The `smallStep` option accepts both `integer` and `floating` values.
 
 ```html
+  <div id="app"></div>
+```
+```jsx
     class SliderContainer extends React.Component {
         constructor(props) {
             super(props);
@@ -148,8 +155,7 @@ The `smallStep` option accepts both `integer` and `floating` values.
             );
         }
     }
-```
-```jsx
+
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -161,12 +167,49 @@ The `smallStep` option accepts both `integer` and `floating` values.
 Along the track, the ticks indicate the values resulting from each incremented pre-defined step. Ticks are configured through the `tickPlacement` option. They can be set to appear along the upper side or bottom side of a horizontal Slider, on the left or right side of a vertical Slider, or on both sides of the track. If necessary, they can be set not to show at all.   
 
 ```html
-    //code goes here
+  <div id="app"></div>
+```
+```jsx
+     class SliderContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                max: 10,
+                min: 0,
+                step: 2.5,
+                tickPlacement: "none"
+            };
+        }
+        onChange = (e) => {
+            this.setState({
+                value: e.value
+            });
+        }
+        render() {
+            return (
+                <Slider
+                    max = {this.state.max}
+                    min = {this.state.min}
+                    onChange = {this.onChange}
+                    smallStep = {this.state.step}
+                    tickPlacement = {this.state.tickPlacement}
+                />
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <SliderContainer />,
+        document.getElementById('app')
+    );
 ```
 
 The `title` option defines the titles of the ticks. By default, the title of each tick corresponds to its value. If you want a tick to display a particular title, define a callback. It will be called with its current value as a parameter and return the title of the `tick` that is to be rendered.
 
 ```html
+  <div id="app"></div>
+```
+```jsx
     class SliderContainer extends React.Component {
         constructor(props) {
             super(props);
@@ -199,8 +242,7 @@ The `title` option defines the titles of the ticks. By default, the title of eac
             );
         }
     }
-```
-```jsx
+
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -210,6 +252,9 @@ The `title` option defines the titles of the ticks. By default, the title of eac
 The `fixedtickwidth` option sets the width between each two ticks along the track. Its value must be set in pixels. When the option is enabled, the component gets resized to fit all ticks with the corresponding width. If no `fixedTickWidth` options is defined, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
 
 ```html
+  <div id="app"></div>
+```
+```jsx
     class SliderContainer extends React.Component {
         constructor(props) {
             super(props);
@@ -237,8 +282,7 @@ The `fixedtickwidth` option sets the width between each two ticks along the trac
             );
         }
     }
-```
-```jsx
+
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -250,6 +294,9 @@ The `fixedtickwidth` option sets the width between each two ticks along the trac
 The default orientation of the Slider is horizontal. The `vertical` option, when set to `true`, allows you to change the orientation to vertical.
 
 ```html
+  <div id="app"></div>
+```
+```jsx
     class SliderContainer extends React.Component {
         constructor(props) {
             super(props);
@@ -276,8 +323,7 @@ The default orientation of the Slider is horizontal. The `vertical` option, when
             );
         }
     }
-```
-```jsx
+
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -289,6 +335,9 @@ The default orientation of the Slider is horizontal. The `vertical` option, when
 The Slider is a stateless component. That is why it should be placed within a high-order component that controls its state and holds the configuration. The `onChange` event is fired each time when a user interaction with the component happens. The new value is then passed as an argument to the `onChange` callback, so that you are able to handle the state of the component when needed.
 
 ```html
+  <div id="app"></div>
+```
+```jsx
     class SliderContainer extends React.Component {
         constructor(props) {
             super(props);
@@ -314,8 +363,7 @@ The Slider is a stateless component. That is why it should be placed within a hi
             );
         }
     }
-```
-```jsx
+
     ReactDOM.render(
         <SliderContainer />,
         document.getElementById('app')
@@ -347,6 +395,9 @@ The Slider is WAI ARIA-accessible through the `Tab` key. The `aria-valuemin`, `a
 The example below demonstrates the default setup of a Kendo UI Slider for React.
 
 ```html-preview
+  <div id="app"></div>
+```
+```jsx
   class SliderContainer extends React.Component {
       constructor(props) {
           super(props);
@@ -371,8 +422,7 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
               />);
       }
   }
-```
-```jsx
+
   ReactDOM.render(
       <SliderContainer />,
       document.getElementById('app')
