@@ -329,7 +329,7 @@ Below is the list with the keyboard shortcuts the Slider supports.
 | `End`                               | Set the Slider to its maximum value.                   |
 | `Tab`                               | (Accessibility mode) Focus the handle element.                   |
 
-## Accessibility (Petyo - no?)
+## Accessibility
 
 The Slider is WAI ARIA-accessible through the `Tab` key. The `aria-valuemin`, `aria-valuemax`, and `aria-valuetext` options define the accessibility values that are chosen on dragging the handle of the Slider or on interacting with the Slider through its buttons.
 
@@ -370,7 +370,7 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
   );
 ```
 
-### Scenario 1 (automatic generation of consequential numbers - possible, no?)
+### Scenario 1
 
 The example below demonstrates a Kendo UI Slider for React with ... (describe scenario).
 
@@ -378,6 +378,6 @@ The example below demonstrates a Kendo UI Slider for React with ... (describe sc
   //code goes here
 ```
 
-## Suggested Links (for Overviews only, Prev/Next nav at the end of each article)
+## Suggested Links
 
-* [Client-Side API Reference for Kendo UI Slider for React](...)
+* [Client-Side API Reference for Kendo UI Slider for React]({% slug api_slider_kendouiforreact %})

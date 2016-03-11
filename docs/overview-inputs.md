@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Overview | Kendo UI Inputs for React
-description: "Learn what Kendo UI for React components are included in the Inputs package."
+description: "Learn what Kendo UI components for React are included in the Inputs package."
 slug: overview_inputs_kendouiforreact
 position: 1
 ---
@@ -28,5 +28,5 @@ Articles related to the Inputs package of the Kendo UI for React suite:
 * [Client-Side API Reference of the NumericTextBox Component](...)
 * [Get Started with the Switch Component](...)
 * [Client-Side API Reference of the Switch Component](...)
-* [Get Started with the Slider Component](...)
-* [Client-Side API Reference of the Slider Component](...)
+* [Get Started with the Slider Component]({% slug overview_slider_kendouiforreact %})
+* [Client-Side API Reference of the Slider Component]({% slug api_slider_kendouiforreact %})
