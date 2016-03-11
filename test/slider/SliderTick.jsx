@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import SliderTick from '../src/SliderTick';
+import SliderTick from '../../src/slider/SliderTick';
 
 describe('SliderTick', () => {
     it('should render a li', () => {

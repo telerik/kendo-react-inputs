@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import SliderButton from '../src/SliderButton';
+import SliderButton from '../../src/slider/SliderButton';
 
 describe('SliderButton', () => {
     it('should render a anchor', () => {

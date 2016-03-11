@@ -1,8 +1,8 @@
 {
-  "name": "@telerik/kendo-react-slider",
+  "name": "@telerik/kendo-react-inputs",
   "version": "0.1.0",
   "description": "Kendo UI React component starter template",
-  "repository": "telerik/kendo-react-slider",
+  "repository": "telerik/kendo-react-inputs",
   "main": "dist/npm/js/main.js",
   "scripts": {
     "test": "gulp test",

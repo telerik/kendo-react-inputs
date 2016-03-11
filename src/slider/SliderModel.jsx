@@ -1,4 +1,4 @@
-import util from '../src/util';
+import util from '../../src/slider/util';
 
 class SliderModel {
     constructor(props, wrapper, track) {

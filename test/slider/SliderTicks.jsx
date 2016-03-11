@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import SliderTicks from '../src/SliderTicks';
-import SliderTick from '../src/SliderTick';
+import SliderTicks from '../../src/slider/SliderTicks';
+import SliderTick from '../../src/slider/SliderTick';
 
 describe('SliderTicks', () => {
     it('should render a ul', () => {

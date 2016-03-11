@@ -1,12 +1,12 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import util from '../src/util';
+import util from '../../src/slider/util';
 //import styles from '@telerik/kendo-theme-default/styles/main';
 import classnames from 'classnames';
-import SliderTrack from '../src/SliderTrack';
-import SliderTicks from '../src/SliderTicks';
-import SliderButton from '../src/SliderButton';
-import SliderModel from '../src/SliderModel';
+import SliderTrack from '../../src/slider/SliderTrack';
+import SliderTicks from '../../src/slider/SliderTicks';
+import SliderButton from '../../src/slider/SliderButton';
+import SliderModel from '../../src/slider/SliderModel';
 import keycode from 'keycode';
 
 const propTypes = {

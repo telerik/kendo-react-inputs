@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import Slider from '../src/Slider';
-import SliderButton from '../src/SliderButton';
+import Slider from '../../src/slider/Slider';
+import SliderButton from '../../src/slider/SliderButton';
 
 describe('Slider', () => {
     it('should add default wrapper classes', () => {

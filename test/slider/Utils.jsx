@@ -1,4 +1,4 @@
-import util from '../src/util';
+import util from '../../src/slider/util';
 
 describe('Slider Math', () => {
     it('calculate slider track width', () => {

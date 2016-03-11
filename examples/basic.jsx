@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import Slider from '../src/Slider';
+import Slider from '../src/slider/Slider';
 
 class SliderContainer extends React.Component {
     constructor(props) {

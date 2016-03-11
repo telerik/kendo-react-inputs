@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import SliderTick from '../src/SliderTick';
-import util from '../src/util';
+import SliderTick from '../../src/slider/SliderTick';
+import util from '../../src/slider/util';
 
 const SliderTicks = ({ tickCount = 0, onClick, vertical, min, smallStep, title = util.identity }) => {
     const listClasses = classnames({

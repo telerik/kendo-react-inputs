@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import SliderTrack from '../src/SliderTrack';
+import SliderTrack from '../../src/slider/SliderTrack';
 
 describe('SliderTrack', () => {
     it('should render a div', () => {
