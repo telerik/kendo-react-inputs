@@ -57,7 +57,7 @@ The available options are:
 
 #### title `String|Function`
 
-Defines title of the ticks. The default title for each tick is its Slider value. If callback function is used it will accept an argument holding the value of the widget and should return a string with the new title.
+Defines title of the ticks. The default title for each tick is its Slider value. If callback function is used it will accept an argument holding the value of the component and should return a string with the new title.
 
 #### fixedTickwidth `Number`
 
