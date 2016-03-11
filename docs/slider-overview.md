@@ -112,7 +112,7 @@ The title of the buttons can be controlled using the `decreaseButtonTitle` and `
 
 The step option will be used to split the track on equal ticks based on the `min` and `max` values.
 
-For example, if `min: 0` and `max: 4`, the Slider displays ticks indicating four steps. If `min: 2` and `max: 4`, the Slider displays two steps.
+For example, if `min: 0`, `max: 4` and `smallStep: 1`, the Slider displays ticks indicating four steps. If `min: 2`, `max: 4` and `smallStep: 1`, the Slider displays two steps.
 
 The step is defined through the `smallStep` option. The small steps are applied whenever users interact with the Slider&mdash;for example, when the side arrow buttons are clicked or when the handle is dragged, the Slider value changes with small steps.
 
@@ -201,7 +201,7 @@ The `title` option defines the title of the ticks. By default, the titles of eac
     );
 ```
 
-The `fixedtickwidth` option sets the width between each two ticks along the track. Its value must be set in pixels. When this option is enabled the component will be resized in order to fit all the ticks with the corresponding tick width.
+The `fixedtickwidth` option sets the width between each two ticks along the track. Its value must be set in pixels. When this option is enabled the component will be resized in order to fit all the ticks with the corresponding tick width. If no `fixedTickWidth` options is set the component will adjust the size of the ticks in order for the sum to match the actual size of the component.
 
 ```html
     class SliderContainer extends React.Component {
@@ -278,7 +278,7 @@ The default orientation of the Slider is horizontal. The `vertical` option, when
 
 ### State
 
-By default, the Slider is a stateless component. This is why it should be placed within a hight-order component that will control its state and will hold the configuration. The `onChange` event will be fired each time there is a user interaction with the component. The new value will be passed as an argument to the `onChange` callback, so the developer can handle the state of the component as needed.
+The Slider is a stateless component. This is why it should be placed within a hight-order component that will control its state and will hold the configuration. The `onChange` event will be fired each time there is a user interaction with the component. The new value will be passed as an argument to the `onChange` callback, so the developer can handle the state of the component as needed.
 
 ```html
     class SliderContainer extends React.Component {
