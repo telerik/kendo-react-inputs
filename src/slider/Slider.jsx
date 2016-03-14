@@ -74,7 +74,7 @@ class Slider extends React.Component {
     };
 
     onTrackClick = (event) => {
-        const trackClientRect = event.target.getBoundingClientRect();
+        const trackClientRect = event.currentTarget.getBoundingClientRect();
         const value = util.calculateValueFromTrack(trackClientRect, event, this.props);
 
         this.props.onChange({ value: value });

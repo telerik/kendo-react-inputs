@@ -11,10 +11,15 @@ const SliderTrack = ({ onClick, max, min, value, onKeyDown }) => {
         'aria-valuetext': value
     };
 
+    const onHandleClick = (event) => event.preventDefault();
+
     return (
         <div className="k-slider-track" onClick={onClick}>
             <div className="k-slider-selection"></div>
-            <a className="k-draghandle" {...attributes} href="#" onKeyDown={onKeyDown}></a>
+            <a className="k-draghandle" {...attributes} href="#"
+                onClick={onHandleClick}
+                onKeyDown={onKeyDown}
+            ></a>
         </div>
     );
 };
