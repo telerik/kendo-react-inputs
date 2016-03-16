@@ -51,6 +51,6 @@ describe('SliderButton', () => {
     it('onClick handler is propagated', () => {
         const noop = () => {/*meta function*/};
         let result = shallow(<SliderButton onClick={noop} />);
-        expect(result.children().first().props().onClick).toEqual(noop);
+        expect(result.first().props().onClick).toEqual(noop);
     });
 });

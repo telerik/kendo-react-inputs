@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import SliderTick from './SliderTick';
-import { util } from '@telerik/kendo-slider-common';
+import { Util as util } from '@telerik/kendo-slider-common';
 
 const SliderTicks = ({ tickCount = 0, onClick, vertical, min, smallStep, title = util.identity }) => {
     const listClasses = classnames({
