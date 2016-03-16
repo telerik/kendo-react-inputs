@@ -17,8 +17,8 @@ const SliderButton = (props) => {
     });
 
     return (
-        <a className = {buttonClasses}>
-            <span className = {spanClasses} onClick = {onClick}>{title}</span>
+        <a className = {buttonClasses} onClick = {onClick}>
+            <span className = {spanClasses}>{title}</span>
         </a>
     );
 };
