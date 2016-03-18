@@ -1,24 +1,74 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-A starter repository for Kendo UI React components, which provides the basic directory structure and dependencies.
+(draft)
 
-## Structure
+This is the repository for the Kendo UI Inputs components for React.
 
-- The `src` directory contains the component source code. All files should be have the `.jsx` extensions so that the build scripts may pick them.
-- The `src/bundle.jsx` file should import and re-export all public components of the package. It is used for the `build-cdn` task.
-- The `src/index.jsx` is the main entry point for the NPM package (as specified by the `package.json`). The `build-npm-package` transpiles it to `dist/npm/js/index.js`;
-- The `src/KendoComponent.jsx` file is the actual sample component implementation.
-- The `src/util.jsx` is an optional example of an additional file - you may remove it if unnecessary.
+## Package Distribution
 
-- The `examples` directory hosts the demos for the component. As a bare minimum, the component should have a `basic usage` and a `CDN` example.  The `CDN` example should work as expected after the `build-cdn` task has been run.
-- The `test` directory contains the component tests. They are transpiled just like the source code itself, and are run with Jasmine in NodeJS.
-- The `docs` directory contains markdown files that document the specifics of the component.
+The Kendo UI Inputs package for React includes the following components:
 
-## Gulp tasks
+* MaskedTextBox
+* NumericTextBox
+* Switch
+* Slider
 
-- `build-npm-package` - builds the scripts and styles in `dist/npm` in CommonJS format;
-- `build-cdn` - builds the scripts and styles in `dist/cdn` in UMD format.
-- `start` - starts the webpack-dev-server (with browsersync in front of it) - suitable for example preview, development and testing.
-- `test` - runs the tests with Jasmine in NodeJS.
-- `watch-test` - runs the tests in watch mode.
-- `docs` - launches a preview server for the documentation in the `docs` directory
+To get more information on the Inputs package, refer to the [documentation](overview-inputs).
+
+## Get Started 
+
+### Prerequisites
+
+...
+
+### Installation
+
+To install the Kendo UI Inputs package for React, run the command below.
+
+    npm install <package_name>
+
+## Basic Usage
+
+### MaskedTextBox
+
+The MaskedTextBox allows user input based on a specific format that can be defined through using mask options.
+
+```html-preview
+```
+```jsx
+```
+
+For more information on the MaskedTextBox, refer to [its documentation](overview-maskedtextbox).
+
+### NumericTextBox
+
+The NumericTextBox supports numeric entries only and converts input elements into a numeric, percentage, or currency textbox.
+
+```html-preview
+```
+```jsx
+```
+
+For more information on the NumericTextBox, refer to [its documentation](overview-maskedtextbox).
+
+### Switch
+
+The Switch is used to display two exclusive choices&mdash;when initialized, it shows the currently selected option; when users slide it, they reveal and, in this way, select the other option.
+
+```html-preview
+```
+```jsx
+```
+
+For more information on the Switch, refer to [its documentation](overview-maskedtextbox).
+
+### Slider
+
+The Slider lets users select a value from a predefined range.
+
+```html-preview
+```
+```jsx
+```
+
+For more information on the Slider, refer to [its documentation](overview-maskedtextbox).
