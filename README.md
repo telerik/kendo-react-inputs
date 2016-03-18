@@ -13,7 +13,7 @@ The Kendo UI Inputs package for React includes the following components:
 * Switch
 * Slider
 
-To get more information on the Inputs package, refer to the [documentation](overview-inputs).
+For more information, refer to the [Inputs package documentation](overview-inputs).
 
 ## Basic Usage
 
@@ -27,7 +27,7 @@ The MaskedTextBox allows user input based on a specific format that can be defin
 ```jsx
 ```
 
-For more information on the MaskedTextBox, refer to [its documentation](overview-maskedtextbox).
+For more information, refer to the [MaskedTextBox documentation](overview-maskedtextbox).
 
 ### NumericTextBox
 
@@ -39,7 +39,7 @@ The NumericTextBox supports numeric entries only and converts input elements int
 ```jsx
 ```
 
-For more information on the NumericTextBox, refer to [its documentation](overview-maskedtextbox).
+For more information, refer to the [NumericTextBox documentation](overview-maskedtextbox).
 
 ### Switch
 
@@ -51,7 +51,7 @@ The Switch is used to display two exclusive choices&mdash;when initialized, it s
 ```jsx
 ```
 
-For more information on the Switch, refer to [its documentation](overview-maskedtextbox).
+For more information, refer to the [MaskedTextBox documentation](overview-maskedtextbox).
 
 ### Slider
 
@@ -63,7 +63,7 @@ The Slider lets users select a value from a predefined range.
 ```jsx
 ```
 
-For more information on the Slider, refer to [its documentation](overview-maskedtextbox).
+For more information, refer to the [Slider documentation](overview-maskedtextbox).
 
 ## Get Started
 
