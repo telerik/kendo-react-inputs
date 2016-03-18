@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Overview | Kendo UI Inputs for React
-description: "Learn what Kendo UI components for React are included in the Inputs package."
+description: "Learn which Kendo UI components for React the Inputs package delivers."
 slug: overview_inputs_kendouiforreact
 position: 1
 ---
@@ -18,9 +18,9 @@ The Switch is used to display two exclusive choices&mdash;when initialized, it s
 
 The Slider lets users select a value from a predefined range. The values can be increased or decreased over a pre-defined step by dragging a handle along the track, or by clicking the side arrow buttons. The component supports two modes of display&mdash;horizontal and vertical.
 
-## See Also
+## Suggested Links
 
-Articles related to the Inputs package of the Kendo UI for React suite:
+Articles on Kendo UI Inputs components for React:
 
 * [Get Started with the MaskedTextBox Component](...)
 * [Client-Side API Reference of the MaskedTextBox Component](...)
