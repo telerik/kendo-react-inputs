@@ -2,7 +2,7 @@
 
 (draft)
 
-This is the repository for the Kendo UI Inputs components for React.
+This repository contains the Kendo UI components for React included in the Inputs package distribution. 
 
 ## Package Distribution
 
@@ -15,18 +15,6 @@ The Kendo UI Inputs package for React includes the following components:
 
 To get more information on the Inputs package, refer to the [documentation](overview-inputs).
 
-## Get Started 
-
-### Prerequisites
-
-...
-
-### Installation
-
-To install the Kendo UI Inputs package for React, run the command below.
-
-    npm install <package_name>
-
 ## Basic Usage
 
 ### MaskedTextBox
@@ -34,6 +22,7 @@ To install the Kendo UI Inputs package for React, run the command below.
 The MaskedTextBox allows user input based on a specific format that can be defined through using mask options.
 
 ```html-preview
+  //code goes here
 ```
 ```jsx
 ```
@@ -45,6 +34,7 @@ For more information on the MaskedTextBox, refer to [its documentation](overview
 The NumericTextBox supports numeric entries only and converts input elements into a numeric, percentage, or currency textbox.
 
 ```html-preview
+  //code goes here
 ```
 ```jsx
 ```
@@ -56,6 +46,7 @@ For more information on the NumericTextBox, refer to [its documentation](overvie
 The Switch is used to display two exclusive choices&mdash;when initialized, it shows the currently selected option; when users slide it, they reveal and, in this way, select the other option.
 
 ```html-preview
+  //code goes here
 ```
 ```jsx
 ```
@@ -67,8 +58,21 @@ For more information on the Switch, refer to [its documentation](overview-masked
 The Slider lets users select a value from a predefined range.
 
 ```html-preview
+  //code goes here
 ```
 ```jsx
 ```
 
 For more information on the Slider, refer to [its documentation](overview-maskedtextbox).
+
+## Get Started
+
+### Prerequisites
+
+...
+
+### Installation
+
+To install the Kendo UI Inputs package for React, run the command below.
+
+    npm install <package_name>
