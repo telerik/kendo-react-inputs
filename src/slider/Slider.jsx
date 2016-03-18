@@ -37,13 +37,13 @@ class Slider extends React.Component {
         const wrapper = ReactDOM.findDOMNode(this);
         const track = wrapper.getElementsByClassName('k-slider-track')[0];
         const ticks = wrapper.getElementsByClassName('k-tick');
-        const ticksConainer = wrapper.getElementsByClassName('k-slider-items');
+        const ticksContainer = wrapper.getElementsByClassName('k-slider-items');
         const dragHandle = wrapper.getElementsByClassName('k-draghandle')[0];
         const selection = wrapper.getElementsByClassName('k-slider-selection')[0];
         const model = new SliderModel(this.props, wrapper, track);
 
         model.resizeTrack();
-        model.resizeTicks(ticksConainer, ticks);
+        model.resizeTicks(ticksContainer, ticks);
         model.positionHandle(dragHandle);
         model.positionSelection(dragHandle, selection);
 
