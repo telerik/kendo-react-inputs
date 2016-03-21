@@ -19,6 +19,8 @@ This repository holds the source code files and documentation of the Kendo UI co
 
 ## Glossary
 
+Below are explained the basic terms used the Kendo UI suite for React applies. 
+
 ### Component
 
 A Component is a Kendo UI control developed to operate in the React ecosystem. For example, the Kendo UI Slider for React is a component.
@@ -54,6 +56,8 @@ The demo below demonstrates the basic usage of the component.
 For more information, refer to the [documentation on the Slider](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/overview.md).
 
 ## Get Started
+
+Below are listed the steps for you to follow when setting up and running the Inputs Package components.
 
 ### Prerequisites
 
