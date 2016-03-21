@@ -2,16 +2,16 @@
 
 # Kendo UI Inputs Package for React
 
-* Overview
-* Glossary
-  * Component
-  * Package
-  * Package Version
-* Inputs Package Components
-* Basic Usage
-* Get Started
-  * Prerequisites
-  * Installation
+* [Overview](https://github.com/telerik/kendo-react-inputs#overview)
+* [Glossary](https://github.com/telerik/kendo-react-inputs#glossary)
+  * [Component](https://github.com/telerik/kendo-react-inputs#component)
+  * [Package](https://github.com/telerik/kendo-react-inputs#package)
+  * [Package Version](https://github.com/telerik/kendo-react-inputs#package-version)
+* [Inputs Package Components](https://github.com/telerik/kendo-react-inputs#inputs-package-components)
+* [Basic Usage](https://github.com/telerik/kendo-react-inputs#basic-usage)
+* [Get Started](https://github.com/telerik/kendo-react-inputs#get-started)
+  * [Prerequisites](https://github.com/telerik/kendo-react-inputs#prerequisites)
+  * [Installation](https://github.com/telerik/kendo-react-inputs#installation)
 
 ## Overview
 
@@ -51,7 +51,7 @@ The demo below demonstrates the basic usage of the component.
 ```jsx
 ```
 
-For more information, refer to the [documentation on the Slider](overview-sliderURL).
+For more information, refer to the [documentation on the Slider](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/overview.md).
 
 ## Get Started
 
