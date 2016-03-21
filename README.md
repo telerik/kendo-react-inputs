@@ -39,7 +39,7 @@ Because of the continuous release cycle, Marketing Releases include packages wit
 
 Currently, the Kendo UI Inputs Package for React consists of the Slider component.
 
-For more information on other components intended for implementation, refer to the [Roadmap of the Kendo UI Inputs package for React](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
+For more information on other components intended for implementation, refer to the [Roadmap of the Kendo UI Inputs Package for React](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
 
 ## Basic Usage
 
@@ -83,13 +83,9 @@ For more information, refer to the [documentation on the Slider](https://github.
 
 Below are listed the steps for you to follow when setting up and running the Inputs Package components.
 
-### Prerequisites
-
-...
-
 ### Installation
 
-To install the Kendo UI Inputs package for React, run the command below.
+To install the Kendo UI Inputs Package for React, run the command below.
 
     npm install kendo-react-inputs;
 
@@ -98,6 +94,6 @@ To install the Kendo UI Inputs package for React, run the command below.
     //or
     import { Slider } from 'kendo-react-inputs';
 
-### Browser support
+### Browser Support
 
-We aim to support all browsers supported by React - Internet Explorer 9 and above
+The Kendo UI Inputs components for React support all browsers that are supported by the React framework&mdash;Internet Explorer 9 and later. 
