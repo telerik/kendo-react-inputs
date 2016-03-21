@@ -8,11 +8,9 @@ position: 1
 
 # Slider Overview
 
-The Kendo UI Slider is a React component that lets users select a value from a predefined range. The values can be increased or decreased over a pre-defined step by dragging a handle along the track, or by clicking the side arrow buttons. When used in its horizontal mode, the Slider component displays the smallest value on the left and the largest on the right. When used in its vertical mode, the Slider component displays the smallest value on the bottom and the largest on the top.
+The Kendo UI Slider for React is a component that lets the user increase, decrease, and select pre-defined values by dragging its handle along the track, or by clicking the side arrow buttons. 
 
-The Kendo UI Slider for React is a component that is part of the Inputs `npm` package of the Kendo UI for React suite. It is designed as a stateless component, which means that to store its state and configuration options, you should use a high-order component.
-
-The main purpose of the Slider is to offer an extended functionality over the native `<input type="range" />` component.
+The Kendo UI Slider for React is part of the Inputs `npm` package of the Kendo UI suite for React. 
 
 **Figure 1. A horizontal template of the Kendo UI Slider for React**
 
@@ -32,11 +30,54 @@ Vasko goes here: template screen - vertical, parts indicated:
 4. arrow buttons
 5. button title
 
+## Demos
+
+### Default Setup
+
+The example below demonstrates the default setup of a Kendo UI Slider for React.
+
+```html-preview
+  <div id="app"></div>
+```
+```jsx
+  class SliderContainer extends React.Component {
+      constructor(props) {
+          super(props);
+          this.state = {
+              max: 10,
+              min: 0,
+              step: 2
+          };
+      }
+      onChange = (e) => {
+          this.setState({
+              value: e.value
+          });
+      }
+      render() {
+          return (
+              <Slider
+                  max = {this.state.max}
+                  min = {this.state.min}
+                  onChange = {this.onChange}
+                  smallStep = {this.state.step}
+              />);
+      }
+  }
+
+  ReactDOM.render(
+      <SliderContainer />,
+      document.getElementById('app')
+  );
+```
+
 ## Configuration
 
 ### Buttons
 
-When enabled, the side buttons increase or decrease the component value with the pre-defined step. If the initial value cannot be directly matched to a specific tick, the handle is placed to the next possible tick when either of the buttons is clicked. Then each subsequent click moves the handle over the ticks. By default, the `buttons` configuration option is set to `true`. If set to `false`, the buttons do not appear.
+When enabled, the side buttons increase or decrease the component value with the pre-defined step. If the initial value does not directly match to a specific tick and the user clicks either of the buttons, the handle is placed on the next available tick. Each subsequent click moves the handle over the available ticks. 
+
+By default, the `buttons` configuration property is set to `true`. If set to `false`, the buttons do not appear.
 
 ```html
   <div id="app"></div>
@@ -76,7 +117,7 @@ When enabled, the side buttons increase or decrease the component value with the
     );
 ```
 
-The title of the buttons can be controlled by using the `decreaseButtonTitle` and `increaseButtonTitle` options. These options accept `string` parameters.
+The title of the buttons can be controlled by using the `decreaseButtonTitle` and `increaseButtonTitle` properties, which accept `string` parameters.
 
 ```html
   <div id="app"></div>
@@ -120,11 +161,11 @@ The title of the buttons can be controlled by using the `decreaseButtonTitle` an
 
 ### Steps
 
-The step option is used to split the track on equal ticks based on the `min` and `max` values. For example, if `min: 0`, `max: 4` and `smallStep: 1`, the Slider displays ticks indicating four steps. If `min: 2`, `max: 4` and `smallStep: 1`, the Slider displays two steps.
+The `step` property is used to split the track on equal ticks based on the `min` and `max` values. For example, if the `min` value is `0` (zero), the `max` value is `4` (four) and the `smallStep` is `1` (one), the Slider displays ticks indicating four steps. If the `min` value is `2` (two), the `max` value is `4` (four) and the `smallStep` is `1` (one), the Slider displays two steps.
 
-The step is defined through the `smallStep` option. The small steps are applied whenever users interact with the Slider. For example, when the side arrow buttons are clicked, or when the handle is dragged, the Slider value changes with small steps.
+The step is defined through the `smallStep` property. The small steps are applied whenever the user interacts with the Slider. When the side arrow buttons are clicked, or when the handle is dragged, the Slider value changes with small steps.
 
-The `smallStep` option accepts both `integer` and `floating` values.
+The `smallStep` property accepts both `integer` and `float` values.
 
 ```html
   <div id="app"></div>
@@ -164,7 +205,7 @@ The `smallStep` option accepts both `integer` and `floating` values.
 
 ### Ticks
 
-Along the track, the ticks indicate the values resulting from each incremented pre-defined step. Ticks are configured through the `tickPlacement` option. They can be set to appear along the upper side or bottom side of a horizontal Slider, on the left or right side of a vertical Slider, or on both sides of the track. If necessary, they can be set not to show at all.   
+Along the track, the ticks indicate the values resulting from each incremented pre-defined step. Ticks are configured through the `tickPlacement` property. They can be set to appear along the upper side or bottom side of a horizontal Slider, on the left or right side of a vertical Slider, or on both sides of the track. If necessary, they can be set not to show at all.   
 
 ```html
   <div id="app"></div>
@@ -204,7 +245,7 @@ Along the track, the ticks indicate the values resulting from each incremented p
     );
 ```
 
-The `title` option defines the titles of the ticks. By default, the title of each tick corresponds to its value. If you want a tick to display a particular title, define a callback. It will be called with its current value as a parameter and return the title of the `tick` that is to be rendered.
+The `title` property defines the titles of the ticks. By default, the title of each tick corresponds to its value. If you want to customize the title, use a callback. 
 
 ```html
   <div id="app"></div>
@@ -249,7 +290,7 @@ The `title` option defines the titles of the ticks. By default, the title of eac
     );
 ```
 
-The `fixedtickwidth` option sets the width between each two ticks along the track. Its value must be set in pixels. When the option is enabled, the component gets resized to fit all ticks with the corresponding width. If no `fixedTickWidth` options is defined, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
+The `fixedTickWidth` property sets the width between each two ticks along the track. Its value must be set in pixels. When the property is enabled, the component gets resized to fit all ticks with the corresponding width. If no `fixedTickWidth` properties is defined, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
 
 ```html
   <div id="app"></div>
@@ -291,7 +332,9 @@ The `fixedtickwidth` option sets the width between each two ticks along the trac
 
 ### Orientation
 
-The default orientation of the Slider is horizontal. The `vertical` option, when set to `true`, allows you to change the orientation to vertical.
+The Slider supports two modes of orientations&mdash;horizontal, which is the default one, and vertical, which can be applied by setting the `vertical` property to `true`. 
+
+When used in its horizontal mode, the Slider component displays the smallest value to the left and the largest to the right. When used in its vertical mode, the Slider component displays the smallest value at the bottom and the largest at the top.
 
 ```html
   <div id="app"></div>
@@ -332,7 +375,9 @@ The default orientation of the Slider is horizontal. The `vertical` option, when
 
 ### State
 
-The Slider is a stateless component. That is why it should be placed within a high-order component that controls its state and holds the configuration. The `onChange` event is fired each time when a user interaction with the component happens. The new value is then passed as an argument to the `onChange` callback, so that you are able to handle the state of the component when needed.
+The Slider is designed as a stateless component. Therefore, to store its state and configuration properties, use a high-order component, which controls its state and holds the configuration. 
+
+The `onChange` event is fired each time a user interacts with the Slider. The new value is then passed as an argument to the `onChange` callback.
 
 ```html
   <div id="app"></div>
@@ -386,57 +431,4 @@ Below is the list with the keyboard shortcuts the Slider supports.
 
 ## Accessibility
 
-The Slider is WAI ARIA-accessible through the `Tab` key. The `aria-valuemin`, `aria-valuemax`, and `aria-valuetext` options define the accessibility values that are chosen on dragging the handle of the Slider or on interacting with the Slider through its buttons.
-
-## Demos
-
-### Default Setup
-
-The example below demonstrates the default setup of a Kendo UI Slider for React.
-
-```html-preview
-  <div id="app"></div>
-```
-```jsx
-  class SliderContainer extends React.Component {
-      constructor(props) {
-          super(props);
-          this.state = {
-              max: 10,
-              min: 0,
-              step: 2
-          };
-      }
-      onChange = (e) => {
-          this.setState({
-              value: e.value
-          });
-      }
-      render() {
-          return (
-              <Slider
-                  max = {this.state.max}
-                  min = {this.state.min}
-                  onChange = {this.onChange}
-                  smallStep = {this.state.step}
-              />);
-      }
-  }
-
-  ReactDOM.render(
-      <SliderContainer />,
-      document.getElementById('app')
-  );
-```
-
-### Scenario 1
-
-The example below demonstrates a Kendo UI Slider for React with ... (describe scenario).
-
-```html-preview
-  //code goes here
-```
-
-## Suggested Links
-
-* [Client-Side API Reference for Kendo UI Slider for React]({% slug api_slider_kendouiforreact %})
+The Slider is WAI ARIA-accessible through the `Tab` key. The `aria-valuemin`, `aria-valuemax`, and `aria-valuetext` properties define the accessibility values when the user drags the handle of the Slider or interacts with the Slider through its buttons.
