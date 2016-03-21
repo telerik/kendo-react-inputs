@@ -19,7 +19,7 @@ This repository holds the source code files and documentation of the Kendo UI co
 
 ## Glossary
 
-Below are explained the basic terms used the Kendo UI suite for React applies. 
+Below are explained the basic terms used the Kendo UI suite for React applies.
 
 ### Component
 
@@ -48,9 +48,33 @@ The Kendo UI Slider for React lets users select a value from a predefined range.
 The demo below demonstrates the basic usage of the component.
 
 ```html-preview
-  //code goes here
+  <div id="app"></div>
 ```
 ```jsx
+    class SliderContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                max: 10,
+                min: 0,
+                step: 2
+            };
+        }
+        render() {
+            return (
+                <Slider
+                    max = {this.state.max}
+                    min = {this.state.min}
+                    onChange = {this.onChange}
+                    smallStep = {this.state.step}
+                />);
+        }
+    }
+    ReactDOM.render(
+        <SliderContainer />,
+        document.getElementById('app')
+    );
+
 ```
 
 For more information, refer to the [documentation on the Slider](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/overview.md).
@@ -67,4 +91,13 @@ Below are listed the steps for you to follow when setting up and running the Inp
 
 To install the Kendo UI Inputs package for React, run the command below.
 
-    npm install <package_name>
+    npm install kendo-react-inputs;
+
+    //ES6 Modules
+    import Slider from 'kendo-react-inputs';
+    //or
+    import { Slider } from 'kendo-react-inputs';
+
+### Browser support
+
+We aim to support all browsers supported by React - Internet Explorer 9 and above
