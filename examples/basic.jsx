@@ -13,7 +13,8 @@ class SliderContainer extends React.Component {
             decreaseButtonTitle: "Dec",
             increaseButtonTitle: "Inc",
             buttons: true,
-            tickPlacement: "both"
+            tickPlacement: "both",
+            dragHandleTitle: "DragMe"
         };
     }
     title(value) {
@@ -32,6 +33,7 @@ class SliderContainer extends React.Component {
             <Slider
                 buttons = {this.state.buttons}
                 decreaseButtonTitle = {this.state.decreaseButtonTitle}
+                dragHandleTitle = {this.state.dragHandleTitle}
                 fixedTickWidth = {this.state.fixedTickWidth}
                 increaseButtonTitle = {this.state.increaseButtonTitle}
                 max = {this.state.max}

@@ -10,6 +10,7 @@ import keycode from 'keycode';
 
 const propTypes = {
     buttons: React.PropTypes.bool,
+    dragHandleTitle: React.PropTypes.string,
     decreaseButtonTitle: React.PropTypes.string,
     fixedTickWidth: React.PropTypes.number,
     increaseButtonTitle: React.PropTypes.string,
@@ -102,6 +103,7 @@ class Slider extends React.Component {
     render() {
         const {
             buttons = true,
+            dragHandleTitle,
             max,
             min,
             smallStep,
@@ -112,6 +114,7 @@ class Slider extends React.Component {
             value
         } = this.props;
         const trackProps = {
+            dragHandleTitle,
             max,
             min,
             onClick: this.onTrackClick,
@@ -135,7 +138,7 @@ class Slider extends React.Component {
         });
         const componentClasses = classnames({
             'k-slider-wrap': true,
-            'k-slider-buttons': true,
+            'k-slider-buttons': buttons,
             'k-slider-topleft': tickPlacement === 'before',
             'k-slider-bottomright': tickPlacement === 'after'
         });

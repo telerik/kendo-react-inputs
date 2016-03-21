@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-const SliderTrack = ({ onClick, max, min, value, onKeyDown }) => {
+const SliderTrack = ({ onClick, max, min, value, onKeyDown, dragHandleTitle = 'Drag' }) => {
     const attributes = {
-        'title': 'Drag',
+        'title': dragHandleTitle,
         'tabIndex': 0,
         'role': 'slider',
         'aria-valuemin': min,
