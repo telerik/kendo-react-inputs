@@ -14,7 +14,8 @@ The Kendo UI Slider for React is part of the Inputs `npm` package of the Kendo U
 
 **Figure 1. A horizontal template of the Kendo UI Slider for React**
 
-Vasko goes here: template screen - horizontal, parts indicated:
+//TODO: template screen - horizontal, parts indicated:
+
 1. track
 2. handle
 3. ticks
@@ -23,7 +24,8 @@ Vasko goes here: template screen - horizontal, parts indicated:
 
 **Figure 2. A vertical template of the Kendo UI Slider for React**
 
-Vasko goes here: template screen - vertical, parts indicated:
+//TODO: template screen - vertical, parts indicated:
+
 1. track
 2. handle
 3. ticks
@@ -290,7 +292,7 @@ The `title` property defines the titles of the ticks. By default, the title of e
     );
 ```
 
-The `fixedTickWidth` property sets the width between each two ticks along the track. Its value must be set in pixels. When the property is enabled, the component gets resized to fit all ticks with the corresponding width. If no `fixedTickWidth` properties is defined, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
+The `fixedTickWidth` property sets the width between each two ticks along the track. Its value must be set in pixels. When the property is enabled, the component gets resized to fit all ticks with the corresponding width. If the `fixedTickWidth` property is not set, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
 
 ```html
   <div id="app"></div>
@@ -334,7 +336,7 @@ The `fixedTickWidth` property sets the width between each two ticks along the tr
 
 The Slider supports two modes of orientations&mdash;horizontal, which is the default one, and vertical, which can be applied by setting the `vertical` property to `true`.
 
-When used in its horizontal mode, the Slider component displays the smallest value to the left and the largest to the right. When used in its vertical mode, the Slider component displays the smallest value at the bottom and the largest at the top.
+In horizontal mode, the Slider component displays the smallest value to the left and the largest to the right. In vertical, the component displays the smallest value at the bottom and the largest at the top.
 
 ```html
   <div id="app"></div>
@@ -375,9 +377,9 @@ When used in its horizontal mode, the Slider component displays the smallest val
 
 ### State
 
-The Slider is designed as a stateless component. Therefore, to store its state and configuration properties, use a high-order component.
+The Slider is designed as a stateless component. To store its state and configuration properties, wrap it a high-order component.
 
-The `onChange` event is fired each time a user interacts with the Slider. The new value is then passed as an argument to the `onChange` callback.
+The `onChange` event fires each time a user interacts with the Slider. The new value is passed as an argument to the `onChange` callback.
 
 ```html
   <div id="app"></div>
