@@ -1,13 +1,13 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-# Kendo UI Inputs Package for React
+# Kendo UI Inputs Components for React
 
 * [Overview](https://github.com/telerik/kendo-react-inputs#overview)
 * [Glossary](https://github.com/telerik/kendo-react-inputs#glossary)
   * [Component](https://github.com/telerik/kendo-react-inputs#component)
   * [Package](https://github.com/telerik/kendo-react-inputs#package)
   * [Package Version](https://github.com/telerik/kendo-react-inputs#package-version)
-* [Inputs Package Components](https://github.com/telerik/kendo-react-inputs#inputs-package-components)
+* [Inputs Components](https://github.com/telerik/kendo-react-inputs#inputs-package-components)
 * [Basic Usage](https://github.com/telerik/kendo-react-inputs#basic-usage)
 * [Get Started](https://github.com/telerik/kendo-react-inputs#get-started)
   * [Prerequisites](https://github.com/telerik/kendo-react-inputs#prerequisites)
@@ -15,7 +15,7 @@
 
 ## Overview
 
-This repository holds the source code files and documentation of the Kendo UI components for React included in the Inputs Package distribution of the suite.
+This repository holds the source code files and documentation of the Kendo UI components for React included in the Inputs distribution of the suite.
 
 ## Glossary
 
@@ -27,7 +27,7 @@ A Component is a Kendo UI control developed to operate in the React ecosystem. F
 
 ### Package
 
-A package is a group of several components which share common functionalities and/or common codebase. For example, the Kendo UI Slider, MaskedTextBox, NumericTextBox, and Switch components for React are part of the Inputs Package.
+A package is a conventional term used to designate a group of several components which share common functionalities and/or common codebase. For example, the Kendo UI Slider, MaskedTextBox, NumericTextBox, and Switch components for React are part of the Inputs Package.
 
 ### Package Version
 
@@ -35,11 +35,11 @@ Each package has a package release version of its own&mdash;for example, Inputs 
 
 Because of the continuous release cycle, Marketing Releases include packages with different versions. For example, the R2 2016 Marketing Release may feature the Inputs v.3.5 and Buttons v.2.1 releases.
 
-## Inputs Package Components
+## Inputs Components
 
-Currently, the Kendo UI Inputs Package for React consists of the Slider component.
+Currently, the Kendo UI Inputs for React consists of the Slider component.
 
-For more information on other components intended for implementation, refer to the [Roadmap of the Kendo UI Inputs Package for React](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
+For more information on other components intended for implementation, refer to the [Roadmap of the Kendo UI Inputs for React](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
 
 ## Basic Usage
 
@@ -81,11 +81,11 @@ For more information, refer to the [documentation on the Slider](https://github.
 
 ## Get Started
 
-Below are listed the steps for you to follow when setting up and running the Inputs Package components.
+Below are listed the steps for you to follow when setting up and running the Inputs components.
 
 ### Installation
 
-To install the Kendo UI Inputs Package for React, run the command below.
+To install the Kendo UI Inputs for React, run the command below.
 
     npm install kendo-react-inputs;
 
@@ -96,4 +96,4 @@ To install the Kendo UI Inputs Package for React, run the command below.
 
 ### Browser Support
 
-The Kendo UI Inputs components for React support all browsers that are supported by the React framework&mdash;Internet Explorer 9 and later. 
+The Kendo UI Inputs components for React support all browsers that are supported by the React framework&mdash;Internet Explorer 9 and later.
