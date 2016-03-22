@@ -10,7 +10,7 @@ These features should go in first release of the Kendo React Slider component
 - Keyboard navigation
 - ARIA support
 - Number values labels
-- Large / small steps and ticks
+-  Fixed tick width and variable tick width
 - Stateless component
 - Drag and Drop
 
