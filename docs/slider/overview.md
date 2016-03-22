@@ -12,7 +12,7 @@ The Kendo UI Slider for React is a component that lets the user increase, decrea
 
 The Kendo UI Slider for React is part of the Inputs `npm` package of the Kendo UI suite for React.
 
-**Figure 1. A horizontal template of the Kendo UI Slider for React**
+**Figure 1: A horizontal template of the Kendo UI Slider for React**
 
 //TODO: template screen - horizontal, parts indicated:
 
@@ -22,7 +22,7 @@ The Kendo UI Slider for React is part of the Inputs `npm` package of the Kendo U
 4. arrow buttons
 5. button title
 
-**Figure 2. A vertical template of the Kendo UI Slider for React**
+**Figure 2: A vertical template of the Kendo UI Slider for React**
 
 //TODO: template screen - vertical, parts indicated:
 
