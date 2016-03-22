@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: Overview | Kendo UI Inputs for React
+page_title: Overview | Kendo UI Inputs Package for React
 description: "Learn which Kendo UI components for React the Inputs package delivers."
 slug: overview_inputs_kendouiforreact
 position: 1
 ---
 
-# Inputs Components Overview (draft)
+# Inputs Package Overview (draft)
 
 Inputs are fields which allow for an input of data, based on a specific and predefined format. Currently, Inputs include the Kendo UI Slider component for React.
 

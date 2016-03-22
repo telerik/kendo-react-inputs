@@ -8,9 +8,9 @@ position: 1
 
 # Slider Overview
 
-The Kendo UI Slider for React is a component that lets the user increase, decrease, and select pre-defined values by dragging its handle along the track, or by clicking the side arrow buttons. 
+The Kendo UI Slider for React is a component that lets the user increase, decrease, and select pre-defined values by dragging its handle along the track, or by clicking the side arrow buttons.
 
-The Kendo UI Slider for React is part of the Inputs `npm` package of the Kendo UI suite for React. 
+The Kendo UI Slider for React is part of the Inputs `npm` package of the Kendo UI suite for React.
 
 **Figure 1. A horizontal template of the Kendo UI Slider for React**
 
@@ -75,7 +75,7 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
 
 ### Buttons
 
-When enabled, the side buttons increase or decrease the component value with the pre-defined step. If the initial value does not directly match to a specific tick and the user clicks either of the buttons, the handle is placed on the next available tick. Each subsequent click moves the handle over the available ticks. 
+When enabled, the side buttons increase or decrease the component value with the pre-defined step. If the initial value does not directly match to a specific tick and the user clicks either of the buttons, the handle is placed on the next available tick. Each subsequent click moves the handle over the available ticks.
 
 By default, the `buttons` configuration property is set to `true`. If set to `false`, the buttons do not appear.
 
@@ -245,7 +245,7 @@ Along the track, the ticks indicate the values resulting from each incremented p
     );
 ```
 
-The `title` property defines the titles of the ticks. By default, the title of each tick corresponds to its value. If you want to customize the title, use a callback. 
+The `title` property defines the titles of the ticks. By default, the title of each tick corresponds to its value. If you want to customize the title, use a callback.
 
 ```html
   <div id="app"></div>
@@ -332,7 +332,7 @@ The `fixedTickWidth` property sets the width between each two ticks along the tr
 
 ### Orientation
 
-The Slider supports two modes of orientations&mdash;horizontal, which is the default one, and vertical, which can be applied by setting the `vertical` property to `true`. 
+The Slider supports two modes of orientations&mdash;horizontal, which is the default one, and vertical, which can be applied by setting the `vertical` property to `true`.
 
 When used in its horizontal mode, the Slider component displays the smallest value to the left and the largest to the right. When used in its vertical mode, the Slider component displays the smallest value at the bottom and the largest at the top.
 
@@ -375,7 +375,7 @@ When used in its horizontal mode, the Slider component displays the smallest val
 
 ### State
 
-The Slider is designed as a stateless component. Therefore, to store its state and configuration properties, use a high-order component, which controls its state and holds the configuration. 
+The Slider is designed as a stateless component. Therefore, to store its state and configuration properties, use a high-order component.
 
 The `onChange` event is fired each time a user interacts with the Slider. The new value is then passed as an argument to the `onChange` callback.
 

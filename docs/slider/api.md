@@ -8,7 +8,7 @@ position: 2
 
 # Slider
 
-Represents the Kendo UI Slider for React component.
+Represents the Kendo UI Slider component for React.
 
 ## Buttons
 
@@ -28,11 +28,11 @@ The title of the increase button of the Slider.
 
 #### max `Number`*(default: 10)*
 
-The maximum value of the Slider. The attribute accepts both integers and floating numbers.
+The maximum value of the Slider. The attribute accepts both integers and floating-point numbers.
 
 #### min `Number`*(default: 0)*
 
-The minimum value of the Slider. The attribute accepts both integers and floating numbers.
+The minimum value of the Slider. The attribute accepts both integers and floating-point numbers.
 
 #### smallStep `Number`*(default: 1)*
 
@@ -50,10 +50,10 @@ Denotes the location of the tick marks in the Slider.
 
 The available options are:
 
-* `before` - Tick marks are located to the top side of the horizontal track or to the left side of a vertical track.
-* `after` - Tick marks are located to the bottom side of the horizontal track or to the right side of the vertical track.
-* `both` - Tick marks are located on both sides of the track.
-* `none` - Tick marks are not visible. The actual elements are not added to the DOM tree.
+* `before`&mdash;Tick marks are located to the top side of the horizontal track or to the left side of a vertical track.
+* `after`&mdash;Tick marks are located to the bottom side of the horizontal track or to the right side of the vertical track.
+* `both`&mdash;Tick marks are located on both sides of the track.
+* `none`&mdash;Tick marks are not visible. The actual elements are not added to the DOM tree.
 
 #### title `String|Function`
 
@@ -61,7 +61,7 @@ Defines title of the ticks. The default title for each tick is its Slider value.
 
 #### fixedTickwidth `Number`
 
-Sets the width between each two ticks along the track. The value must be set in pixels. If no fixedTickWidth is provided the component will automatically adjust the tick width to accommodate the elements within the size of the component.
+Sets the width between each two ticks along the track. The value must be set in pixels. If no `fixedTickWidth` is provided the component will automatically adjust the tick width to accommodate the elements within the size of the component.
 
 ## Orientation
 
@@ -73,10 +73,10 @@ Changes the orientation of the Slider from horizontal to vertical when set to `t
 
 #### onChange `Function`
 
-As a stateless component the Slider will fire its onChange event handler every time when the value is changed. It should be handled by the parent component.
+As a stateless component the Slider will fire its `onChange` event handler every time when the value is changed. It should be handled by the parent component.
 
 ### Drag handle
 
 #### dragHandleTitle `String`
 
-Changes the title attribute of the drag handle, so it can be localized. 
+Changes the title attribute of the drag handle, so it can be localized.
