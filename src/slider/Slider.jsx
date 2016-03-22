@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { SliderModel, Util as util } from '@telerik/kendo-slider-common';
+import { SliderModel, SliderUtil as util } from '@telerik/kendo-inputs-common';
 //import styles from '@telerik/kendo-theme-default/styles/main';
 import classnames from 'classnames';
 import SliderTrack from './SliderTrack';
