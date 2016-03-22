@@ -1,6 +1,6 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-# Kendo UI Inputs Components for React
+# Kendo UI Inputs Package for React
 
 * [Overview](https://github.com/telerik/kendo-react-inputs#overview)
 * [Glossary](https://github.com/telerik/kendo-react-inputs#glossary)
@@ -19,7 +19,7 @@ This repository holds the source code files and documentation of the Kendo UI co
 
 ## Glossary
 
-Below are explained the basic terms used the Kendo UI suite for React applies.
+Below are explained the basic terms that Kendo UI suite for React applies.
 
 ### Component
 
