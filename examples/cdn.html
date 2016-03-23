@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>CDN example</title>
-<link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.1.112/styles/kendo.common.min.css" />
-<link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.1.112/styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.1.112/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.1.112/styles/kendo.default.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
     <script src="../dist/cdn/js/kendo-react-inputs.js"></script>
@@ -15,7 +15,7 @@
 
     <script>
       var App = React.createClass({displayName: 'App',
-        getInitialState: function() {
+        getInitialState() {
             return {
                     max: 10,
                     min: 0,
@@ -24,12 +24,12 @@
                     onChange: this.onChange
                 }
         },
-        onChange: function(e) {
+        onChange(e) {
             this.setState({
                 value: e.value
             })
         },
-        render: function() {
+        render() {
           return (
             React.createElement(KendoReactInputs.Slider, this.state)
           );

@@ -32,7 +32,6 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
           };
       }
       onChange(e) {
-          console.log(1);
           this.setState({
               value: e.value
           });
