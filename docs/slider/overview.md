@@ -414,3 +414,7 @@ Below is the list with the keyboard shortcuts the Slider supports.
 ## Accessibility
 
 The Slider is WAI ARIA-accessible through the `Tab` key. The `aria-valuemin`, `aria-valuemax`, and `aria-valuetext` properties define the accessibility values when the user drags the handle of the Slider or interacts with the Slider through its buttons.
+
+## Suggested Links
+
+* [Client-Side API Reference for the Kendo UI Slider Component]({% slug api_slider_kendouiforreact %})

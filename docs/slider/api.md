@@ -6,7 +6,7 @@ slug: api_slider_kendouiforreact
 position: 2
 ---
 
-# Slider
+# Slider Client-Side API
 
 Represents the Kendo UI Slider component for React.
 
@@ -75,7 +75,7 @@ Changes the orientation of the Slider from horizontal to vertical when set to `t
 
 As a stateless component the Slider will fire its `onChange` event handler every time when the value is changed. It should be handled by the parent component.
 
-### Drag handle
+### Handle
 
 #### dragHandleTitle `String`
 
