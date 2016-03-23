@@ -1,24 +1,25 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import styles from '@telerik/kendo-theme-default/styles/slider/main';
 
 const SliderButton = (props) => {
     const { increase, vertical, title, onClick } = props;
     const buttonClasses = classnames({
-        'k-button': true,
-        'k-button-increase': increase,
-        'k-button-decrease': !increase
+        [styles.button]: true,
+        [styles['button-increase']]: increase,
+        [styles['button-decrease']]: !increase
     });
     const spanClasses = classnames({
-        'k-icon': true,
-        'k-i-arrow-e': increase && !vertical,
-        'k-i-arrow-w': !increase && !vertical,
-        'k-i-arrow-n': increase && vertical,
-        'k-i-arrow-s': !increase && vertical
+        [styles.icon]: true,
+        [styles['i-arrow-e']]: increase && !vertical,
+        [styles['i-arrow-w']]: !increase && !vertical,
+        [styles['i-arrow-n']]: increase && vertical,
+        [styles['i-arrow-s']]: !increase && vertical
     });
 
     return (
-        <a className = {buttonClasses} onClick = {onClick}>
-            <span className = {spanClasses}>{title}</span>
+        <a className={buttonClasses} onClick={onClick} title={title}>
+            <span aria-hidden="true" className={spanClasses}></span>
         </a>
     );
 };

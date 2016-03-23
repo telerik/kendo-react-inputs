@@ -1,12 +1,13 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import SliderTick from './SliderTick';
+import styles from '@telerik/kendo-theme-default/styles/slider/main';
 import { SliderUtil as util } from '@telerik/kendo-inputs-common';
 
 const SliderTicks = ({ tickCount = 0, onClick, vertical, min, smallStep, title = util.identity }) => {
     const listClasses = classnames({
-        'k-reset': true,
-        'k-slider-items': true
+        [styles.reset]: true,
+        [styles['slider-items']]: true
     });
     const ticks = Array(tickCount)
         .fill({})

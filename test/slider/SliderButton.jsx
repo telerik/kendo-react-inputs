@@ -43,9 +43,9 @@ describe('SliderButton', () => {
         expect(result.children().first().type()).toEqual('span');
     });
 
-    it('should render title as text', () => {
+    it('should render title as title', () => {
         let result = shallow(<SliderButton title="Test" />);
-        expect(result.children().first().text()).toEqual('Test');
+        expect(result.first().props().title).toEqual('Test');
     });
 
     it('onClick handler is propagated', () => {

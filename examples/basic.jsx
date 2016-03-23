@@ -10,8 +10,8 @@ class SliderContainer extends React.Component {
             min: 0,
             value: 3,
             step: 2,
-            decreaseButtonTitle: "Dec",
-            increaseButtonTitle: "Inc",
+            decreaseButtonTitle: "Less",
+            increaseButtonTitle: "More",
             buttons: true,
             tickPlacement: "both",
             dragHandleTitle: "DragMe"
@@ -27,7 +27,7 @@ class SliderContainer extends React.Component {
         this.setState({
             value: e.value
         });
-    }
+    };
     render() {
         return (
             <Slider

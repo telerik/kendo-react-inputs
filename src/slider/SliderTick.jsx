@@ -1,11 +1,12 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import styles from '@telerik/kendo-theme-default/styles/slider/main';
 
 const SliderTick = ({ first, last, onClick, vertical, title }) => {
     const classes = classnames({
-        'k-tick': true,
-        'k-first': vertical ? last : first,
-        'k-last': vertical ? first : last
+        [styles.tick]: true,
+        [styles.first]: vertical ? last : first,
+        [styles.last]: vertical ? first : last
     });
     const attributes = {
         'role': 'presentation',

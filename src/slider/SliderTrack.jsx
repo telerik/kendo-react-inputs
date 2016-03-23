@@ -1,4 +1,5 @@
 import * as React from 'react';
+import styles from '@telerik/kendo-theme-default/styles/slider/main';
 
 const SliderTrack = ({ onClick, max, min, value, onKeyDown, dragHandleTitle = 'Drag' }) => {
     const attributes = {
@@ -14,9 +15,9 @@ const SliderTrack = ({ onClick, max, min, value, onKeyDown, dragHandleTitle = 'D
     const onHandleClick = (event) => event.preventDefault();
 
     return (
-        <div className="k-slider-track" onClick={onClick}>
-            <div className="k-slider-selection"></div>
-            <a className="k-draghandle" {...attributes} href="#"
+        <div className={styles["slider-track"]} onClick={onClick}>
+            <div className={styles["slider-selection"]}></div>
+            <a className={styles.draghandle} {...attributes} href="#"
                 onClick={onHandleClick}
                 onKeyDown={onKeyDown}
             ></a>

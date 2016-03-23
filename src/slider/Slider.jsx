@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { SliderModel, SliderUtil as util } from '@telerik/kendo-inputs-common';
-//import styles from '@telerik/kendo-theme-default/styles/main';
+import styles from '@telerik/kendo-theme-default/styles/slider/main';
 import classnames from 'classnames';
 import SliderTrack from './SliderTrack';
 import SliderTicks from './SliderTicks';
@@ -36,11 +36,11 @@ class Slider extends React.Component {
 
     sizeComponent() {
         const wrapper = ReactDOM.findDOMNode(this);
-        const track = wrapper.getElementsByClassName('k-slider-track')[0];
-        const ticks = wrapper.getElementsByClassName('k-tick');
-        const ticksContainer = wrapper.getElementsByClassName('k-slider-items');
-        const dragHandle = wrapper.getElementsByClassName('k-draghandle')[0];
-        const selection = wrapper.getElementsByClassName('k-slider-selection')[0];
+        const track = wrapper.getElementsByClassName(styles['slider-track'])[0];
+        const ticks = wrapper.getElementsByClassName(styles.tick);
+        const ticksContainer = wrapper.getElementsByClassName(styles['slider-items']);
+        const dragHandle = wrapper.getElementsByClassName(styles.draghandle)[0];
+        const selection = wrapper.getElementsByClassName(styles['slider-selection'])[0];
         const model = new SliderModel(this.props, wrapper, track);
 
         model.resizeTrack();
@@ -66,7 +66,7 @@ class Slider extends React.Component {
     };
 
     onTickClick = (event) => {
-        const ticks = event.target.parentNode.getElementsByClassName('k-tick');
+        const ticks = event.target.parentNode.getElementsByClassName(styles.tick);
         const index = [ ...ticks ].indexOf(event.target);
         const value = util.calculateValueFromTick(index, this.props);
 
@@ -89,7 +89,7 @@ class Slider extends React.Component {
             value = util.trimValue(max, min, value);
             this.props.onChange({ value });
         }
-    }
+    };
 
     keyBinding = {
         [keycode.codes.left]: ({ value, smallStep }) => value - smallStep,
@@ -98,7 +98,7 @@ class Slider extends React.Component {
         [keycode.codes.up]: ({ value, smallStep }) => value + smallStep,
         [keycode.codes.home]: ({ min }) => min,
         [keycode.codes.end]: ({ max }) => max
-    }
+    };
 
     render() {
         const {
@@ -130,17 +130,17 @@ class Slider extends React.Component {
             tickCount: util.calculateTicksCount(max, min, smallStep)
         };
         const wrapperClasses = classnames({
-            'k-widget': true,
-            'k-slider': true,
-            'k-slider-horizontal': !vertical,
-            'k-slider-vertical': vertical,
-            'k-state-default': true
+            [styles.widget]: true,
+            [styles.slider]: true,
+            [styles['slider-horizontal']]: !vertical,
+            [styles['slider-vertical']]: vertical,
+            [styles['state-default']]: true
         });
         const componentClasses = classnames({
-            'k-slider-wrap': true,
-            'k-slider-buttons': buttons,
-            'k-slider-topleft': tickPlacement === 'before',
-            'k-slider-bottomright': tickPlacement === 'after'
+            [styles['slider-wrap']]: true,
+            [styles['slider-buttons']]: buttons,
+            [styles['slider-topleft']]: tickPlacement === 'before',
+            [styles['slider-bottomright']]: tickPlacement === 'after'
         });
         return (
             <div className = {wrapperClasses} style = {this.props.style}>
