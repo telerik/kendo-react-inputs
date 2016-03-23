@@ -17,7 +17,7 @@ class SliderContainer extends React.Component {
             dragHandleTitle: "DragMe"
         };
     }
-    title(value) {
+    title = (value) => {
         if (value % 2 === 0) {
             return 'even';
         }

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="//kendo.cdn.telerik.com/2016.1.112/styles/kendo.default.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
-    <script src="../dist/cdn/js/kendo-react-slider.js"></script>
+    <script src="../dist/cdn/js/kendo-react-inputs.js"></script>
   </head>
   <body>
     <div id="content">
@@ -15,9 +15,23 @@
 
     <script>
       var App = React.createClass({displayName: 'App',
+        getInitialState: function() {
+            return {
+                    max: 10,
+                    min: 0,
+                    smallStep: 1,
+                    value: 3,
+                    onChange: this.onChange
+                }
+        },
+        onChange: function(e) {
+            this.setState({
+                value: e.value
+            })
+        },
         render: function() {
           return (
-            React.createElement(KendoReactSlider, {  })
+            React.createElement(KendoReactInputs.Slider, this.state)
           );
         }
       });
