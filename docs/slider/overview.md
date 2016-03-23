@@ -357,7 +357,7 @@ In horizontal mode, the Slider component displays the smallest value to the left
 
 ### State
 
-The Slider is designed as a stateless component. To store its state and configuration properties, wrap it a high-order component.
+The Slider is designed as a stateless component. To store its state and configuration properties, wrap it in a high-order component.
 
 The `onChange` event fires each time a user interacts with the Slider. The new value is passed as an argument to the `onChange` callback.
 
