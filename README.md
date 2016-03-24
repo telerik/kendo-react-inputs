@@ -12,15 +12,15 @@
 
 ## Overview
 
-This repository contains the source code and the documentation of the Kendo UI components for React.
+This repository contains the source code and documentation of the Kendo UI Inputs components for React.
 
-Currently, the package includes only the Slider component. 
+Currently, the package includes only the Slider component.
 
 Telerik works on porting the following components too:
 
-* Color Picker
-* Masked TextBox
-* Numeric TextBox
+* ColorPicker
+* MaskedTextBox
+* NumericTextBox
 * Switch
 
 For more information on forthcoming Inputs package features and components, refer to the [Roadmap](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
@@ -63,7 +63,7 @@ For more examples and available configuration options, refer to the [Slider docu
 
 ## Installation
 
-The React Inputs are published as a public [scoped NPM package](https://docs.npmjs.com/misc/scope) in the [telerik organization](https://www.npmjs.com/~telerik) in `http://npmjs.org/`. 
+The React Inputs are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in `http://npmjs.org/`.
 
 Install it using NPM:
 
