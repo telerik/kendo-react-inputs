@@ -397,6 +397,48 @@ The `onChange` event fires each time a user interacts with the Slider. The new v
     );
 ```
 
+### Disabled
+
+The component can be disabled, when its `disabled` property is set to `true`.
+
+``html
+  <div id="app"></div>
+```
+```jsx
+    class SliderContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                max: 10,
+                min: 0,
+                step: 2
+                disabled: true
+            };
+        }
+        onChange(e) {
+            this.setState({
+                value: e.value //e.value contains the newly set value of the component
+            });
+        }
+        render() {
+            return (
+                <KendoReactInputs.Slider
+                    max = {this.state.max}
+                    min = {this.state.min}
+                    onChange = {this.onChange}
+                    smallStep = {this.state.step}
+                    disabled = {this.state.disabled}
+                />
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <SliderContainer />,
+        document.getElementById('app')
+    );
+```
+
 For detailed information on the Kendo UI Slider for React configuration, refer to its [client-side API documentation]({% slug api_slider_kendouiforreact %}).
 
 ## Keyboard Navigation
