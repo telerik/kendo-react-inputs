@@ -68,14 +68,14 @@ The React Inputs are published as a public [scoped NPM package](https://docs.npm
 Install it using NPM:
 
 ```sh
-    npm install --save @telerik/kendo-react-inputs;
+npm install --save @telerik/kendo-react-inputs;
 ```
 
 Once installed, import the module:
 
 ```jsx
 // ES2015 module syntax
-    import {Slider} from 'kendo-react-inputs';
+import {Slider} from 'kendo-react-inputs';
 ```
 ```jsx
 // CommonJS format
