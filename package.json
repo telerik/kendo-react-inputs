@@ -1,11 +1,13 @@
 {
   "name": "@telerik/kendo-react-inputs",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Kendo UI React input component",
   "repository": "telerik/kendo-react-inputs",
   "main": "dist/npm/js/main.js",
   "scripts": {
     "test": "gulp test",
+    "build-npm": "gulp build-npm-package",
+    "build-cdn": "gulp build-cdn",
     "start": "gulp start",
     "lint": "gulp lint"
   },
