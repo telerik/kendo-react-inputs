@@ -8,7 +8,7 @@ class SliderContainer extends React.Component {
         this.state = {
             max: 10,
             min: 0,
-            value: 3,
+            value: 4,
             step: 2,
             decreaseButtonTitle: "Less",
             increaseButtonTitle: "More",
