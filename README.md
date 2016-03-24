@@ -3,7 +3,6 @@
 # Kendo UI Inputs for React
 
 * [Overview](https://github.com/telerik/kendo-react-inputs#overview)
-* [Input Components](https://github.com/telerik/kendo-react-inputs#input-components)
 * [Basic Usage](https://github.com/telerik/kendo-react-inputs#basic-usage)
 * [Installation](https://github.com/telerik/kendo-react-inputs#installation)
 * [Browser Support](https://github.com/telerik/kendo-react-inputs#browser-support)
@@ -15,15 +14,18 @@
 
 This repository contains the source code and the documentation of the Kendo UI components for React.
 
-## Input Components
+Currently, the package includes only the Slider component. 
 
-Currently, the package includes only the **Slider** component. Telerik works on porting the **Color Picker**, **Masked TextBox**, **Numeric TextBox** and the **Switch** components, too.
+Telerik works on porting the following components too:
+
+* Color Picker
+* Masked TextBox
+* Numeric TextBox
+* Switch
 
 For more information on forthcoming Inputs package features and components, refer to the [Roadmap](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
 
 ## Basic Usage
-
-### Kendo UI Slider for React
 
 The Slider lets users select a value from a predefined range. These values can be increased or decreased over a pre-defined step by dragging a handle along the track, or by clicking the side arrow buttons.
 
@@ -57,28 +59,30 @@ The Slider lets users select a value from a predefined range. These values can b
 
 ```
 
-More examples and the available configuration options are listed in the [Slider documentation section](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/overview.md).
+For more examples and available configuration options, refer to the [Slider documentation section](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/overview.md).
 
-### Installation
+## Installation
 
-The react inputs are published as a public [scoped NPM package](https://docs.npmjs.com/misc/scope) in the [telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/. Install it using NPM:
+The React Inputs are published as a public [scoped NPM package](https://docs.npmjs.com/misc/scope) in the [telerik organization](https://www.npmjs.com/~telerik) in `http://npmjs.org/`. 
+
+Install it using NPM:
 
 ```sh
-npm install --save @telerik/kendo-react-inputs;
+    npm install --save @telerik/kendo-react-inputs;
 ```
 
-Once installed, import the module
+Once installed, import the module:
 
 ```jsx
 // ES2015 module syntax
-import {Slider} from 'kendo-react-inputs';
+    import {Slider} from 'kendo-react-inputs';
 ```
 ```jsx
 // CommonJS format
 var Slider = require('kendo-react-inputs').Slider;
 ```
 
-### Browser Support
+## Browser Support
 
 The Kendo UI Inputs components for React support all browsers that are supported by the React framework&mdash;Internet Explorer 9 and later versions.
 
