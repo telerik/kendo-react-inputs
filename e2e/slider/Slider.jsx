@@ -29,20 +29,7 @@ describe('Slider', withRoot(root => {
         };
         render();
         const track = root.find('.k-slider-track');
-
-        expect(track.width()).toEqual(300);
-    });
-
-    it('should resize  wrapper', () => {
-        props = {
-            max: 10,
-            min: 0,
-            style: { width: 300 },
-            step: 1
-        };
-        render();
-        const track = root.find('.k-slider-track');
-        expect(track.width()).toEqual(300);
+        expect(track.width()).toEqual(230);
     });
 
     it('should add tabindex attributes', () => {
