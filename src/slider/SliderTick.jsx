@@ -2,18 +2,26 @@ import * as React from 'react';
 import classnames from 'classnames';
 import styles from '@telerik/kendo-theme-default/styles/slider/main';
 
-const SliderTick = ({ first, last, onClick, vertical, title }) => {
+const SliderTick = ({ disabled, first, last, onClick, vertical, title }) => {
     const classes = classnames({
         [styles.tick]: true,
         [styles.first]: vertical ? last : first,
         [styles.last]: vertical ? first : last
     });
-    const attributes = {
+
+    const tickProps = {
+        className: classes,
         'role': 'presentation',
         'title': title
     };
 
-    return <li className={classes} {...attributes} onClick={onClick}>&nbsp;</li>;
+    if (!disabled) {
+        Object.assign(tickProps, {
+            onClick: onClick
+        });
+    }
+
+    return <li {...tickProps}>&nbsp;</li>;
 };
 
 SliderTick.propTypes = {

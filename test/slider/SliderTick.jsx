@@ -37,4 +37,9 @@ describe('SliderTick', () => {
         result.simulate('click');
         expect(spy).toHaveBeenCalled();
     });
+
+    it('should not attach click handler when disabled', () => {
+        let result = shallow(<SliderTick disabled/>);
+        expect(result.props().onClick).toBe(undefined);
+    });
 });

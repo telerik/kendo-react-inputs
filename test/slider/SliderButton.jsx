@@ -28,6 +28,11 @@ describe('SliderButton', () => {
         expect(result.children().first().hasClass('k-i-arrow-w')).toBe(true);
     });
 
+    it('should not attach click handler when disabled', () => {
+        let result = shallow(<SliderButton disabled/>);
+        expect(result.props().onClick).toBe(undefined);
+    });
+
     it('should add class k-i-arrow-n when increase and not vertical', () => {
         let result = shallow(<SliderButton increase vertical/>);
         expect(result.children().first().hasClass('k-i-arrow-n')).toBe(true);

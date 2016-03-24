@@ -4,7 +4,7 @@ import SliderTick from './SliderTick';
 import styles from '@telerik/kendo-theme-default/styles/slider/main';
 import { SliderUtil as util } from '@telerik/kendo-inputs-common';
 
-const SliderTicks = ({ tickCount = 0, onClick, vertical, min, smallStep, title = util.identity }) => {
+const SliderTicks = ({ tickCount = 0, disabled, onClick, vertical, min, smallStep, title = util.identity }) => {
     const listClasses = classnames({
         [styles.reset]: true,
         [styles['slider-items']]: true
@@ -21,6 +21,7 @@ const SliderTicks = ({ tickCount = 0, onClick, vertical, min, smallStep, title =
             return (<SliderTick
                 key = {index}
                 {...props}
+                disabled = {disabled}
                 onClick = {onClick}
                 title = {title(titleText)}
                 vertical = {vertical}

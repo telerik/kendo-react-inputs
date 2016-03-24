@@ -10,6 +10,7 @@ class SliderContainer extends React.Component {
             min: 0,
             value: 4,
             step: 2,
+            disabled: false,
             decreaseButtonTitle: "Less",
             increaseButtonTitle: "More",
             buttons: true,
@@ -33,6 +34,7 @@ class SliderContainer extends React.Component {
             <Slider
                 buttons = {this.state.buttons}
                 decreaseButtonTitle = {this.state.decreaseButtonTitle}
+                disabled = {this.state.disabled}
                 dragHandleTitle = {this.state.dragHandleTitle}
                 fixedTickWidth = {this.state.fixedTickWidth}
                 increaseButtonTitle = {this.state.increaseButtonTitle}

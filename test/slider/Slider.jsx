@@ -26,6 +26,11 @@ describe('Slider', () => {
         expect(result.hasClass('k-slider-horizontal')).toBe(true);
     });
 
+    it('should add k-state-disabled class', () => {
+        let result = shallow(<Slider disabled/>);
+        expect(result.hasClass('k-state-disabled')).toBe(true);
+    });
+
     it('should add k-slider-vertical class', () => {
         let result = shallow(<Slider vertical />);
         expect(result.hasClass('k-slider-vertical')).toBe(true);

@@ -17,14 +17,26 @@ const SliderButton = (props) => {
         [styles['i-arrow-s']]: !increase && vertical
     });
 
+    const buttonProps = {
+        title: title,
+        className: buttonClasses
+    };
+
+    if (!props.disabled) {
+        Object.assign(buttonProps, {
+            onClick: onClick
+        });
+    }
+
     return (
-        <a className={buttonClasses} onClick={onClick} title={title}>
+        <a {...buttonProps}>
             <span aria-hidden="true" className={spanClasses}></span>
         </a>
     );
 };
 
 SliderButton.propTypes = {
+    disabled: React.PropTypes.bool,
     increase: React.PropTypes.bool,
     onClick: React.PropTypes.func,
     title: React.PropTypes.string,

@@ -12,6 +12,7 @@ const propTypes = {
     buttons: React.PropTypes.bool,
     dragHandleTitle: React.PropTypes.string,
     decreaseButtonTitle: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
     fixedTickWidth: React.PropTypes.number,
     increaseButtonTitle: React.PropTypes.string,
     max: React.PropTypes.number,
@@ -104,6 +105,7 @@ class Slider extends React.Component {
         const {
             buttons = true,
             dragHandleTitle,
+            disabled,
             max,
             min,
             smallStep,
@@ -119,9 +121,11 @@ class Slider extends React.Component {
             min,
             onClick: this.onTrackClick,
             onKeyDown: this.onKeyDown,
-            value
+            value,
+            disabled
         };
         const ticksProps = {
+            disabled,
             min,
             smallStep,
             vertical,
@@ -129,12 +133,14 @@ class Slider extends React.Component {
             onClick: this.onTickClick,
             tickCount: util.calculateTicksCount(max, min, smallStep)
         };
+
         const wrapperClasses = classnames({
             [styles.widget]: true,
             [styles.slider]: true,
             [styles['slider-horizontal']]: !vertical,
             [styles['slider-vertical']]: vertical,
-            [styles['state-default']]: true
+            [styles['state-default']]: true,
+            [styles['state-disabled']]: disabled
         });
         const componentClasses = classnames({
             [styles['slider-wrap']]: true,
@@ -145,8 +151,19 @@ class Slider extends React.Component {
         return (
             <div className = {wrapperClasses} style = {this.props.style}>
                 <div className = {componentClasses} >
-                        {buttons && <SliderButton increase onClick = {this.onIncrease} title = {increaseButtonTitle} vertical = {vertical} />}
-                        {buttons && <SliderButton onClick = {this.onDecrease} title = {decreaseButtonTitle} vertical = {vertical} />}
+                        {buttons && <SliderButton
+                            disabled={disabled}
+                            increase
+                            onClick = {this.onIncrease}
+                            title = {increaseButtonTitle}
+                            vertical = {vertical}
+                                    />}
+                        {buttons && <SliderButton
+                            disabled={disabled}
+                            onClick = {this.onDecrease}
+                            title = {decreaseButtonTitle}
+                            vertical = {vertical}
+                                    />}
                         {tickPlacement !== 'none' && <SliderTicks {...ticksProps} />}
                     <SliderTrack {...trackProps} />
                 </div>
