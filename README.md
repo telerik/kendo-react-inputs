@@ -42,6 +42,11 @@ The Slider lets users select a value from a predefined range. These values can b
                 step: 2
             };
         }
+        onChange(e) {
+            this.setState({
+                value: e.value
+            });
+        }
         render() {
             return (
                 <Slider
