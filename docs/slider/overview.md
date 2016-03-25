@@ -403,11 +403,11 @@ The `onChange` event fires each time a user interacts with the Slider. The new v
     );
 ```
 
-### Disabled
+### Features
 
 The component can be disabled, when its `disabled` property is set to `true`.
 
-``html
+```html
   <div id="app"></div>
 ```
 ```jsx
