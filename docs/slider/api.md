@@ -69,12 +69,13 @@ Sets the width between each two ticks along the track. The value must be set in 
 
 Changes the orientation of the Slider from horizontal to vertical when set to `true`.
 
-
 ## State
 
 #### onChange `Function`
 
 As a stateless component the Slider will fire its `onChange` event handler every time when the value is changed. It should be handled by the parent component.
+
+## Features
 
 ### Handle
 
@@ -82,7 +83,7 @@ As a stateless component the Slider will fire its `onChange` event handler every
 
 Changes the title attribute of the drag handle, so it can be localized.
 
-### Features
+### Disabling
 
 #### disabled `Boolean`*(default: "false")*
 
