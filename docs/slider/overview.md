@@ -59,6 +59,12 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
   );
 ```
 
+## CSS
+
+The component depends on the `@telerik/kendo-theme-default` npm package. It is a SASS based Kendo UI theme, that will be built by the component.
+
+If you do not want to include it separately, find the required CSS files in the dist/npm/css folder of the package.
+
 ## Configuration
 
 ### Buttons
