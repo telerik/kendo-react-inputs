@@ -9,8 +9,8 @@ const SliderTicks = ({ tickCount = 0, disabled, onClick, vertical, min, smallSte
         [styles.reset]: true,
         [styles['slider-items']]: true
     });
-    const ticks = Array(tickCount)
-        .fill({})
+    const times = (count) => Array.apply(null, Array(count));
+    const ticks = times(tickCount)
         .map((item, index, array) => ({
             first: index === 0,
             last: index === array.length - 1

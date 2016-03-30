@@ -14,7 +14,7 @@ const SliderTrack = ({ onClick, disabled, max, min, value, onKeyDown, dragHandle
 
     const trackProps = {
         className: styles["slider-track"]
-    }
+    };
 
     if (!disabled) {
         Object.assign(trackProps, {
