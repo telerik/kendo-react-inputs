@@ -1,15 +1,19 @@
 {
   "name": "@telerik/kendo-react-inputs",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Kendo UI React input component",
-  "repository": "telerik/kendo-react-inputs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/telerik/kendo-react-inputs.git"
+  },
   "main": "dist/npm/js/main.js",
   "scripts": {
     "test": "gulp test",
     "build-npm": "gulp build-npm-package",
     "build-cdn": "gulp build-cdn",
     "start": "gulp start",
-    "lint": "gulp lint"
+    "lint": "gulp lint",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
     "Kendo UI",
@@ -29,7 +33,8 @@
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",
-    "validate-commit-msg": "^1.1.1"
+    "validate-commit-msg": "^1.1.1",
+    "semantic-release": "^4.3.5"
   },
   "author": "Telerik",
   "license": "Apache-2.0",
