@@ -9,10 +9,12 @@
   "main": "dist/npm/js/main.js",
   "scripts": {
     "test": "gulp test",
-    "build-npm": "gulp build-npm-package",
-    "build-cdn": "gulp build-cdn",
+    "e2e": "gulp e2e",
+    "e2e-npm": "gulp e2e-npm",
     "start": "gulp start",
     "lint": "gulp lint",
+    "build-package": "gulp build-npm-package",
+    "build-cdn": "gulp build-cdn",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
