@@ -24,7 +24,9 @@
   "dependencies": {
     "@telerik/kendo-inputs-common": "^1.0.0",
     "classnames": "^2.2.3",
-    "keycode": "^2.1.1",
+    "keycode": "^2.1.1"
+  },
+  "peerDependencies": {
     "react": "~0.14.3",
     "react-dom": "~0.14.3"
   },
