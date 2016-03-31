@@ -66,7 +66,7 @@ The Slider lets users select a value from a predefined range. These values can b
 
 ```
 
-For more examples and available configuration options, refer to the [Slider documentation section](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/overview.md).
+For more examples and available configuration options, refer to the [Slider documentation section](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/index.md).
 
 ## Installation
 
