@@ -1,6 +1,6 @@
 {
   "name": "@telerik/kendo-react-inputs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Kendo UI React input component",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@telerik/eslint-config": "1.1.0",
-    "@telerik/kendo-react-tasks": "^1.0.0",
+    "@telerik/kendo-react-tasks": "^1.2.2",
     "@telerik/kendo-theme-default": "telerik/kendo-theme-default#master",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
