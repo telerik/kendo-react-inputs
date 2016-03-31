@@ -34,14 +34,17 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
           this.state = {
               max: 10,
               min: 0,
-              step: 2
+              step: 2,
+              value: 5
           };
       }
-      onChange(e) {
+
+      onChange = (e) => {
           this.setState({
               value: e.value
           });
       }
+
       render() {
           return (
               <KendoReactInputs.Slider
@@ -49,6 +52,7 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
                   min = {this.state.min}
                   onChange = {this.onChange}
                   smallStep = {this.state.step}
+                  value = {this.state.value}
               />);
       }
   }
@@ -78,14 +82,17 @@ By default, the `buttons` configuration property is set to `true`. If set to `fa
                 max: 10,
                 min: 0,
                 step: 2,
-                buttons: false
+                buttons: false,
+                value: 5
             };
         }
-        onChange(e) {
+
+        onChange = (e) => {
             this.setState({
                 value: e.value //e.value contains the newly set value of the component
             });
         }
+
         render() {
             return (
                 <KendoReactInputs.Slider
@@ -94,6 +101,7 @@ By default, the `buttons` configuration property is set to `true`. If set to `fa
                     onChange = {this.onChange}
                     smallStep = {this.state.step}
                     buttons = {this.state.buttons}
+                    value = {this.state.value}
                 />
             );
         }
@@ -119,14 +127,17 @@ The title of the buttons can be controlled by using the `decreaseButtonTitle` an
                 min: 0,
                 step: 2,
                 increaseButtonTitle: 'Inc',
-                decreaseButtonTitle: 'Dec'
+                decreaseButtonTitle: 'Dec',
+                value: 5
             };
         }
-        onChange(e) {
+
+        onChange = (e) => {
             this.setState({
                 value: e.value
             });
         }
+
         render() {
             return (
                 <KendoReactInputs.Slider
@@ -136,6 +147,7 @@ The title of the buttons can be controlled by using the `decreaseButtonTitle` an
                     smallStep = {this.state.step}
                     increaseButtonTitle = {this.state.increaseButtonTitle}
                     decreaseButtonTitle = {this.state.decreaseButtonTitle}
+                    value = {this.state.value}
                 />
             );
         }
@@ -165,14 +177,17 @@ The `smallStep` property accepts both `integer` and `float` values.
             this.state = {
                 max: 10,
                 min: 0,
-                step: 2.5
+                step: 2.5,
+                value: 5
             };
         }
-        onChange(e) {
+
+        onChange = (e) => {
             this.setState({
                 value: e.value
             });
         }
+
         render() {
             return (
                 <KendoReactInputs.Slider
@@ -180,6 +195,7 @@ The `smallStep` property accepts both `integer` and `float` values.
                     min = {this.state.min}
                     onChange = {this.onChange}
                     smallStep = {this.state.step}
+                    value = {this.state.value}
                 />
             );
         }
@@ -193,7 +209,7 @@ The `smallStep` property accepts both `integer` and `float` values.
 
 ### Ticks
 
-Along the track, the ticks indicate the values resulting from each incremented pre-defined step. Ticks are configured through the `tickPlacement` property. They can be set to appear along the upper side or bottom side of a horizontal Slider, on the left or right side of a vertical Slider, or on both sides of the track. If necessary, they can be set not to show at all.   
+Along the track, the ticks indicate the values resulting from each incremented pre-defined step. Ticks are configured through the `tickPlacement` property. They can be set to appear along the upper side or bottom side of a horizontal Slider, on the left or right side of a vertical Slider, or on both sides of the track. If necessary, they can be set not to show at all.
 
 ```html
   <div id="app"></div>
@@ -206,14 +222,17 @@ Along the track, the ticks indicate the values resulting from each incremented p
                 max: 10,
                 min: 0,
                 step: 2.5,
-                tickPlacement: "none"
+                tickPlacement: "none",
+                value: 5
             };
         }
-        onChange(e) {
+
+        onChange = (e) => {
             this.setState({
                 value: e.value
             });
         }
+
         render() {
             return (
                 <KendoReactInputs.Slider
@@ -222,6 +241,7 @@ Along the track, the ticks indicate the values resulting from each incremented p
                     onChange = {this.onChange}
                     smallStep = {this.state.step}
                     tickPlacement = {this.state.tickPlacement}
+                    value = {this.state.value}
                 />
             );
         }
@@ -245,21 +265,25 @@ The `title` property defines the titles of the ticks. By default, the title of e
             this.state = {
                 max: 10,
                 min: 0,
-                step: 2
+                step: 2,
+                value: 5
             };
         }
-        title(e) {
-            if (e.value > 10) { //e.value contains the value of the current tick being rendered
+
+        title = (value) => {
+            if (value > 5) { //`value` contains the value of the current tick being rendered
                 return 'high'
             }
 
             return 'low'
         }
-        onChange(e) {
+
+        onChange = (e) => {
             this.setState({
                 value: e.value //e.value contains the newly set value of the component
             });
         }
+
         render() {
             return (
                 <KendoReactInputs.Slider
@@ -267,6 +291,8 @@ The `title` property defines the titles of the ticks. By default, the title of e
                     min = {this.state.min}
                     onChange = {this.onChange}
                     smallStep = {this.state.step}
+                    title = {this.title}
+                    value = {this.state.value}
                 />
             );
         }
@@ -291,14 +317,17 @@ The `fixedTickWidth` property sets the width between each two ticks along the tr
                 max: 10,
                 min: 0,
                 step: 2,
-                fixedTickWidth: 20 //the value should be set in pixels
+                fixedTickWidth: 20, //the value should be set in pixels
+                value: 5
             };
         }
-        onChange(e) {
+
+        onChange = (e) => {
             this.setState({
                 value: e.value //e.value contains the newly set value of the component
             });
         }
+
         render() {
             return (
                 <KendoReactInputs.Slider
@@ -307,6 +336,7 @@ The `fixedTickWidth` property sets the width between each two ticks along the tr
                     onChange = {this.onChange}
                     smallStep = {this.state.step}
                     fixedTickWidth = {this.state.fixedTickWidth}
+                    value = {this.state.value}
                 />
             );
         }
@@ -334,14 +364,17 @@ In horizontal mode, the Slider component displays the smallest value to the left
             this.state = {
                 max: 10,
                 min: 0,
-                step: 2
+                step: 2,
+                value: 5
             };
         }
-        onChange(e) {
+
+        onChange = (e) => {
             this.setState({
                 value: e.value
             });
         }
+
         render() {
             return (
                 <KendoReactInputs.Slider
@@ -350,6 +383,7 @@ In horizontal mode, the Slider component displays the smallest value to the left
                     onChange = {this.onChange}
                     smallStep = {this.state.step}
                     vertical
+                    value = {this.state.value}
                 />
             );
         }
@@ -377,14 +411,17 @@ The `onChange` event fires each time a user interacts with the Slider. The new v
             this.state = {
                 max: 10,
                 min: 0,
-                step: 2
+                step: 2,
+                value: 5
             };
         }
-        onChange(e) {
+
+        onChange = (e) => {
             this.setState({
                 value: e.value //e.value contains the newly set value of the component
             });
         }
+
         render() {
             return (
                 <KendoReactInputs.Slider
@@ -392,6 +429,7 @@ The `onChange` event fires each time a user interacts with the Slider. The new v
                     min = {this.state.min}
                     onChange = {this.onChange}
                     smallStep = {this.state.step}
+                    value = {this.state.value}
                 />
             );
         }
@@ -417,15 +455,18 @@ The component can be disabled, when its `disabled` property is set to `true`.
             this.state = {
                 max: 10,
                 min: 0,
-                step: 2
-                disabled: true
+                step: 2,
+                disabled: true,
+                value: 5
             };
         }
-        onChange(e) {
+
+        onChange = (e) => {
             this.setState({
                 value: e.value //e.value contains the newly set value of the component
             });
         }
+
         render() {
             return (
                 <KendoReactInputs.Slider
@@ -434,6 +475,7 @@ The component can be disabled, when its `disabled` property is set to `true`.
                     onChange = {this.onChange}
                     smallStep = {this.state.step}
                     disabled = {this.state.disabled}
+                    value = {this.state.value}
                 />
             );
         }
