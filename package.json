@@ -24,9 +24,7 @@
   "dependencies": {
     "@telerik/kendo-inputs-common": "^1.0.0",
     "classnames": "^2.2.3",
-    "keycode": "^2.1.1",
-    "react": "~0.14.3",
-    "react-dom": "~0.14.3"
+    "keycode": "^2.1.1"
   },
   "devDependencies": {
     "@telerik/eslint-config": "1.1.0",
@@ -37,6 +35,10 @@
     "gulp": "3.9.0",
     "validate-commit-msg": "^1.1.1",
     "semantic-release": "^4.3.5"
+  },
+  "peerDependencies": {
+    "react": "~0.14.3",
+    "react-dom": "~0.14.3"
   },
   "author": "Telerik",
   "license": "Apache-2.0",
