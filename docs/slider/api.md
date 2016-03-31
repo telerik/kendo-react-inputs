@@ -73,7 +73,7 @@ Changes the orientation of the Slider from horizontal to vertical when set to `t
 
 #### onChange `Function`
 
-As a stateless component the Slider will fire its `onChange` event handler every time when the value is changed. It should be handled by the parent component.
+As a stateless component, the Slider fires its `onChange` event handler every time when the value is changed. It is handled by the parent component.
 
 ## Features
 
