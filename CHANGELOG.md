@@ -1,3 +1,12 @@
+<a name="0.1.2"></a>
+## 0.1.2 (2016-03-31)
+
+
+### Bug Fixes
+
+* Move react and react-dom as peer dependencies ([baff189](https://github.com/telerik/kendo-react-inputs/commit/baff1898bf4315b28fb159fcc2186bab5c60c66b)), fixes [#10](https://github.com/telerik/kendo-react-inputs/issues/10)
+
+
 <a name="0.1.1"></a>
 ## 0.1.1 (2016-03-31)
 
