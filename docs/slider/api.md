@@ -36,7 +36,7 @@ The minimum value of the Slider. The attribute accepts both integers and floatin
 
 #### smallStep `Number`*(default: 1)*
 
-The step value of the Slider. The attribute accepts only positive numbers. Can be both integer or a floating number.
+The step value of the Slider. The attribute accepts only positive numbers. Can be both integer or a float number.
 
 #### value `Number`
 
