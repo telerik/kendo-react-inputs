@@ -69,7 +69,7 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
 
 When enabled, the side buttons increase or decrease the component value with the pre-defined step. If the initial value does not directly match to a specific tick and the user clicks either of the buttons, the handle is placed on the next available tick. Each subsequent click moves the handle over the available ticks.
 
-By default, the `buttons` configuration property is set to `true`. If set to `false`, the buttons do not appear.
+By default, the [`buttons`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#buttons-booleandefault-true) configuration property is set to `true`. If set to `false`, the buttons do not appear.
 
 ```html
   <div id="app"></div>
@@ -113,7 +113,7 @@ By default, the `buttons` configuration property is set to `true`. If set to `fa
     );
 ```
 
-The title of the buttons can be controlled by using the `decreaseButtonTitle` and `increaseButtonTitle` properties, which accept `string` parameters.
+The title of the buttons can be controlled by using the [`decreaseButtonTitle`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#decreasebuttontitle-stringdefault-decrease) and [`increaseButtonTitle`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#increasebuttontitle-stringdefault-increase) properties, which accept `string` parameters.
 
 ```html
   <div id="app"></div>
@@ -161,11 +161,11 @@ The title of the buttons can be controlled by using the `decreaseButtonTitle` an
 
 ### Steps
 
-The `step` property is used to split the track on equal ticks based on the `min` and `max` values. For example, if the `min` value is `0` (zero), the `max` value is `4` (four) and the `smallStep` is `1` (one), the Slider displays ticks indicating four steps. If the `min` value is `2` (two), the `max` value is `4` (four) and the `smallStep` is `1` (one), the Slider displays two steps.
+The [`step`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#steps) property is used to split the track on equal ticks based on the [`min`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#min-numberdefault-0) and [`max`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#max-numberdefault-10) values. For example, if the `min` value is `0` (zero), the `max` value is `4` (four) and the [`smallStep`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#smallstep-numberdefault-1) is `1` (one), the Slider displays ticks indicating four steps. If the `min` value is `2` (two), the `max` value is `4` (four) and the `smallStep` is `1` (one), the Slider displays two steps.
 
-The step is defined through the `smallStep` property. The small steps are applied whenever the user interacts with the Slider. When the side arrow buttons are clicked, or when the handle is dragged, the Slider value changes with small steps.
+The step is defined through the [`smallStep`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#smallstep-numberdefault-1) property. The small steps are applied whenever the user interacts with the Slider. When the side arrow buttons are clicked, or when the handle is dragged, the Slider value changes with small steps.
 
-The `smallStep` property accepts both `integer` and `float` values.
+The [`smallStep`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#smallstep-numberdefault-1) property accepts both `integer` and `float` values.
 
 ```html
   <div id="app"></div>
@@ -209,7 +209,7 @@ The `smallStep` property accepts both `integer` and `float` values.
 
 ### Ticks
 
-Along the track, the ticks indicate the values resulting from each incremented pre-defined step. Ticks are configured through the `tickPlacement` property. They can be set to appear along the upper side or bottom side of a horizontal Slider, on the left or right side of a vertical Slider, or on both sides of the track. If necessary, they can be set not to show at all.
+Along the track, the ticks indicate the values resulting from each incremented pre-defined step. Ticks are configured through the [`tickPlacement`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#tickplacement-stringdefault-both) property. They can be set to appear along the upper side or bottom side of a horizontal Slider, on the left or right side of a vertical Slider, or on both sides of the track. If necessary, they can be set not to show at all.
 
 ```html
   <div id="app"></div>
@@ -253,7 +253,7 @@ Along the track, the ticks indicate the values resulting from each incremented p
     );
 ```
 
-The `title` property defines the titles of the ticks. By default, the title of each tick corresponds to its value. If you want to customize the title, use a callback.
+The [`title`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#title-stringfunction) property defines the titles of the ticks. By default, the title of each tick corresponds to its value. If you want to customize the title, use a callback.
 
 ```html
   <div id="app"></div>
@@ -304,7 +304,7 @@ The `title` property defines the titles of the ticks. By default, the title of e
     );
 ```
 
-The `fixedTickWidth` property sets the width between each two ticks along the track. Its value must be set in pixels. When the property is enabled, the component gets resized to fit all ticks with the corresponding width. If the `fixedTickWidth` property is not set, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
+The [`fixedTickWidth`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#title-stringfunction) property sets the width between each two ticks along the track. Its value must be set in pixels. When the property is enabled, the component gets resized to fit all ticks with the corresponding width. If the [`fixedTickWidth`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#title-stringfunction) property is not set, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
 
 ```html
   <div id="app"></div>
@@ -350,7 +350,7 @@ The `fixedTickWidth` property sets the width between each two ticks along the tr
 
 ### Orientation
 
-The Slider supports two modes of orientations&mdash;horizontal, which is the default one, and vertical, which can be applied by setting the `vertical` property to `true`.
+The Slider supports two modes of orientations&mdash;horizontal, which is the default one, and vertical, which can be applied by setting the [`vertical`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#vertical-booleandefault-false) property to `true`.
 
 In horizontal mode, the Slider component displays the smallest value to the left and the largest to the right. In vertical, the component displays the smallest value at the bottom and the largest at the top.
 
@@ -399,7 +399,7 @@ In horizontal mode, the Slider component displays the smallest value to the left
 
 The Slider is designed as a stateless component. To store its state and configuration properties, wrap it in a high-order component.
 
-The `onChange` event fires each time a user interacts with the Slider. The new value is passed as an argument to the `onChange` callback.
+The [`onChange`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#onchange-function) event fires each time a user interacts with the Slider. The new value is passed as an argument to the `onChange` callback.
 
 ```html
   <div id="app"></div>
@@ -443,7 +443,7 @@ The `onChange` event fires each time a user interacts with the Slider. The new v
 
 ### Features
 
-The component can be disabled, when its `disabled` property is set to `true`.
+The component can be disabled, when its [`disabled`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#disabled-booleandefault-false) property is set to `true`.
 
 ```html
   <div id="app"></div>
