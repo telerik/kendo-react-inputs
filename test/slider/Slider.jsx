@@ -17,7 +17,7 @@ describe('Slider', () => {
     });
 
     it('should not render buttons', () => {
-        let result = shallow(<Slider buttons={false} />);
+        let result = shallow(<Slider showButtons={false} />);
         expect(result.find(SliderButton).length).toEqual(0);
     });
 
