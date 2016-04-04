@@ -9,7 +9,7 @@ import SliderButton from './SliderButton';
 import keycode from 'keycode';
 
 const propTypes = {
-    buttons: React.PropTypes.bool,
+    showButtons: React.PropTypes.bool,
     dragHandleTitle: React.PropTypes.string,
     decreaseButtonTitle: React.PropTypes.string,
     disabled: React.PropTypes.bool,
@@ -103,7 +103,7 @@ class Slider extends React.Component {
 
     render() {
         const {
-            buttons = true,
+            showButtons = true,
             dragHandleTitle,
             disabled,
             max,
@@ -144,26 +144,26 @@ class Slider extends React.Component {
         });
         const componentClasses = classnames({
             [styles['slider-wrap']]: true,
-            [styles['slider-buttons']]: buttons,
+            [styles['slider-buttons']]: showButtons,
             [styles['slider-topleft']]: tickPlacement === 'before',
             [styles['slider-bottomright']]: tickPlacement === 'after'
         });
         return (
             <div className = {wrapperClasses} style = {this.props.style}>
                 <div className = {componentClasses} >
-                        {buttons && <SliderButton
+                        {showButtons && <SliderButton
                             disabled={disabled}
                             increase
                             onClick = {this.onIncrease}
                             title = {increaseButtonTitle}
                             vertical = {vertical}
-                                    />}
-                        {buttons && <SliderButton
+                                        />}
+                        {showButtons && <SliderButton
                             disabled={disabled}
                             onClick = {this.onDecrease}
                             title = {decreaseButtonTitle}
                             vertical = {vertical}
-                                    />}
+                                        />}
                         {tickPlacement !== 'none' && <SliderTicks {...ticksProps} />}
                     <SliderTrack {...trackProps} />
                 </div>
