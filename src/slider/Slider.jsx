@@ -74,11 +74,25 @@ class Slider extends React.Component {
         this.props.onChange({ value });
     };
 
-    onTrackClick = (event) => {
-        const trackClientRect = event.currentTarget.getBoundingClientRect();
-        const value = util.calculateValueFromTrack(trackClientRect, event, this.props);
+    onTrackPress = (event) => {
+        this.trackClientRect = event.currentTarget.getBoundingClientRect();
+        const value = util.calculateValueFromTrack(this.trackClientRect, event, this.props);
 
         this.props.onChange({ value: value });
+
+        document.addEventListener("mousemove", this.handleTrackDrag);
+        document.addEventListener("mouseup", this.handleTrackDrop);
+    };
+
+    handleTrackDrag = (event) => {
+        const value = util.calculateValueFromTrack(this.trackClientRect, event, this.props);
+
+        this.props.onChange({ value: value });
+    };
+
+    handleTrackDrop = () => {
+        document.removeEventListener("mousemove", this.handleTrackDrag);
+        document.removeEventListener("mouseup", this.handleTrackDrop);
     };
 
     onKeyDown = (event) => {
@@ -119,7 +133,7 @@ class Slider extends React.Component {
             dragHandleTitle,
             max,
             min,
-            onClick: this.onTrackClick,
+            onMouseDown: this.onTrackPress,
             onKeyDown: this.onKeyDown,
             value,
             disabled

@@ -22,10 +22,10 @@ describe('SliderTrack', () => {
         expect(draghandle.hasClass('k-draghandle')).toBe(true);
     });
 
-    it('should propagate draghandle click', () => {
-        let spy = jasmine.createSpy('click');
-        let result = shallow(<SliderTrack onClick={spy} />);
-        result.simulate('click');
+    it('should propagate draghandle mousedown', () => {
+        let spy = jasmine.createSpy('mousedown');
+        let result = shallow(<SliderTrack onMouseDown={spy} />);
+        result.simulate('mousedown');
         expect(spy).toHaveBeenCalled();
     });
 
