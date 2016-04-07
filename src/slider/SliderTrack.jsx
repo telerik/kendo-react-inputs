@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styles from '@telerik/kendo-theme-default/styles/slider/main';
+import classnames from 'classnames';
 
-const SliderTrack = ({ onMouseDown, disabled, max, min, value, onKeyDown, dragHandleTitle = 'Drag' }) => {
+const SliderTrack = ({ onMouseDown, pressed, disabled, max, min, value, onKeyDown, dragHandleTitle = 'Drag' }) => {
     const attributes = {
         'title': dragHandleTitle,
         'tabIndex': 0,
@@ -16,6 +17,11 @@ const SliderTrack = ({ onMouseDown, disabled, max, min, value, onKeyDown, dragHa
         className: styles["slider-track"]
     };
 
+    const handleClasses = classnames({
+        [styles.draghandle]: true,
+        [styles.pressed]: pressed
+    });
+
     const preventHandleClick = (event) => event.preventDefault();
 
     if (!disabled) {
@@ -27,7 +33,7 @@ const SliderTrack = ({ onMouseDown, disabled, max, min, value, onKeyDown, dragHa
     return (
         <div {...trackProps}>
             <div className={styles["slider-selection"]}></div>
-            <a className={styles.draghandle} {...attributes}
+            <a className={handleClasses} {...attributes}
                 onClick={preventHandleClick}
                 onKeyDown={onKeyDown}
             ></a>

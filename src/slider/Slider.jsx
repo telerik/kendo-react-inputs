@@ -27,12 +27,24 @@ const propTypes = {
 };
 
 class Slider extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            pressed: false
+        };
+    }
+
     componentDidMount() {
         this.sizeComponent();
     }
 
     componentDidUpdate() {
         this.sizeComponent();
+    }
+
+    componentWillUnmount() {
+        this.removeDocumentListener();
     }
 
     sizeComponent() {
@@ -51,6 +63,23 @@ class Slider extends React.Component {
 
         if (this.props.fixedTickWidth) {
             model.resizeWrapper();
+        }
+    }
+
+    documentEvents = {
+        mousemove: this.handleTrackDrag,
+        mouseup: this.handleTrackDrop
+    };
+
+    addDocumentListener() {
+        for (const event in this.documentEvents) {
+            document.addEventListener(event, this.documentEvents[event]);
+        }
+    }
+
+    removeDocumentListener() {
+        for (const event in this.documentEvents) {
+            document.removeEventListener(event, this.documentEvents[event]);
         }
     }
 
@@ -78,10 +107,13 @@ class Slider extends React.Component {
         this.trackClientRect = event.currentTarget.getBoundingClientRect();
         const value = util.calculateValueFromTrack(this.trackClientRect, event, this.props);
 
+        this.setState({
+            pressed: true
+        });
+
         this.props.onChange({ value: value });
 
-        document.addEventListener("mousemove", this.handleTrackDrag);
-        document.addEventListener("mouseup", this.handleTrackDrop);
+        this.addDocumentListener();
     };
 
     handleTrackDrag = (event) => {
@@ -91,8 +123,11 @@ class Slider extends React.Component {
     };
 
     handleTrackDrop = () => {
-        document.removeEventListener("mousemove", this.handleTrackDrag);
-        document.removeEventListener("mouseup", this.handleTrackDrop);
+        this.setState({
+            pressed: false
+        });
+
+        this.removeDocumentListener();
     };
 
     onKeyDown = (event) => {
@@ -133,6 +168,7 @@ class Slider extends React.Component {
             dragHandleTitle,
             max,
             min,
+            pressed: this.state.pressed,
             onMouseDown: this.onTrackPress,
             onKeyDown: this.onKeyDown,
             value,
