@@ -66,21 +66,14 @@ class Slider extends React.Component {
         }
     }
 
-    documentEvents = {
-        mousemove: this.handleTrackDrag,
-        mouseup: this.handleTrackDrop
-    };
-
     addDocumentListener() {
-        for (const event in this.documentEvents) {
-            document.addEventListener(event, this.documentEvents[event]);
-        }
+        document.addEventListener("mousemove", this.handleTrackDrag);
+        document.addEventListener("mouseup", this.handleTrackDrop);
     }
 
     removeDocumentListener() {
-        for (const event in this.documentEvents) {
-            document.removeEventListener(event, this.documentEvents[event]);
-        }
+        document.removeEventListener("mousemove", this.handleTrackDrag);
+        document.removeEventListener("mouseup", this.handleTrackDrop);
     }
 
     onIncrease = () => {
