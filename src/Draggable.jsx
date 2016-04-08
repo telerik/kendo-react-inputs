@@ -67,8 +67,9 @@ export default class Draggable {
         }
     };
 
-    _restoreMouse = () =>
+    _restoreMouse = () => {
         this._ignoreMouse = false;
+    };
 
     _mousedown = (e) => {
         if (!this._ignoreMouse) {
