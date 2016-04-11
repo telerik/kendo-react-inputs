@@ -56,15 +56,18 @@ describe('Slider', withRoot(root => {
         expect(ariaText).toEqual('3');
     });
 
-    it('should add k-pressed on track press', () => {
+    it('should add k-pressed on track drag', () => {
         render();
 
         const track = root.find('.k-slider-track')[0];
         const handle = root.find('.k-draghandle');
 
         track.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+        document.dispatchEvent(new MouseEvent('mousemove', { bubbles: true }));
 
         expect(handle.hasClass('k-pressed')).toBeTruthy();
+
+        document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
     });
 
     it('should trigger change on track press', () => {
@@ -86,6 +89,8 @@ describe('Slider', withRoot(root => {
         }));
 
         expect(changeSpy).toHaveBeenCalledWith({ value: props.min });
+
+        document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
     });
 
     it('should trigger change on handle drag', () => {
