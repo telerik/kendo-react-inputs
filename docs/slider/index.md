@@ -16,15 +16,7 @@ The Kendo UI Slider for React is part of the Inputs `npm` package of the Kendo U
 
 ![Horizontal template of the Slider](images/slider.png)
 
-*1. Arrow buttons*
-
-*2. Handle*
-
-*3. Track*
-
-*4. Selection indicator*
-
-*5. Tick*
+*1. Arrow buttons &mdash; 2. Handle &mdash; 3. Track &mdash; 4. Selection indicator &mdash; 5. Tick*
 
 ## Demos
 
