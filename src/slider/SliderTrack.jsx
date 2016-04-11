@@ -22,6 +22,11 @@ const SliderTrack = ({ onMouseDown, pressed, disabled, max, min, value, onKeyDow
         [styles.pressed]: pressed
     });
 
+    const selectionClasses = classnames({
+        [styles["slider-selection"]]: true,
+        [styles.pressed]: pressed
+    });
+
     const preventHandleClick = (event) => event.preventDefault();
 
     if (!disabled) {
@@ -32,7 +37,7 @@ const SliderTrack = ({ onMouseDown, pressed, disabled, max, min, value, onKeyDow
 
     return (
         <div {...trackProps}>
-            <div className={styles["slider-selection"]}></div>
+            <div className={selectionClasses}></div>
             <a className={handleClasses} {...attributes}
                 onClick={preventHandleClick}
                 onKeyDown={onKeyDown}
