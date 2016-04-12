@@ -135,13 +135,20 @@ class Slider extends React.Component {
     };
 
     onKeyDown = (event) => {
-        const { max, min } = this.props;
+        event.preventDefault();
+        const { disabled, max, min } = this.props;
         const handler = this.keyBinding[event.keyCode];
 
-        if (handler) {
+        if (handler && !disabled) {
             let value = handler(this.props);
             value = util.trimValue(max, min, value);
             this.props.onChange({ value });
+        }
+    };
+
+    onComponentClick = () => {
+        if (!this.props.disabled) {
+            this.componentElements().dragHandle.focus();
         }
     };
 
@@ -207,7 +214,7 @@ class Slider extends React.Component {
         });
 
         return (
-            <div className = {wrapperClasses} style = {this.props.style}>
+            <div className = {wrapperClasses} onClick={this.onComponentClick} style = {this.props.style}>
                 <div className = {componentClasses} >
                         {showButtons && <SliderButton
                             disabled={disabled}

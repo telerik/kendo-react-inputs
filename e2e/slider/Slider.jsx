@@ -121,4 +121,22 @@ describe('Slider', withRoot(root => {
 
         expect(changeSpy).toHaveBeenCalledWith({ value: 1 });
     });
+
+    it('should focus drag handle when track component is clicked', () => {
+        const props = {
+            min: 0,
+            max: 3,
+            value: 0
+        };
+        render(props);
+        const component = root.find('.k-slider')[0];
+        const event = document.createEvent('Event');
+
+        event.initEvent("click", true, true);
+        component.dispatchEvent(event);
+
+        const activeElement = document.activeElement.className;
+
+        expect(activeElement).toEqual('k-draghandle');
+    });
 }));
