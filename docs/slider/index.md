@@ -75,7 +75,7 @@ When enabled, the side buttons increase or decrease the component value with the
 
 By default, the [`buttons`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#buttons-booleandefault-true) configuration property is set to `true`. If set to `false`, the buttons do not appear.
 
-```html
+```html-preview
   <div id="app"></div>
 ```
 ```jsx
@@ -119,7 +119,7 @@ By default, the [`buttons`](https://github.com/telerik/kendo-react-inputs/blob/m
 
 The title of the buttons can be controlled by using the [`decreaseButtonTitle`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#decreasebuttontitle-stringdefault-decrease) and [`increaseButtonTitle`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#increasebuttontitle-stringdefault-increase) properties, which accept `string` parameters.
 
-```html
+```html-preview
   <div id="app"></div>
 ```
 ```jsx
@@ -215,7 +215,7 @@ The [`smallStep`](https://github.com/telerik/kendo-react-inputs/blob/master/docs
 
 Along the track, the ticks indicate the values resulting from each incremented pre-defined step. Ticks are configured through the [`tickPlacement`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#tickplacement-stringdefault-both) property. They can be set to appear along the upper side or bottom side of a horizontal Slider, on the left or right side of a vertical Slider, or on both sides of the track. If necessary, they can be set not to show at all.
 
-```html
+```html-preview
   <div id="app"></div>
 ```
 ```jsx
@@ -226,7 +226,7 @@ Along the track, the ticks indicate the values resulting from each incremented p
                 max: 10,
                 min: 0,
                 step: 2.5,
-                tickPlacement: "none",
+                tickPlacement: "after",
                 value: 5
             };
         }
@@ -310,7 +310,7 @@ The [`title`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/sli
 
 The [`fixedTickWidth`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#title-stringfunction) property sets the width between each two ticks along the track. Its value must be set in pixels. When the property is enabled, the component gets resized to fit all ticks with the corresponding width. If the [`fixedTickWidth`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#title-stringfunction) property is not set, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
 
-```html
+```html-preview
   <div id="app"></div>
 ```
 ```jsx
@@ -318,10 +318,10 @@ The [`fixedTickWidth`](https://github.com/telerik/kendo-react-inputs/blob/master
         constructor(props) {
             super(props);
             this.state = {
-                max: 10,
+                max: 8,
                 min: 0,
                 step: 2,
-                fixedTickWidth: 20, //the value should be set in pixels
+                fixedTickWidth: 100, //the value should be set in pixels
                 value: 5
             };
         }
@@ -358,7 +358,7 @@ The Slider supports two modes of orientations&mdash;horizontal, which is the def
 
 In horizontal mode, the Slider component displays the smallest value to the left and the largest to the right. In vertical, the component displays the smallest value at the bottom and the largest at the top.
 
-```html
+```html-preview
   <div id="app"></div>
 ```
 ```jsx
@@ -449,7 +449,7 @@ The [`onChange`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/
 
 The component can be disabled, when its [`disabled`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#disabled-booleandefault-false) property is set to `true`.
 
-```html
+```html-preview
   <div id="app"></div>
 ```
 ```jsx
