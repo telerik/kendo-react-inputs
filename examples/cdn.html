@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
     <script src="../dist/cdn/js/kendo-react-inputs.js"></script>
+    <script src="https://npm-cdn.herokuapp.com/css-element-queries@0.3.2/src/ResizeSensor.js"></script>
   </head>
   <body>
     <div id="content">
@@ -21,7 +22,10 @@
                     min: 0,
                     smallStep: 1,
                     value: 3,
-                    onChange: this.onChange
+                    onChange: this.onChange,
+                    style: {
+                        width: "100%"
+                    }
                 }
         },
         onChange(e) {
@@ -29,10 +33,19 @@
                 value: e.value
             })
         },
+        componentDidMount() {
+            const slider = this.refs.slider;
+            const element = ReactDOM.findDOMNode(slider);
+            new ResizeSensor(element, () => {
+                slider.sizeComponent();
+            });
+        },
         render() {
-          return (
-            React.createElement(KendoReactInputs.Slider, this.state)
-          );
+            const state = Object.assign(this.state, {
+                ref: "slider"
+            });
+            const slider = React.createElement(KendoReactInputs.Slider, state)
+            return slider
         }
       });
 
