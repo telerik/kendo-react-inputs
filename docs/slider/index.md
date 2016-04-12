@@ -73,7 +73,7 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
 
 When enabled, the side buttons increase or decrease the component value with the pre-defined step. If the initial value does not directly match to a specific tick and the user clicks either of the buttons, the handle is placed on the next available tick. Each subsequent click moves the handle over the available ticks.
 
-By default, the [`buttons`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#buttons-booleandefault-true) configuration property is set to `true`. If set to `false`, the buttons do not appear.
+By default, the [`showButtons`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#buttons-booleandefault-true) configuration property is set to `true`. If set to `false`, the buttons do not appear.
 
 ```html-preview
   <div id="app"></div>
@@ -86,8 +86,8 @@ By default, the [`buttons`](https://github.com/telerik/kendo-react-inputs/blob/m
                 max: 10,
                 min: 0,
                 step: 2,
-                buttons: false,
-                value: 5
+                value: 5,
+                showButtons: false
             };
         }
 
@@ -104,8 +104,8 @@ By default, the [`buttons`](https://github.com/telerik/kendo-react-inputs/blob/m
                     min = {this.state.min}
                     onChange = {this.onChange}
                     smallStep = {this.state.step}
-                    buttons = {this.state.buttons}
                     value = {this.state.value}
+                    showButtons = {this.state.showButtons}
                 />
             );
         }

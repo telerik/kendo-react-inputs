@@ -13,7 +13,7 @@ class SliderContainer extends React.Component {
             disabled: false,
             decreaseButtonTitle: "Less",
             increaseButtonTitle: "More",
-            buttons: true,
+            showButtons: true,
             tickPlacement: "both",
             dragHandleTitle: "DragMe"
         };
@@ -32,7 +32,6 @@ class SliderContainer extends React.Component {
     render() {
         return (
             <Slider
-                buttons = {this.state.buttons}
                 decreaseButtonTitle = {this.state.decreaseButtonTitle}
                 disabled = {this.state.disabled}
                 dragHandleTitle = {this.state.dragHandleTitle}
@@ -41,6 +40,7 @@ class SliderContainer extends React.Component {
                 max = {this.state.max}
                 min = {this.state.min}
                 onChange = {this.onChange}
+                showButtons = {this.state.showButtons}
                 smallStep = {this.state.step}
                 style = {{ width: 400 }}
                 tickPlacement = {this.state.tickPlacement}
