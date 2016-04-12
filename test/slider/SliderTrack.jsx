@@ -4,33 +4,53 @@ import SliderTrack from '../../src/slider/SliderTrack';
 
 describe('SliderTrack', () => {
     it('should render a div', () => {
-        let result = shallow(<SliderTrack />);
+        const result = shallow(<SliderTrack />);
+
         expect(result.type()).toEqual('div');
     });
 
     it('should render a selection', () => {
-        let result = shallow(<SliderTrack />);
+        const result = shallow(<SliderTrack />);
         const selection = result.children().first();
+
         expect(selection.type()).toEqual('div');
         expect(selection.hasClass('k-slider-selection')).toBe(true);
     });
 
     it('should render a draghandle', () => {
-        let result = shallow(<SliderTrack />);
+        const result = shallow(<SliderTrack />);
         const draghandle = result.children().last();
+
         expect(draghandle.type()).toEqual('a');
         expect(draghandle.hasClass('k-draghandle')).toBe(true);
     });
 
-    it('should propagate draghandle click', () => {
-        let spy = jasmine.createSpy('click');
-        let result = shallow(<SliderTrack onClick={spy} />);
-        result.simulate('click');
+    it('should propagate draghandle mousedown', () => {
+        const spy = jasmine.createSpy('mousedown');
+        const result = shallow(<SliderTrack onMouseDown={spy} />);
+
+        result.simulate('mousedown');
+
         expect(spy).toHaveBeenCalled();
     });
 
     it('should not attach click handler when disabled', () => {
-        let result = shallow(<SliderTrack disabled/>);
+        const result = shallow(<SliderTrack disabled/>);
+
         expect(result.props().onClick).toBe(undefined);
+    });
+
+    it('should render pressed style', () => {
+        const result = shallow(<SliderTrack pressed />);
+        const draghandle = result.children().last();
+
+        expect(draghandle.hasClass('k-pressed')).toBe(true);
+    });
+
+    it('should not render pressed style if not pressed', () => {
+        const result = shallow(<SliderTrack />);
+        const draghandle = result.children().last();
+
+        expect(draghandle.hasClass('k-pressed')).toBe(false);
     });
 });

@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import SliderTrack from './SliderTrack';
 import SliderTicks from './SliderTicks';
 import SliderButton from './SliderButton';
+import Draggable from '../Draggable';
 import keycode from 'keycode';
 
 const propTypes = {
@@ -27,7 +28,22 @@ const propTypes = {
 };
 
 class Slider extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            pressed: false
+        };
+    }
+
     componentDidMount() {
+        const { track } = this.componentElements();
+
+        this.dragagble = new Draggable(track, {
+            drag: this.handleTrackDrag,
+            release: this.handleTrackRelease
+        });
+
         this.sizeComponent();
     }
 
@@ -35,13 +51,39 @@ class Slider extends React.Component {
         this.sizeComponent();
     }
 
-    sizeComponent() {
+    componentWillUnmount() {
+        this.draggable.destroy();
+        this.draggable = null;
+    }
+
+    componentElements() {
         const wrapper = ReactDOM.findDOMNode(this);
         const track = wrapper.getElementsByClassName(styles['slider-track'])[0];
         const ticks = wrapper.getElementsByClassName(styles.tick);
         const ticksContainer = wrapper.getElementsByClassName(styles['slider-items']);
         const dragHandle = wrapper.getElementsByClassName(styles.draghandle)[0];
         const selection = wrapper.getElementsByClassName(styles['slider-selection'])[0];
+
+        return {
+            wrapper,
+            track,
+            ticks,
+            ticksContainer,
+            dragHandle,
+            selection
+        };
+    }
+
+    sizeComponent() {
+        const {
+            wrapper,
+            track,
+            ticks,
+            ticksContainer,
+            dragHandle,
+            selection
+        } = this.componentElements();
+
         const model = new SliderModel(this.props, wrapper, track);
 
         model.resizeTrack();
@@ -74,11 +116,28 @@ class Slider extends React.Component {
         this.props.onChange({ value });
     };
 
-    onTrackClick = (event) => {
-        const trackClientRect = event.currentTarget.getBoundingClientRect();
-        const value = util.calculateValueFromTrack(trackClientRect, event, this.props);
+    onTrackPress = (event) => {
+        this.trackClientRect = event.currentTarget.getBoundingClientRect();
+
+        const value = util.calculateValueFromTrack(this.trackClientRect, event, this.props);
 
         this.props.onChange({ value: value });
+    };
+
+    handleTrackDrag = (event) => {
+        const value = util.calculateValueFromTrack(this.trackClientRect, event, this.props);
+
+        this.setState({
+            pressed: true
+        });
+
+        this.props.onChange({ value: value });
+    };
+
+    handleTrackRelease = () => {
+        this.setState({
+            pressed: false
+        });
     };
 
     onKeyDown = (event) => {
@@ -119,7 +178,8 @@ class Slider extends React.Component {
             dragHandleTitle,
             max,
             min,
-            onClick: this.onTrackClick,
+            pressed: this.state.pressed,
+            onMouseDown: this.onTrackPress,
             onKeyDown: this.onKeyDown,
             value,
             disabled
