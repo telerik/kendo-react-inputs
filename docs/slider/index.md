@@ -509,6 +509,12 @@ Below is the list with the keyboard shortcuts the Slider supports.
 
 The Slider is WAI ARIA-accessible through the `Tab` key. The `aria-valuemin`, `aria-valuemax`, and `aria-valuetext` properties define the accessibility values when the user drags the handle of the Slider or interacts with the Slider through its buttons.
 
+## Responsiveness
+
+One of the solutions for dynamic resizing in React applications is the [`css-element-queries`](http://marcj.github.io/css-element-queries/) package. It provides resize events using CSS and can be easily implemented along with the Kendo UI Slider for React.
+
+For an example of a possible implementation, refer to [this GitHub repository](https://github.com/telerik/kendo-react-inputs/blob/master/examples/cdn.html).
+
 ## Suggested Links
 
 * [Client-Side API Reference for the Kendo UI Slider Component](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md)
