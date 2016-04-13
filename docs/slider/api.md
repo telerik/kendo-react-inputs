@@ -87,4 +87,4 @@ Changes the title attribute of the drag handle, so it can be localized.
 
 #### disabled `Boolean`*(default: "false")*
 
-The component will be disabled when set to `true`.
+Disables the Slider when set to `true`.
