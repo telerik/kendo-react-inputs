@@ -167,9 +167,9 @@ The title of the buttons can be controlled by using the [`decreaseButtonTitle`](
 
 The [`step`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#steps) property is used to split the track on equal ticks based on the [`min`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#min-numberdefault-0) and [`max`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#max-numberdefault-10) values. For example, if the `min` value is `0` (zero), the `max` value is `4` (four) and the [`smallStep`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#smallstep-numberdefault-1) is `1` (one), the Slider displays ticks indicating four steps. If the `min` value is `2` (two), the `max` value is `4` (four) and the `smallStep` is `1` (one), the Slider displays two steps.
 
-The step is defined through the [`smallStep`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#smallstep-numberdefault-1) property. The small steps are applied whenever the user interacts with the Slider. When the side arrow buttons are clicked, or when the handle is dragged, the Slider value changes with small steps.
+The step is defined through the `smallStep` property. The small steps are applied whenever the user interacts with the Slider. When the side arrow buttons are clicked, or when the handle is dragged, the Slider value changes with small steps.
 
-The [`smallStep`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#smallstep-numberdefault-1) property accepts both `integer` and `float` values.
+The `smallStep` property accepts both `integer` and `float` values.
 
 ```html
   <div id="app"></div>
@@ -308,7 +308,7 @@ The [`title`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/sli
     );
 ```
 
-The [`fixedTickWidth`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#title-stringfunction) property sets the width between each two ticks along the track. Its value must be set in pixels. When the property is enabled, the component gets resized to fit all ticks with the corresponding width. If the [`fixedTickWidth`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#title-stringfunction) property is not set, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
+The [`fixedTickWidth`](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md#title-stringfunction) property sets the width between each two ticks along the track. Its value must be set in pixels. When the property is enabled, the component gets resized to fit all ticks with the corresponding width. If the `fixedTickWidth` property is not set, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
 
 ```html-preview
   <div id="app"></div>
@@ -491,7 +491,7 @@ The component can be disabled, when its [`disabled`](https://github.com/telerik/
     );
 ```
 
-For detailed information on the Kendo UI Slider for React configuration, refer to its [client-side API documentation]({% slug api_slider_kendouiforreact %}).
+For detailed information on the Kendo UI Slider for React configuration, refer to its [client-side API documentation](/ui-for-react/components/kendo-react-inputs/slider/api.html).
 
 ## Keyboard Navigation
 
@@ -517,4 +517,4 @@ For an example of a possible implementation, refer to [this GitHub repository](h
 
 ## Suggested Links
 
-* [Client-Side API Reference for the Kendo UI Slider Component](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/api.md)
+* [Client-Side API Reference for the Kendo UI Slider Component](/ui-for-react/components/kendo-react-inputs/slider/api.html)
