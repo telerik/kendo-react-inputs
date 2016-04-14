@@ -25,7 +25,7 @@ Telerik works on porting the following components too:
 * NumericTextBox
 * Switch
 
-For more information on forthcoming Inputs package features and components, refer to the [Roadmap](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
+For more information on upcoming Inputs package features and components, refer to the [Roadmap](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
 
 ## Basic Usage
 
