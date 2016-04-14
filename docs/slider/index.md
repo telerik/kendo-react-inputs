@@ -503,7 +503,7 @@ Below is the list with the keyboard shortcuts the Slider supports.
 | `Down Arrow` & `Left Arrow` keys    | Decrease the displayed Slider value with a small step. |
 | `Home`                              | Set the Slider to its minimum value.                   |
 | `End`                               | Set the Slider to its maximum value.                   |
-| `Tab`                               | (Accessibility mode) Focus the handle element.                   |
+| `Tab`                               | (Accessibility mode) Focus the handle element.         |
 
 ## Accessibility
 
