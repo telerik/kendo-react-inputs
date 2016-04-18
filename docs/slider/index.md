@@ -73,6 +73,8 @@ The example below demonstrates the default setup of a Kendo UI Slider for React.
 
 When enabled, the side buttons increase or decrease the component value with the pre-defined step. If the initial value does not directly match to a specific tick and the user clicks either of the buttons, the handle is placed on the next available tick. Each subsequent click moves the handle over the available ticks.
 
+**Showing and Hiding**
+
 By default, the [`showButtons`]({% slug api_slider_kendouiforreact %}#showbuttons-booleandefault-true) configuration property is set to `true`. If set to `false`, the buttons do not appear.
 
 ```html-preview
@@ -116,6 +118,8 @@ By default, the [`showButtons`]({% slug api_slider_kendouiforreact %}#showbutton
         document.getElementById('app')
     );
 ```
+
+**Titles**
 
 The title of the buttons can be controlled by using the [`decreaseButtonTitle`]({% slug api_slider_kendouiforreact %}#decreasebuttontitle-stringdefault-decrease) and [`increaseButtonTitle`]({% slug api_slider_kendouiforreact %}#increasebuttontitle-stringdefault-increase) properties, which accept `string` parameters.
 
@@ -213,7 +217,11 @@ The `smallStep` property accepts both `integer` and `float` values.
 
 ### Ticks
 
-Along the track, the ticks indicate the values resulting from each incremented pre-defined step. Ticks are configured through the [`tickPlacement`]({% slug api_slider_kendouiforreact %}#tickplacement-stringdefault-both) property. They can be set to appear along the upper side or bottom side of a horizontal Slider, on the left or right side of a vertical Slider, or on both sides of the track. If necessary, they can be set not to show at all.
+Along the track, the ticks indicate the values resulting from each incremented pre-defined step. 
+
+**Placement**
+
+Ticks are configured through the [`tickPlacement`]({% slug api_slider_kendouiforreact %}#tickplacement-stringdefault-both) property. They can be set to appear along the upper side or bottom side of a horizontal Slider, on the left or right side of a vertical Slider, or on both sides of the track. If necessary, they can be set not to show at all.
 
 ```html-preview
   <div id="app"></div>
@@ -256,6 +264,8 @@ Along the track, the ticks indicate the values resulting from each incremented p
         document.getElementById('app')
     );
 ```
+
+**Titles** 
 
 The [`title`]({% slug api_slider_kendouiforreact %}#title-stringfunction) property defines the titles of the ticks. By default, the title of each tick corresponds to its value. If you want to customize the title, use a callback.
 
@@ -307,6 +317,8 @@ The [`title`]({% slug api_slider_kendouiforreact %}#title-stringfunction) proper
         document.getElementById('app')
     );
 ```
+
+**Width**
 
 The [`fixedTickWidth`]({% slug api_slider_kendouiforreact %}#fixedtickwidth-number) property sets the width between each two ticks along the track. Its value must be set in pixels. When the property is enabled, the component gets resized to fit all ticks with the corresponding width. If the `fixedTickWidth` property is not set, the component adjusts the size of the ticks in a way that the sum matches the actual size of the component.
 
