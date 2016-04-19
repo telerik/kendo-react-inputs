@@ -1,7 +1,7 @@
 ---
 title: Overview
 page_title: Overview | Kendo UI Inputs Package for React
-description: "Learn which Kendo UI components for React the Inputs package delivers."
+description: "Learn about the Kendo UI components for React which are delivered by the Inputs package."
 slug: overview_inputs_kendouiforreact
 position: 1
 ---
