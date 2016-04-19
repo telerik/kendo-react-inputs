@@ -23,6 +23,7 @@
   ],
   "dependencies": {
     "@telerik/kendo-inputs-common": "^1.0.0",
+    "@telerik/kendo-react-draggable": "^1.1.1",
     "classnames": "^2.2.3",
     "keycode": "^2.1.1"
   },
