@@ -1,5 +1,12 @@
-sudo: false
+sudo: true
+dist: trusty
 language: node_js
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 cache:
   directories:
     - node_modules
@@ -9,6 +16,7 @@ node_js:
   - '4'
 before_install:
   - npm i -g npm@^3.8.0
+  - export CHROME_BIN=/usr/bin/google-chrome
 before_script:
   - "npm prune"
   - "npm update"
