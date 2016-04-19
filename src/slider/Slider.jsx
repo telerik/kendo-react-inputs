@@ -6,7 +6,6 @@ import classnames from 'classnames';
 import SliderTrack from './SliderTrack';
 import SliderTicks from './SliderTicks';
 import SliderButton from './SliderButton';
-import Draggable from '../Draggable';
 import keycode from 'keycode';
 
 const propTypes = {
@@ -37,23 +36,11 @@ class Slider extends React.Component {
     }
 
     componentDidMount() {
-        const { track } = this.componentElements();
-
-        this.dragagble = new Draggable(track, {
-            drag: this.handleTrackDrag,
-            release: this.handleTrackRelease
-        });
-
         this.sizeComponent();
     }
 
     componentDidUpdate() {
         this.sizeComponent();
-    }
-
-    componentWillUnmount() {
-        this.draggable.destroy();
-        this.draggable = null;
     }
 
     componentElements() {
@@ -117,14 +104,21 @@ class Slider extends React.Component {
     };
 
     onTrackPress = (event) => {
-        this.trackClientRect = event.currentTarget.getBoundingClientRect();
+        if (this.props.disabled) {
+            return;
+        }
+        this.trackClientRect = this.componentElements().track.getBoundingClientRect();
 
         const value = util.calculateValueFromTrack(this.trackClientRect, event, this.props);
 
         this.props.onChange({ value: value });
     };
 
-    handleTrackDrag = (event) => {
+    onTrackDrag = (event) => {
+        if (this.props.disabled) {
+            return;
+        }
+
         const value = util.calculateValueFromTrack(this.trackClientRect, event, this.props);
 
         this.setState({
@@ -134,7 +128,7 @@ class Slider extends React.Component {
         this.props.onChange({ value: value });
     };
 
-    handleTrackRelease = () => {
+    onTrackRelease = () => {
         this.setState({
             pressed: false
         });
@@ -178,12 +172,15 @@ class Slider extends React.Component {
             dragHandleTitle,
             max,
             min,
-            pressed: this.state.pressed,
-            onMouseDown: this.onTrackPress,
+            trackPressed: this.state.pressed,
             onKeyDown: this.onKeyDown,
             value,
-            disabled
+            disabled,
+            onPress: this.onTrackPress,
+            onDrag: this.onTrackDrag,
+            onRelease: this.onTrackRelease
         };
+
         const ticksProps = {
             disabled,
             min,
@@ -208,6 +205,7 @@ class Slider extends React.Component {
             [styles['slider-topleft']]: tickPlacement === 'before',
             [styles['slider-bottomright']]: tickPlacement === 'after'
         });
+
         return (
             <div className = {wrapperClasses} style = {this.props.style}>
                 <div className = {componentClasses} >

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import SliderTrack from '../../src/slider/SliderTrack';
+import { SliderTrack } from '../../src/slider/SliderTrack';
 
 describe('SliderTrack', () => {
     it('should render a div', () => {
@@ -25,15 +25,6 @@ describe('SliderTrack', () => {
         expect(draghandle.hasClass('k-draghandle')).toBe(true);
     });
 
-    it('should propagate draghandle mousedown', () => {
-        const spy = jasmine.createSpy('mousedown');
-        const result = shallow(<SliderTrack onMouseDown={spy} />);
-
-        result.simulate('mousedown');
-
-        expect(spy).toHaveBeenCalled();
-    });
-
     it('should not attach click handler when disabled', () => {
         const result = shallow(<SliderTrack disabled/>);
 
@@ -41,7 +32,7 @@ describe('SliderTrack', () => {
     });
 
     it('should render pressed style', () => {
-        const result = shallow(<SliderTrack pressed />);
+        const result = shallow(<SliderTrack trackPressed />);
         const draghandle = result.children().last();
 
         expect(draghandle.hasClass('k-pressed')).toBe(true);
