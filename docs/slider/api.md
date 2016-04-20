@@ -1,12 +1,12 @@
 ---
-title: Client-Side API
-page_title: Client-Side API | Kendo UI Slider for React
-description: "Configure and customize the Kendo UI Slider for React through its client-side API reference."
+title: API
+page_title: API | Kendo UI Slider for React
+description: "Configure and customize the Kendo UI Slider for React through its API reference."
 slug: api_slider_kendouiforreact
 position: 2
 ---
 
-# Slider Client-Side API
+# Slider API
 
 Represents the Kendo UI Slider component for React.
 
