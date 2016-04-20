@@ -77,13 +77,9 @@ As a stateless component, the Slider fires its `onChange` event handler every ti
 
 ## Features
 
-### Handle
-
 #### dragHandleTitle `String`
 
 Changes the title attribute of the drag handle, so it can be localized.
-
-### Disabling
 
 #### disabled `Boolean`*(default: "false")*
 
