@@ -217,7 +217,7 @@ The `smallStep` property accepts both `integer` and `float` values.
 
 ### Ticks
 
-Along the track, the ticks indicate the values resulting from each incremented pre-defined step. 
+Along the track, the ticks indicate the values resulting from each incremented pre-defined step.
 
 **Placement**
 
@@ -265,7 +265,7 @@ Ticks are configured through the [`tickPlacement`]({% slug api_slider_kendouifor
     );
 ```
 
-**Titles** 
+**Titles**
 
 The [`title`]({% slug api_slider_kendouiforreact %}#title-stringfunction) property defines the titles of the ticks. By default, the title of each tick corresponds to its value. If you want to customize the title, use a callback.
 
@@ -529,4 +529,4 @@ For an example of a possible implementation, refer to [this GitHub repository](h
 
 ## Suggested Links
 
-* [Client-Side API Reference for the Kendo UI Slider Component]({% slug api_slider_kendouiforreact %})
+* [API Reference of the Slider Component]({% slug api_slider_kendouiforreact %})
