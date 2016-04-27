@@ -6,7 +6,7 @@ import Draggable from '@telerik/kendo-react-draggable';
 
 export class SliderTrack extends React.Component {
     render() {
-        const { trackPressed, max, min, value, onKeyDown, dragHandleTitle = 'Drag' } = this.props;
+        const { trackPressed, max, min, value, onKeyDown, dragHandleTitle } = this.props;
 
         const attributes = {
             'title': dragHandleTitle,
