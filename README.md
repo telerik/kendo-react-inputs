@@ -16,14 +16,13 @@
 
 This repository contains the source code and documentation of the Kendo UI Inputs package for React.
 
-Currently, it includes the Slider component.
+Currently, the package includes the Slider and Switch components.
 
 Telerik works on porting the ones listed below too:
 
 * ColorPicker
 * MaskedTextBox
 * NumericTextBox
-* Switch
 
 For more information on upcoming Inputs features, refer to the [Roadmap](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
 
@@ -68,6 +67,48 @@ The Slider lets users select a value from a predefined range. These values can b
 
 For more examples and available configuration options, refer to the [Slider documentation](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/index.md).
 
+
+The Switch The Kendo UI Switch for React is a component that lets the user toggle between checked/unchecked states.
+
+````html-preview
+    <div id="app"></div>
+````
+````jsx
+    class SwitchContainer extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                checked: false,
+                disabled: false,
+                onLabel: 'ON',
+                offLabel: 'OFF'
+            };
+        }
+        onChange = (e) => {
+            this.setState({
+                checked: e.checked
+            });
+        };
+        render() {
+            return (
+                <Switch
+                    checked={this.state.checked}
+                    disabled={this.state.disabled}
+                    offLabel={this.state.offLabel}
+                    onChange={this.onChange}
+                    onLabel={this.state.onLabel}
+                />
+            );
+        }
+    }
+    ReactDOM.render(
+        <SwitchContainer />,
+        document.getElementById('app')
+    );
+````
+
+For more examples and available configuration options, refer to the [Switch documentation section](https://github.com/telerik/kendo-react-inputs/blob/master/docs/switch/index.md).
+
 ## Installation
 
 The Inputs components are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
@@ -82,11 +123,12 @@ Once installed, import the module.
 
 ```jsx
 // ES2015 module syntax
-import {Slider} from 'kendo-react-inputs';
+import {Slider, Switch} from 'kendo-react-inputs';
 ```
 ```jsx
 // CommonJS format
 var Slider = require('kendo-react-inputs').Slider;
+var Switch = require('kendo-react-inputs').Switch;
 ```
 
 ## Browser Support
