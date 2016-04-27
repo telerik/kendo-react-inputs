@@ -19,11 +19,25 @@ const propTypes = {
     min: React.PropTypes.number,
     onChange: React.PropTypes.func,
     smallStep: React.PropTypes.number,
-    tickPlacement: React.PropTypes.string,
+    tickPlacement: React.PropTypes.oneOf([ 'none', 'before', 'after', 'both' ]),
     title: React.PropTypes.func,
     style: React.PropTypes.object,
     value: React.PropTypes.number,
     vertical: React.PropTypes.bool
+};
+
+const defaultProps = {
+    min: 0,
+    max: 10,
+    value: 0,
+    increaseButtonTitle: "Increase",
+    decreaseButtonTitle: "Decrease",
+    dragHandleTitle: "Drag",
+    showButtons: true,
+    disabled: false,
+    smallStep: 1,
+    vertical: false,
+    tickPlacement: "both"
 };
 
 class Slider extends React.Component {
@@ -163,15 +177,15 @@ class Slider extends React.Component {
 
     render() {
         const {
-            showButtons = true,
+            showButtons,
             dragHandleTitle,
             disabled,
             max,
             min,
             smallStep,
             vertical,
-            increaseButtonTitle = "Increase",
-            decreaseButtonTitle = "Decrease",
+            increaseButtonTitle,
+            decreaseButtonTitle,
             tickPlacement,
             value
         } = this.props;
@@ -238,5 +252,6 @@ class Slider extends React.Component {
 }
 
 Slider.propTypes = propTypes;
+Slider.defaultProps = defaultProps;
 
 export default Slider;
