@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
+import keycode from 'keycode';
 import SwitchContainer from './SwitchContainer';
 import * as util from './util';
 
@@ -73,6 +74,23 @@ class Switch extends React.Component {
         background.style.transition = 'all 200ms ease-out';
     }
 
+    onKeyDown = (event) => {
+        event.preventDefault();
+        const handler = this.keyBinding[event.keyCode];
+
+        if (handler && !this.props.disabled) {
+            const value = handler();
+            this.change(value);
+        }
+    }
+
+    keyBinding = {
+        [keycode.codes.left]: () => false,
+        [keycode.codes.right]: () => true,
+        [keycode.codes.down]: () => false,
+        [keycode.codes.up]: () => true
+    };
+
     limitTranslate(value) {
         if (value > this.constrain) {
             return this.constrain;
@@ -87,7 +105,8 @@ class Switch extends React.Component {
 
     render() {
         const switchProps = {
-            ...this.props
+            ...this.props,
+            onKeyDown: this.onKeyDown
         };
 
         if (!this.props.disabled) {
@@ -97,7 +116,6 @@ class Switch extends React.Component {
                 onRelease: this.onRelease
             });
         }
-
         return (
             <SwitchContainer {...switchProps} />
         );

@@ -10,7 +10,8 @@ const propTypes = {
     disabled: React.PropTypes.bool,
     offLabel: React.PropTypes.string,
     onLabel: React.PropTypes.string,
-    onChange: React.PropTypes.func
+    onChange: React.PropTypes.func,
+    onKeyDown: React.PropTypes.func
 };
 
 class SwitchContainer extends React.Component {
@@ -38,8 +39,13 @@ class SwitchContainer extends React.Component {
             transform: 'translateX(0px)'
         };
 
+        const switchProps = {
+            'onKeyDown': this.props.onKeyDown,
+            'tabIndex': 0
+        };
+
         return (
-            <span className={switchClasses}>
+            <span className={switchClasses} { ...switchProps }>
                 <span className="km-switch-wrapper">
                     <span className="km-switch-background"></span>
                 </span>
