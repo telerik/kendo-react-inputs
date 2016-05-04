@@ -1,7 +1,7 @@
 {
   "name": "@telerik/kendo-react-inputs",
   "version": "0.1.2",
-  "description": "Kendo UI React input component",
+  "description": "Kendo UI React Input components",
   "repository": {
     "type": "git",
     "url": "https://github.com/telerik/kendo-react-inputs.git"
