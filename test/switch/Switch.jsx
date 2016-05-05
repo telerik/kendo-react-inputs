@@ -5,30 +5,30 @@ import Switch from '../../src/switch/Switch';
 describe('Switch', () => {
     it('adds default widget classes', () => {
         let result = shallow(<Switch />);
-        expect(result.html().indexOf('km-widget')).not.toBe(-1);
-        expect(result.html().indexOf('km-switch')).not.toBe(-1);
+        expect(result.html().indexOf('k-widget')).not.toBe(-1);
+        expect(result.html().indexOf('k-switch')).not.toBe(-1);
     });
 
     it('creates toggle handle', () => {
         let result = shallow(<Switch />);
-        expect(result.html().indexOf('km-switch-handle')).not.toBe(-1);
+        expect(result.html().indexOf('k-switch-handle')).not.toBe(-1);
     });
 
     it('creates a container', () => {
         let result = shallow(<Switch />);
-        expect(result.html().indexOf('km-switch-container')).not.toBe(-1);
+        expect(result.html().indexOf('k-switch-container')).not.toBe(-1);
     });
 
     it('creates wrapper and background', () => {
         let result = shallow(<Switch />);
-        expect(result.html().indexOf('km-switch-wrapper')).not.toBe(-1);
-        expect(result.html().indexOf('km-switch-background')).not.toBe(-1);
+        expect(result.html().indexOf('k-switch-wrapper')).not.toBe(-1);
+        expect(result.html().indexOf('k-switch-background')).not.toBe(-1);
     });
 
     it('creates labels', () => {
         let result = shallow(<Switch />);
-        expect(result.html().indexOf('km-switch-label-on')).not.toBe(-1);
-        expect(result.html().indexOf('km-switch-label-off')).not.toBe(-1);
+        expect(result.html().indexOf('k-switch-label-on')).not.toBe(-1);
+        expect(result.html().indexOf('k-switch-label-off')).not.toBe(-1);
     });
 
     it('calls change event handler when changed', () => {

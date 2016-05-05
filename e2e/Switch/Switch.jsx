@@ -19,19 +19,21 @@ describe('Switch', withRoot(root => {
         };
         render(props);
 
-        const switchComp = root.find('.km-switch')[0];
+        const switchComp = root.find('.k-switch')[0];
 
-        switchComp.dispatchEvent(new MouseEvent('mousedown', {
+        const eventData = {
             bubbles: true,
             clientX: switchComp.offsetLeft,
             clientY: switchComp.offsetTop
-        }));
+        };
 
-        document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+        switchComp.dispatchEvent(new MouseEvent('mousedown', eventData));
+
+        switchComp.dispatchEvent(new MouseEvent('mouseup', eventData));
         expect(changeSpy).toHaveBeenCalledWith({ checked: true });
     });
 
-    it('does not trigger chnage when disabled', () => {
+    it('does not trigger change when disabled', () => {
         const changeSpy = jasmine.createSpy("onChange");
         const props = {
             onChange: changeSpy,
@@ -39,7 +41,7 @@ describe('Switch', withRoot(root => {
         };
         render(props);
 
-        const switchComp = root.find('.km-switch')[0];
+        const switchComp = root.find('.k-switch')[0];
 
         switchComp.dispatchEvent(new MouseEvent('mousedown', {
             bubbles: true,

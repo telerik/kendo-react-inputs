@@ -4,10 +4,10 @@ const getTranslateX = (element) => {
 };
 
 
-const componentElements = (node) => {
-    const handle = node.getElementsByClassName('km-switch-handle')[0];
-    const background = node.getElementsByClassName('km-switch-background')[0];
-    const wrapper = node.getElementsByClassName('km-switch-container')[0];
+const componentElements = (node, styles) => {
+    const handle = node.getElementsByClassName(styles['switch-handle'])[0];
+    const background = node.getElementsByClassName(styles['switch-background'])[0];
+    const wrapper = node.getElementsByClassName(styles['switch-container'])[0];
 
     return {
         handle,

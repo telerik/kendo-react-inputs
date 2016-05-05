@@ -29,6 +29,7 @@ class SwitchContainer extends React.Component {
         );
     }
 }
+
 ReactDOM.render(
     <SwitchContainer />,
     document.getElementById('app')

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
+import styles from '@telerik/kendo-theme-default/styles/switch/main';
 import keycode from 'keycode';
 import SwitchContainer from './SwitchContainer';
 import * as util from './util';
@@ -17,7 +18,7 @@ const DEFAULT_THRESHOLD = 5;
 class Switch extends React.Component {
     componentDidMount() {
         const node = ReactDOM.findDOMNode(this);
-        this.elements = util.componentElements(node);
+        this.elements = util.componentElements(node, styles);
         this.constrain = util.calculateConstrain(this.elements);
     }
 

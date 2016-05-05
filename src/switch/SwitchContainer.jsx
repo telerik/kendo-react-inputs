@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-//import styles from '@telerik/kendo-theme-default/styles/example/main';
+import styles from '@telerik/kendo-theme-default/styles/switch/main';
 import classnames from 'classnames';
 import Draggable from '@telerik/kendo-react-draggable';
 import * as util from './util';
@@ -16,7 +16,8 @@ const propTypes = {
 
 class SwitchContainer extends React.Component {
     componentDidMount() {
-        const components = util.componentElements(ReactDOM.findDOMNode(this));
+        const node = ReactDOM.findDOMNode(this);
+        const components = util.componentElements(node, styles);
         const constrain = util.calculateConstrain(components);
 
         if (this.props.checked) {
@@ -28,11 +29,11 @@ class SwitchContainer extends React.Component {
     render() {
         const { onLabel = "On", offLabel = "Off" } = this.props;
         const switchClasses = classnames({
-            'km-switch': true,
-            'km-widget': true,
-            'km-switch-off': !this.props.checked,
-            'km-switch-on': this.props.checked,
-            'k-state-disabled': this.props.disabled
+            [styles.switch]: true,
+            [styles.widget]: true,
+            [styles['switch-off']]: !this.props.checked,
+            [styles['switch-on']]: this.props.checked,
+            [styles['state-disabled']]: this.props.disabled
         });
 
         const handleStyle = {
@@ -46,13 +47,13 @@ class SwitchContainer extends React.Component {
 
         return (
             <span className={switchClasses} { ...switchProps }>
-                <span className="km-switch-wrapper">
-                    <span className="km-switch-background"></span>
+                <span className={styles['switch-wrapper']}>
+                    <span className={styles['switch-background']}></span>
                 </span>
-                <span className="km-switch-container">
-                    <span className="km-switch-handle" style={handleStyle}>
-                        <span className="km-switch-label-on">{onLabel}</span>
-                        <span className="km-switch-label-off">{offLabel}</span>
+                <span className={styles['switch-container']}>
+                    <span className={styles['switch-handle']} style={handleStyle}>
+                        <span className={styles['switch-label-on']}>{onLabel}</span>
+                        <span className={styles['switch-label-off']}>{offLabel}</span>
                     </span>
                 </span>
             </span>
