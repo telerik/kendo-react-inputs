@@ -17,7 +17,7 @@ describe('Slider', withRoot(root => {
         ReactDOM.render(<Slider {...props} />, root[0]);
     }
 
-    it('should resize slider wrapper', () => {
+    it('resizes slider wrapper', () => {
         render();
 
         const slider = root.find('.k-slider');
@@ -25,7 +25,7 @@ describe('Slider', withRoot(root => {
         expect(slider.width()).toEqual(300);
     });
 
-    it('should resize wrapper', () => {
+    it('resizes wrapper', () => {
         render();
 
         const track = root.find('.k-slider-track');
@@ -33,7 +33,7 @@ describe('Slider', withRoot(root => {
         expect(track.width()).toEqual(230);
     });
 
-    it('should add tabindex attributes', () => {
+    it('adds tabindex attributes', () => {
         render();
 
         const handle = root.find('.k-draghandle');
@@ -70,7 +70,7 @@ describe('Slider', withRoot(root => {
         document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
     });
 
-    it('should trigger change on track press', () => {
+    it('triggers change on track press', () => {
         const changeSpy = jasmine.createSpy("onChange");
         const props = {
             min: 1,
@@ -93,7 +93,7 @@ describe('Slider', withRoot(root => {
         document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
     });
 
-    it('should trigger change on handle drag', () => {
+    it('triggers change on handle drag', () => {
         const changeSpy = jasmine.createSpy("onChange");
         const props = {
             min: 0,
@@ -122,7 +122,7 @@ describe('Slider', withRoot(root => {
         expect(changeSpy).toHaveBeenCalledWith({ value: 1 });
     });
 
-    it('should focus drag handle when track component is clicked', () => {
+    it('focuses drag handle when track component is clicked', () => {
         const props = {
             min: 0,
             max: 3,
