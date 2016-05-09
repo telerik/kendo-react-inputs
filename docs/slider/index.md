@@ -411,7 +411,7 @@ In horizontal mode, the Slider component displays the smallest value to the left
     );
 ```
 
-### State
+### Events
 
 The Slider is designed as a stateless component. To store its state and configuration properties, wrap it in a high-order component.
 
