@@ -459,7 +459,7 @@ The [`onChange`]({% slug api_slider_kendouiforreact %}#onchange-function) event 
 
 ### Features
 
-The component can be disabled, when its [`disabled`]({% slug api_slider_kendouiforreact %}#disabled-booleandefault-false) property is set to `true`.
+The Slider allows you to prevent user interaction with the component. By default, the Slider is enabled and the [`disabled`]({% slug api_slider_kendouiforreact %}#disabled-booleandefault-false) property is set to `false`. To disable it, set `disabled` to `true`.
 
 ```html-preview
   <div id="app"></div>
