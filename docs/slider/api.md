@@ -57,11 +57,11 @@ The available options are:
 
 #### title `String|Function`
 
-Defines title of the ticks. The default title for each tick is its Slider value. If callback function is used it will accept an argument holding the value of the component and should return a string with the new title.
+Defines the title of the ticks. The default title for each tick is its Slider value. If a callback function is used, it accepts an argument holding the value of the component and returns a string with the new title.
 
 #### fixedTickwidth `Number`
 
-Sets the width between each two ticks along the track. The value must be set in pixels. If no `fixedTickWidth` is provided the component will automatically adjust the tick width to accommodate the elements within the size of the component.
+Sets the width between each two ticks along the track. The value must be set in pixels. If no `fixedTickWidth` is provided, the component automatically adjusts the tick width to accommodate the elements within the size of the component.
 
 ## Orientation
 
