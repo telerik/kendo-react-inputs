@@ -69,7 +69,7 @@ Sets the width between each two ticks along the track. The value must be set in 
 
 Changes the orientation of the Slider from horizontal to vertical when set to `true`.
 
-## State
+## Events
 
 #### onChange `Function`
 
