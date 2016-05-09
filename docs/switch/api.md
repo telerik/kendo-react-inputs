@@ -14,23 +14,23 @@ Represents the Kendo UI Switch component for React.
 
 #### checked `Boolean`*(default: "false")*
 
-The current value of the Switch when initially displayed.
+Sets the current value of the Switch when initially displayed.
 
-## State
+## Events
 
 #### onChange `Function`
 
-As a stateless component, the Switch fires its `onChange` event handler every time when the value is changed. It is handled by the parent component.
+As a stateless component, the Switch fires its `onChange` event handler every time when the value changes. It is handled by the parent component.
 
 ## Features
 
 #### onLabel `String` *(default: "ON")*
 
-Changes the on label, so it can be localized.
+Changes the **On** label so it can be localized.
 
 #### offLabel `String` *(default: "OFF")*
 
-Changes the off label, so it can be localized.
+Changes the **Off** label so it can be localized.
 
 #### disabled `Boolean`*(default: "false")*
 
