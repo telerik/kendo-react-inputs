@@ -75,7 +75,7 @@ When enabled, the side buttons increase or decrease the component value with the
 
 **Showing and Hiding**
 
-By default, the [`showButtons`]({% slug api_slider_kendouiforreact %}#showbuttons-booleandefault-true) configuration property is set to `true`. If set to `false`, the buttons do not appear.
+By default, the [`showButtons`]({% slug api_slider_kendouiforreact %}#showbuttons-booleandefault-true) property is set to `true`. To hide the buttons, set the property to `false`.
 
 ```html-preview
   <div id="app"></div>
@@ -366,7 +366,7 @@ The [`fixedTickWidth`]({% slug api_slider_kendouiforreact %}#fixedtickwidth-numb
 
 ### Orientation
 
-The Slider supports two modes of orientations&mdash;horizontal, which is the default one, and vertical, which can be applied by setting the [`vertical`]({% slug api_slider_kendouiforreact %}#vertical-booleandefault-false) property to `true`.
+The Slider supports two modes of orientations&mdash;horizontal and vertical. By default, the Slider is in hortizontal mode. To enable the vertical mode, set the [`vertical`]({% slug api_slider_kendouiforreact %}#vertical-booleandefault-false) property to `true`.
 
 In horizontal mode, the Slider component displays the smallest value to the left and the largest to the right. In vertical, the component displays the smallest value at the bottom and the largest at the top.
 
@@ -459,7 +459,7 @@ The [`onChange`]({% slug api_slider_kendouiforreact %}#onchange-function) event 
 
 ### Features
 
-The component can be disabled, when its [`disabled`]({% slug api_slider_kendouiforreact %}#disabled-booleandefault-false) property is set to `true`.
+The Slider provides you with an option to disable it. By default, the Slider is enabled. To disable it, set the [`disabled`]({% slug api_slider_kendouiforreact %}#disabled-booleandefault-false) property to `true`. 
 
 ```html-preview
   <div id="app"></div>
