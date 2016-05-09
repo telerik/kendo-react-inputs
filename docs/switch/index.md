@@ -12,7 +12,7 @@ The Kendo UI Switch for React is a component that lets the user toggle between c
 
 The Switch is part of the Inputs `npm` package of the Kendo UI suite for React.
 
-**Figure 1: A template of the Switch for React** 
+**Figure 1: A template of the Switch for React**
 
 **Screenshot here**
 
@@ -53,7 +53,7 @@ The example below demonstrates the default setup of a Kendo UI Switch for React.
 
 ### Checked
 
-The Switch allows you to set its initial value, so that each subsequent click moves the handle over the newly-selected state. By deafult, the initial value is not set and the [`checked`]({% slug api_switch_kendouiforreact %}#checked-booleandefault-false) property is set to `false`. To enable it, set `checked` to `true`.
+The Switch allows you to set its initial value, so that each subsequent click moves the handle over the newly-selected state. By default, the initial value is not set and the [`checked`]({% slug api_switch_kendouiforreact %}#checked-booleandefault-false) property is set to `false`.
 
 ```html-preview
   <div id="app"></div>
@@ -162,7 +162,7 @@ The [`onChange`]({% slug api_switch_kendouiforreact %}#onchange-function) event 
 
 ### Features
 
-The Switch allows you to prevent user interaction with the component. By default, the Switch is enabled and the [`disabled`]({% slug api_switch_kendouiforreact %}#disabled-booleandefault-false) property is set to `false`. To disable it, set `disabled` to `true`.
+The Switch allows you to prevent user interaction with the component. By default, the Switch is enabled and the [`disabled`]({% slug api_switch_kendouiforreact %}#disabled-booleandefault-false) property is set to `false`.
 
 ```html-preview
   <div id="app"></div>
