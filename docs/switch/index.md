@@ -8,9 +8,9 @@ position: 1
 
 # Switch Overview
 
-The Kendo UI Switch for React is a component that lets the user toggle between checked/unchecked states.
+The Kendo UI Switch for React is a component that lets the user toggle between checked and unchecked states.
 
-The Kendo UI Switch for React is part of the Inputs `npm` package of the Kendo UI suite for React.
+The Switch is part of the Inputs `npm` package of the Kendo UI suite for React.
 
 **Figure 1: A template of the Switch for React** 
 
