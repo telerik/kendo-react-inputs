@@ -68,7 +68,7 @@ The Slider lets users select a value from a predefined range. These values can b
 For more examples and available configuration options, refer to the [Slider documentation](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/index.md).
 
 
-The Switch The Kendo UI Switch for React is a component that lets the user toggle between checked/unchecked states.
+The Kendo UI Switch is a component that lets the user toggle between checked/unchecked states.
 
 ````html-preview
     <div id="app"></div>

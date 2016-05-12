@@ -10,7 +10,8 @@ describe('Controller', () => {
             wrapperOffset: 10,
             handleOffset: 5,
             checked: true,
-            animate: true
+            animate: true,
+            handleMargin: 4
         });
 
         expect(model.handle.transform).toBe('translateX(1px)');
@@ -36,7 +37,8 @@ describe('Controller', () => {
         const controller = new Controller();
         controller.updateState({
             wrapperOffset: 60,
-            handleOffset: 20
+            handleOffset: 20,
+            handleMargin: 4
         });
         expect(controller.constrain).toEqual(36);
     });
@@ -56,7 +58,8 @@ describe('Controller', () => {
         const controller = new Controller();
         controller.updateState({
             wrapperOffset: 60,
-            handleOffset: 20
+            handleOffset: 20,
+            handleMargin: 4
         });
         expect(controller.limit(40)).toEqual(36);
 
@@ -125,104 +128,14 @@ describe('Controller', () => {
         expect(model.handle.transform).toEqual('translateX(0px)');
     });
 
-    it('left key is handled', () => {
-        let value = null;
-        const updateView = () => { /*noop*/ };
-        const change = (args) => {
-            value = args;
-        };
-        const controller = new Controller(updateView, change);
-        controller.onKeyDown({ keyCode: 37, preventDefault: updateView });
-        expect(value).toEqual(false);
-    });
-
-    it('right key is handled', () => {
-        let value = null;
-        const updateView = () => { /*noop*/ };
-        const change = (args) => {
-            value = args;
-        };
-        const controller = new Controller(updateView, change);
-        controller.onKeyDown({ keyCode: 39, preventDefault: updateView });
-        expect(value).toEqual(true);
-    });
-
-    it('down key is handled', () => {
-        let value = null;
-        const updateView = () => { /*noop*/ };
-        const change = (args) => {
-            value = args;
-        };
-        const controller = new Controller(updateView, change);
-        controller.onKeyDown({ keyCode: 40, preventDefault: updateView });
-        expect(value).toEqual(false);
-    });
-
-    it('up key is handled', () => {
-        let value = null;
-        const updateView = () => { /*noop*/ };
-        const change = (args) => {
-            value = args;
-        };
-        const controller = new Controller(updateView, change);
-        controller.onKeyDown({ keyCode: 38, preventDefault: updateView });
-        expect(value).toEqual(true);
-    });
-
-    it('repeat key does not change value', () => {
-        let value = null;
-        const updateView = () => { /*noop*/ };
-        const change = (args) => {
-            value = args;
-        };
-        const controller = new Controller(updateView, change);
-        controller.onKeyDown({ keyCode: 38, preventDefault: updateView });
-        expect(value).toEqual(true);
-        controller.onKeyDown({ keyCode: 38, preventDefault: updateView });
-        expect(value).toEqual(true);
-    });
-
-    it('up key changes initial value', () => {
-        const updateView = () => { /*noop*/ };
-        const change = () => { /*noop*/ };
-        const controller = new Controller(updateView, change);
-        controller.updateState({
-            checked: false
-        });
-        controller.onKeyDown({ keyCode: 38, preventDefault: updateView });
-        expect(controller.checked).toEqual(true);
-    });
-
-    it('right key changes initial value', () => {
-        const updateView = () => { /*noop*/ };
-        const change = () => { /*noop*/ };
-        const controller = new Controller(updateView, change);
-        controller.updateState({
-            checked: false
-        });
-        controller.onKeyDown({ keyCode: 39, preventDefault: updateView });
-        expect(controller.checked).toEqual(true);
-    });
-
-    it('left key changes initial value', () => {
+    it('key changes initial value', () => {
         const updateView = () => { /*noop*/ };
         const change = () => { /*noop*/ };
         const controller = new Controller(updateView, change);
         controller.updateState({
             checked: true
         });
-        controller.onKeyDown({ keyCode: 37, preventDefault: updateView });
-        expect(controller.checked).toEqual(false);
-    });
-
-    it('down key changes initial value', () => {
-        const updateView = () => { /*noop*/ };
-        const change = () => { /*noop*/ };
-        const controller = new Controller(updateView, change);
-        controller.updateState({
-            checked: true
-        });
-        controller.onKeyDown({ keyCode: 40, preventDefault: updateView });
+        controller.onKeyDown({ keyCode: 32, preventDefault: updateView });
         expect(controller.checked).toEqual(false);
     });
 });

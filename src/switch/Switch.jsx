@@ -30,7 +30,12 @@ class Switch extends React.Component {
             wrapperOffset: this.elements.wrapper.offsetWidth,
             handleOffset: this.elements.handle.offsetWidth,
             checked: this.props.checked,
-            animate: false
+            animate: false,
+            coords: {
+                left: this.elements.wrapper.getBoundingClientRect().left,
+                right: this.elements.wrapper.getBoundingClientRect().right
+            },
+            handleMargin: parseInt(getComputedStyle(this.elements.handle)['margin-right'])
         }));
     }
 
@@ -38,7 +43,12 @@ class Switch extends React.Component {
         this.updateView(this.controller.updateState({
             wrapperOffset: this.elements.wrapper.offsetWidth,
             handleOffset: this.elements.handle.offsetWidth,
-            checked: nextProps.checked
+            checked: nextProps.checked,
+            coords: {
+                left: this.elements.wrapper.getBoundingClientRect().left,
+                right: this.elements.wrapper.getBoundingClientRect().right
+            },
+            handleMargin: parseInt(getComputedStyle(this.elements.handle)['margin-right'])
         }));
     }
 

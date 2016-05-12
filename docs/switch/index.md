@@ -8,9 +8,13 @@ position: 1
 
 # Switch Overview
 
-The Kendo UI Switch for React is a component that lets the user toggle between checked and unchecked states.
+The Kendo UI Switch is a component that lets the user toggle between checked and unchecked states.
 
 The Switch is part of the Inputs `npm` package of the Kendo UI suite for React.
+
+**Figure 1: A template of the Switch for React**
+
+![Template of the Switch](images/switch.png)
 
 ## Demos
 
@@ -88,7 +92,7 @@ The Switch allows you to set its initial value, so that each subsequent click mo
 
 ### Labels
 
-The Switch allows you to control the title of the labels by using the [`onLabel`]({% slug api_switch_kendouiforreact %}#onlabel-stringdefault-decrease) and [`offLabel`]({% slug api_switch_kendouiforreact %}#offlabel-stringdefault-increase) properties, which accept `string` parameters.
+The Switch allows you to control the title of the labels by using the [`onLabel`]({% slug api_switch_kendouiforreact %}#onlabel-stringdefault-decrease) and [`offLabel`]({% slug api_switch_kendouiforreact %}#offlabel-stringdefault-increase) properties, which accept `string` parameters. Note that the Switch component does not support long custom labels.
 
 ```html-preview
   <div id="app"></div>
@@ -207,8 +211,7 @@ Below is the list with the keyboard shortcuts the Switch supports.
 
 | SHORTCUT                            | DESCRIPTION         |
 |:---                                 |:---                 |
-| `Upper Arrow` & `Right Arrow` keys  | Set the component to a checked state. |
-| `Down Arrow` & `Left Arrow` keys    | Set the component to a unchecked state. |
+| `Space` key  | Toggle the component checked state. |
 
 ## Accessibility
 

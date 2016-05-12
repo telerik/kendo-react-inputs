@@ -3,23 +3,28 @@ import Model from './Model';
 
 const DEFAULT_THRESHOLD = 5;
 
+const noop = () => { /*noop*/ };
+
 export default class Controller {
-    constructor(updateView = this.noop, onChange = this.noop) {
+    constructor(updateView = noop, onChange = noop) {
         this.handlePosition = 0;
         this.wrapperOffset = 0;
         this.handleOffset = 0;
+        this.handleMargin = 4;
 
         this.updateView = updateView;
         this.onChange = onChange;
     }
 
     get constrain() {
-        return this.wrapperOffset - this.handleOffset - 4;
+        return this.wrapperOffset - this.handleOffset - this.handleMargin;
     }
 
-    updateState({ wrapperOffset, handleOffset, checked, animate = true }) {
+    updateState({ wrapperOffset, handleOffset, checked, animate = true, coords, handleMargin }) {
         this.wrapperOffset = wrapperOffset;
         this.handleOffset = handleOffset;
+        this.coords = coords;
+        this.handleMargin = handleMargin;
 
         this.checked = checked;
 
@@ -50,8 +55,6 @@ export default class Controller {
         return value;
     };
 
-    noop = () => { /*noop*/ };
-
     onPress = ({ pageX }) => {
         this.lastPressX = this.originalPressX = pageX;
     }
@@ -65,28 +68,31 @@ export default class Controller {
     }
 
     onDrag = ({ pageX }) => {
-        const delta = pageX - this.lastPressX;
-        const position = this.limit(this.handlePosition + delta);
+        const { left, right } = this.coords;
+        const overElement = pageX > left && pageX < right;
 
-        this.lastPressX = pageX;
-        this.handlePosition = position;
+        if (overElement) {
+            const delta = pageX - this.lastPressX;
+            const position = this.limit(this.handlePosition + delta);
 
-        this.updateView(this.updateModel(this.handlePosition));
+            this.lastPressX = pageX;
+            this.handlePosition = position;
+            this.updateView(this.updateModel(this.handlePosition));
+        }
+        if (pageX > right) {
+            this.updateView(this.updateModel(this.constrain));
+        }
+
+        if (pageX < left) {
+            this.updateView(this.updateModel(0));
+        }
     }
 
     onKeyDown = (event) => {
         event.preventDefault();
-        const handler = this.keyBinding[event.keyCode];
-
-        if (handler) {
-            this.change(handler());
+        const { keyPressed } = event;
+        if (keyPressed === keycode.codes.space || keyPressed === keycode.codes.Enter) {
+            this.change(!this.checked);
         }
     }
-
-    keyBinding = {
-        [keycode.codes.left]: () => false,
-        [keycode.codes.right]: () => true,
-        [keycode.codes.down]: () => false,
-        [keycode.codes.up]: () => true
-    };
 }
