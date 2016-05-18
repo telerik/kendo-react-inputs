@@ -14,9 +14,9 @@
 
 ## Overview
 
-This repository contains the source code and documentation of the Kendo UI Inputs components for React.
+This repository contains the source code and documentation of the Kendo UI Inputs package for React.
 
-Currently, the package includes the Slider component.
+Currently, it includes the Slider component.
 
 Telerik works on porting the ones listed below too:
 
@@ -70,7 +70,7 @@ For more examples and available configuration options, refer to the [Slider docu
 
 ## Installation
 
-The Inputs for React are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
+The Inputs components are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
 
 Install it using NPM.
 
@@ -91,7 +91,7 @@ var Slider = require('kendo-react-inputs').Slider;
 
 ## Browser Support
 
-The Inputs components support all browsers supported by the React framework&mdash;Internet Explorer 9 and later versions.
+The Inputs components work in all browsers supported by the React framework&mdash;Internet Explorer 9 and later versions.
 
 ## Glossary
 
