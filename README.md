@@ -16,16 +16,16 @@
 
 This repository contains the source code and documentation of the Kendo UI Inputs components for React.
 
-Currently, the package includes only the Slider component.
+Currently, the package includes the Slider component.
 
-Telerik works on porting the following components too:
+Telerik works on porting the ones listed below too:
 
 * ColorPicker
 * MaskedTextBox
 * NumericTextBox
 * Switch
 
-For more information on upcoming Inputs package features and components, refer to the [Roadmap](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
+For more information on upcoming Inputs features, refer to the [Roadmap](https://github.com/telerik/kendo-react-inputs/blob/master/docs/roadmap.md).
 
 ## Basic Usage
 
@@ -66,19 +66,19 @@ The Slider lets users select a value from a predefined range. These values can b
 
 ```
 
-For more examples and available configuration options, refer to the [Slider documentation section](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/index.md).
+For more examples and available configuration options, refer to the [Slider documentation](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/index.md).
 
 ## Installation
 
-The React Inputs are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
+The Inputs for React are published as a [public scoped NPM package](https://docs.npmjs.com/misc/scope) in the [Telerik organization](https://www.npmjs.com/~telerik) in http://npmjs.org/.
 
-Install it using NPM:
+Install it using NPM.
 
 ```sh
 npm install --save @telerik/kendo-react-inputs;
 ```
 
-Once installed, import the module:
+Once installed, import the module.
 
 ```jsx
 // ES2015 module syntax
@@ -91,11 +91,11 @@ var Slider = require('kendo-react-inputs').Slider;
 
 ## Browser Support
 
-The Kendo UI Inputs components for React support all browsers that are supported by the React framework&mdash;Internet Explorer 9 and later versions.
+The Inputs components support all browsers supported by the React framework&mdash;Internet Explorer 9 and later versions.
 
 ## Glossary
 
-Below are explained the basic terms that Kendo UI suite for React applies.
+Below are explained the basic terms the suite for React applies.
 
 ### Component
 
@@ -103,4 +103,4 @@ A Component refers to a [React Component](https://facebook.github.io/react/docs/
 
 ### Package
 
-A package contains one or more components, developed in a single repository and distributed in a single NPM package. For example, the Kendo UI Slider, MaskedTextBox, NumericTextBox, and Switch components for React are part of the Inputs Package.
+A package contains one or more components, developed in a single repository and distributed in a single NPM package. For example, the Slider, MaskedTextBox, NumericTextBox, and Switch components for React are part of the Inputs Package.
