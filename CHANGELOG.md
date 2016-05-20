@@ -1,3 +1,21 @@
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/telerik/kendo-react-inputs/compare/v0.1.2...v0.1.3) (2016-05-20)
+
+
+### Bug Fixes
+
+* **slider:** define default props ([#30](https://github.com/telerik/kendo-react-inputs/issues/30)) ([66dcefb](https://github.com/telerik/kendo-react-inputs/commit/66dcefb))
+* **slider:** fix how document events are attached/removed ([7a2801a](https://github.com/telerik/kendo-react-inputs/commit/7a2801a))
+* **slider:** focus draghandle when component is clicked [#15](https://github.com/telerik/kendo-react-inputs/issues/15) ([c83de7f](https://github.com/telerik/kendo-react-inputs/commit/c83de7f))
+
+
+### Features
+
+* **slider:** add drag and drop functionality ([4a04f20](https://github.com/telerik/kendo-react-inputs/commit/4a04f20))
+* **slider:** add pressed state to slider handle ([a54f75f](https://github.com/telerik/kendo-react-inputs/commit/a54f75f))
+
+
+
 <a name="0.1.2"></a>
 ## 0.1.2 (2016-03-31)
 
