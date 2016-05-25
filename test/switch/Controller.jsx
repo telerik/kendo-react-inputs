@@ -1,23 +1,11 @@
 import Controller from '../../src/switch/Controller';
 import Model from '../../src/switch/Model';
 
-const transition = 'all 200ms ease-out';
-
 describe('Controller', () => {
     it('get the right model', () => {
-        const controller = new Controller();
-        const model = controller.updateState({
-            wrapperOffset: 10,
-            handleOffset: 5,
-            checked: true,
-            animate: true,
-            handleMargin: 4
-        });
-
+        const model = new Model(1, true)
         expect(model.handle.transform).toBe('translateX(1px)');
-        expect(model.background.marginLeft).toBe('1px');
-        expect(model.handle.transition).toBe(transition);
-        expect(model.background.transition).toBe(transition);
+        expect(model.handle.transition).toBe(true);
     });
 
     it('set internal on update state', () => {
@@ -124,7 +112,7 @@ describe('Controller', () => {
         });
         controller.onPress({ pageX: 5 });
         controller.onRelease({ pageX: 10 });
-        expect(model.handle.transition).toEqual(transition);
+        expect(model.handle.transition).toEqual(true);
         expect(model.handle.transform).toEqual('translateX(0px)');
     });
 

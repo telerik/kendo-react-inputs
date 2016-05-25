@@ -28,7 +28,7 @@ export default class Controller {
 
         this.checked = checked;
 
-        return this.updateModel(checked ? this.constrain : 0, animate);
+        this.updateView(this.updateModel(checked ? this.constrain : 0, animate));
     }
 
     change(checked) {

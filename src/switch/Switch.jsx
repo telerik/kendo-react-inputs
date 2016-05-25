@@ -26,7 +26,7 @@ class Switch extends React.Component {
         const node = ReactDOM.findDOMNode(this);
         this.elements = this.componentElements(node);
 
-        this.updateView(this.controller.updateState({
+        this.controller.updateState({
             wrapperOffset: this.elements.wrapper.offsetWidth,
             handleOffset: this.elements.handle.offsetWidth,
             checked: this.props.checked,
@@ -36,11 +36,11 @@ class Switch extends React.Component {
                 right: this.elements.wrapper.getBoundingClientRect().right
             },
             handleMargin: parseInt(getComputedStyle(this.elements.handle)['margin-right'])
-        }));
+        });
     }
 
     componentWillUpdate(nextProps) {
-        this.updateView(this.controller.updateState({
+        this.controller.updateState({
             wrapperOffset: this.elements.wrapper.offsetWidth,
             handleOffset: this.elements.handle.offsetWidth,
             checked: nextProps.checked,
@@ -49,7 +49,7 @@ class Switch extends React.Component {
                 right: this.elements.wrapper.getBoundingClientRect().right
             },
             handleMargin: parseInt(getComputedStyle(this.elements.handle)['margin-right'])
-        }));
+        });
     }
 
     componentWillUnmount() {
@@ -63,19 +63,26 @@ class Switch extends React.Component {
         });
     }
 
-    updateView = ({ handle, background }) => {
-        this.applyStyle(this.elements.handle, handle);
-        this.applyStyle(this.elements.background, background);
+    addAnimation(model) {
+        if (model.transition === true) {
+            model.transition = 'all 200ms ease-out';
+        } else {
+            model.transition = 'none';
+        }
+        return model;
+    }
+
+    updateView = ({ handle }) => {
+        const handleAnimation = this.addAnimation(handle);
+        this.applyStyle(this.elements.handle, handleAnimation);
     }
 
     componentElements = (node) => {
         const handle = node.getElementsByClassName(styles['switch-handle'])[0];
-        const background = node.getElementsByClassName(styles['switch-background'])[0];
         const wrapper = node.getElementsByClassName(styles['switch-container'])[0];
 
         return {
             handle,
-            background,
             wrapper
         };
     }
