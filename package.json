@@ -34,7 +34,7 @@
   "devDependencies": {
     "@telerik/eslint-config": "1.1.0",
     "@telerik/kendo-react-tasks": "^1.2.2",
-    "@telerik/kendo-theme-default": "^1.8.1",
+    "@telerik/kendo-theme-default": "^1.13.1",
     "cz-conventional-changelog": "^1.1.5",
     "ghooks": "^1.0.3",
     "gulp": "3.9.0",

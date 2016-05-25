@@ -30,7 +30,7 @@ describe('Slider', withRoot(root => {
 
         const track = root.find('.k-slider-track');
 
-        expect(track.width()).toEqual(230);
+        expect(track.width()).toEqual(222);
     });
 
     it('should add tabindex attributes', () => {
