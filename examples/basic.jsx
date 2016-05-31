@@ -41,7 +41,8 @@ class SliderContainer extends React.Component {
                 min = {this.state.min}
                 onChange = {this.onChange}
                 showButtons = {this.state.showButtons}
-                smallStep = {this.state.step}
+	vertical={true}            
+    smallStep = {this.state.step}
                 style = {{ width: 400 }}
                 tickPlacement = {this.state.tickPlacement}
                 title = {this.title}

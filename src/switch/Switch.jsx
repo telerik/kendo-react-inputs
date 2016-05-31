@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import styles from '@telerik/kendo-theme-default/styles/switch/main';
 import SwitchElement from './SwitchElement';
-import Controller from './Controller';
+import { SwitchController } from '@telerik/kendo-inputs-common';
 
 const propTypes = {
     checked: React.PropTypes.bool,
@@ -15,8 +15,7 @@ const propTypes = {
 class Switch extends React.Component {
     constructor(props) {
         super(props);
-
-        this.controller = new Controller(
+        this.controller = new SwitchController(
             this.updateView,
             this.change
         );
@@ -98,6 +97,14 @@ class Switch extends React.Component {
             }
         }
     )
+
+    /*onKeyDown = (event) => {  !!!! //// !!! TODO add keyboard navigation here not from common module
+        event.preventDefault();
+        const { keyPressed } = event;
+        if (keyPressed === keycode.codes.space || keyPressed === keycode.codes.Enter) {
+            this.change(!this.checked);
+        }
+    }*/
 
     render() {
         const switchProps = {
