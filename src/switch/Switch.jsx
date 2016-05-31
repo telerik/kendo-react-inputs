@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import styles from '@telerik/kendo-theme-default/styles/switch/main';
+import keycode from 'keycode';
 import SwitchElement from './SwitchElement';
 import { SwitchController } from '@telerik/kendo-inputs-common';
 
@@ -98,18 +99,18 @@ class Switch extends React.Component {
         }
     )
 
-    /*onKeyDown = (event) => {  !!!! //// !!! TODO add keyboard navigation here not from common module
+    onKeyDown = (event) => {
         event.preventDefault();
-        const { keyPressed } = event;
-        if (keyPressed === keycode.codes.space || keyPressed === keycode.codes.Enter) {
-            this.change(!this.checked);
+        const { keyCode } = event;
+        if (keyCode === keycode.codes.space || keyCode === keycode.codes.enter) {
+            this.controller.onChange(!this.props.checked)
         }
-    }*/
+    }
 
     render() {
         const switchProps = {
             ...this.props,
-            onKeyDown: this.ifEnabled(this.controller.onKeyDown),
+            onKeyDown: this.ifEnabled(this.onKeyDown),
             onPress: this.ifEnabled(this.controller.onPress),
             onDrag: this.ifEnabled(this.controller.onDrag),
             onRelease: this.ifEnabled(this.controller.onRelease)
