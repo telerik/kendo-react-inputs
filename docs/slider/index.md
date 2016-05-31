@@ -10,7 +10,7 @@ position: 1
 
 The Kendo UI Slider is a React component that lets the user increase, decrease, and select pre-defined values by dragging its handle along the track, or by clicking the side arrow buttons.
 
-The Slider is part of the Inputs [kendo-react-inputs npm package](https://www.npmjs.com/package/@telerik/kendo-react-inputs).
+The Slider is part of the [kendo-react-inputs npm package](https://www.npmjs.com/package/@telerik/kendo-react-inputs).
 
 **Figure 1: A horizontal template of the Slider**
 
