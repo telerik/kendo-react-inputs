@@ -14,7 +14,6 @@ The Slider lets users select a value from a predefined range. The values can be 
 
 ## Suggested Links
 
-Articles on the Kendo UI Slider component for React:
+Articles on the Kendo UI Inputs package for React:
 
-* [Get Started with the Slider Component]({% slug overview_slider_kendouiforreact %})
-* [API Reference of the Slider Component]({% slug api_slider_kendouiforreact %})
+* [Get Started with the Slider]({% slug overview_slider_kendouiforreact %})
