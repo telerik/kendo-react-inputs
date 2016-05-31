@@ -103,7 +103,7 @@ class Switch extends React.Component {
         event.preventDefault();
         const { keyCode } = event;
         if (keyCode === keycode.codes.space || keyCode === keycode.codes.enter) {
-            this.controller.onChange(!this.props.checked)
+            this.controller.onChange(!this.props.checked);
         }
     }
 
