@@ -167,7 +167,7 @@ The title of the buttons can be controlled by using the [`decreaseButtonTitle`](
 
 ### Steps
 
-The [`step`]({% slug api_slider_kendouiforreact %}#steps) property is used to split the track on equal ticks based on the [`min`]({% slug api_slider_kendouiforreact %}#min-numberdefault-0) and [`max`]({% slug api_slider_kendouiforreact %}#max-numberdefault-10) values. 
+The [`step`]({% slug api_slider_kendouiforreact %}#steps) property is used to split the track on equal ticks based on the [`min`]({% slug api_slider_kendouiforreact %}#min-numberdefault-0) and [`max`]({% slug api_slider_kendouiforreact %}#max-numberdefault-10) values.
 
 For example, if the `min` value is `0` (zero), the `max` value is `4` (four) and the [`smallStep`]({% slug api_slider_kendouiforreact %}#smallstep-numberdefault-1) is `1` (one), the Slider displays ticks indicating four steps. If the `min` value is `2` (two), the `max` value is `4` (four) and the `smallStep` is `1` (one), the Slider displays two steps.
 
@@ -459,9 +459,7 @@ The [`onChange`]({% slug api_slider_kendouiforreact %}#onchange-function) event 
 
 ### Features
 
-The Slider provides you with an option to disable it by setting the [`disabled`]({% slug api_slider_kendouiforreact %}#disabled-booleandefault-false) property to `true`. 
-
-By default, the Slider is enabled. 
+The Slider provides you with an option to disable it by setting the [`disabled`]({% slug api_slider_kendouiforreact %}#disabled-booleandefault-false) property to `true`.
 
 ```html-preview
   <div id="app"></div>
