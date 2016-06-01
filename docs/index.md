@@ -16,7 +16,7 @@ When initialized, it shows the currently selected value. Users are able to slide
 
 ## Suggested Links
 
-Articles on the Kendo UI Inputs components for React:
+Articles on the Inputs for React:
 
 * [Get Started with the Slider Component]({% slug overview_slider_kendouiforreact %})
 * [API Reference of the Slider Component]({% slug api_slider_kendouiforreact %})
