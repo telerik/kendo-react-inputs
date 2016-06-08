@@ -18,7 +18,7 @@ This repository contains the source code and documentation of the Kendo UI Input
 
 Currently, the package includes the Slider and Switch components.
 
-Telerik works on porting the ones listed below too:
+We are working on porting the ones listed below too:
 
 * ColorPicker
 * MaskedTextBox
