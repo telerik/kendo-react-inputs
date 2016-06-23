@@ -18,5 +18,5 @@ When initialized, it shows the currently selected value. Users are able to slide
 
 Articles on the Inputs for React:
 
-* [Get Started with the Slider Component]({% slug overview_slider_kendouiforreact %})
-* [Get Started with the Switch Component]({% slug overview_switch_kendouiforreact %})
+* [Get Started with the Slider]({% slug overview_slider_kendouiforreact %})
+* [Get Started with the Switch]({% slug overview_switch_kendouiforreact %})

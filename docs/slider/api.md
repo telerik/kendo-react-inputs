@@ -14,7 +14,7 @@ Represents the Kendo UI Slider component for React.
 
 #### showButtons `Boolean`*(default: "true")*
 
-Makes the Slider side arrow buttons appear. When set to `false` the buttons are not displayed.
+Makes the Slider side arrow buttons appear. When set to `false`, the buttons are not displayed.
 
 #### decreaseButtonTitle `String`*(default: "Decrease")*
 
