@@ -28,6 +28,8 @@ For more information on upcoming Inputs features, refer to the [Roadmap](https:/
 
 ## Basic Usage
 
+### Kendo UI Slider
+
 The Slider lets users select a value from a predefined range. These values can be increased or decreased over a pre-defined step by dragging a handle along the track, or by clicking the side arrow buttons.
 
 ```html-preview
@@ -67,8 +69,9 @@ The Slider lets users select a value from a predefined range. These values can b
 
 For more examples and available configuration options, refer to the [Slider documentation](https://github.com/telerik/kendo-react-inputs/blob/master/docs/slider/index.md).
 
+### Kendo UI Switch
 
-The Kendo UI Switch is a component that lets the user toggle between checked/unchecked states.
+The Switch is a component that lets the user toggle between checked and unchecked states.
 
 ````html-preview
     <div id="app"></div>
