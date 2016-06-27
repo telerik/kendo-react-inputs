@@ -134,6 +134,8 @@ var Slider = require('kendo-react-inputs').Slider;
 var Switch = require('kendo-react-inputs').Switch;
 ```
 
+> To install the npm package, it is recommended that you use Node.js 4.0.0 or later versions.
+
 ## Browser Support
 
 The Inputs components work in all browsers supported by the React framework&mdash;Internet Explorer 9 and later versions.
