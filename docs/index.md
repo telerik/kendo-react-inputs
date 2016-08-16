@@ -12,7 +12,7 @@ Inputs are fields which allow for an input of data, based on a specific and pred
 
 The Slider lets users select a value from a predefined range. The values can be increased or decreased over a pre-defined step by dragging a handle along the track, or by clicking the side arrow buttons. The component supports two modes of display&mdash;horizontal and vertical.
 
-When initialized, it shows the currently selected value. Users are able to slide or click the control to reveal the second value.
+The Switch lets the user toggle between checked and unchecked states.
 
 ## Suggested Links
 
