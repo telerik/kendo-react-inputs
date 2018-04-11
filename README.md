@@ -2,7 +2,7 @@
 [![npm version](https://badge.fury.io/js/%40telerik%2Fkendo-react-inputs.svg)](https://badge.fury.io/js/%40telerik%2Fkendo-react-inputs)
 [![Build Status](https://travis-ci.org/telerik/kendo-react-inputs.svg?branch=master)](https://travis-ci.org/telerik/kendo-react-inputs)
 
->This package is now deprecated and has been archived. For the current version of the Kendo UI Inputs for React, refer to the official website
+>This package is now deprecated and has been archived. For the current version of the Kendo UI Inputs for React, refer to the official [website](https://www.telerik.com/kendo-react-ui/components/)
 
 # Kendo UI Inputs for React
 
